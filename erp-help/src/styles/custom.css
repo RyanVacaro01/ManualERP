@@ -33,6 +33,18 @@
   --sl-color-gray-6: #cbd5e1;
   --sl-color-gray-7: #e2e8f0;
   --sl-color-bg-nav: #000000;
+  --sl-color-bg-inline-code: #1e293b;
+}
+
+[data-theme='dark'] pre,
+[data-theme='dark'] pre code,
+[data-theme='dark'] .expressive-code {
+  background-color: #0f172a !important;
+}
+
+[data-theme='dark'] .callout {
+  background-color: #1e293b;
+  border-color: #334155;
 }
 
 .starlight-content {
