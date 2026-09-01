@@ -11,6 +11,13 @@ export default defineConfig({
         alt: 'Logo ERP',
       },
       
+      locales: {
+        root: {
+          label: 'Português do Brasil',
+          lang: 'pt-BR',
+        },
+      },
+      
       editLink: {
         baseUrl: 'https://github.com/seu-usuario/erp-help/edit/main/',
       },
