@@ -1,142 +1,143 @@
----
+﻿---
 title: Indicadores
-description: Dashboards e relatórios de desempenho
+description: Dashboard e indicadores de desempenho
+slug: modulos/indicadores
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O módulo de Indicadores permite visualizar métricas e relatórios do negócio.
+O mÃ³dulo de Indicadores permite visualizar mÃ©tricas e relatÃ³rios do negÃ³cio.
 
 ## Funcionalidades
 
 - Dashboards em tempo real
-- Relatórios personalizados
+- RelatÃ³rios personalizados
 - Metas e acompanhamento
-- Exportação de dados
-- Alertas automáticos
+- ExportaÃ§Ã£o de dados
+- Alertas automÃ¡ticos
 
 ## Dashboard Principal
 
-O dashboard mostra as principais métricas:
+O dashboard mostra as principais mÃ©tricas:
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  📊 Dashboard - Resumo                             │
-├─────────────────────────────────────────────────────┤
-│  💰 Vendas Hoje        │  📦 Pedidos Hoje         │
-│  R$ 12.450,00          │  23 pedidos               │
-│  ▲ 12% vs ontem        │  ▲ 8% vs ontem           │
-├─────────────────────────────────────────────────────┤
-│  📈 Meta Mensal        │  🔄 Estoque Baixo         │
-│  78% da meta           │  5 produtos               │
-│  R$ 156.000 / R$ 200.000│ ⚠️ Atenção              │
-└─────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  ðŸ“Š Dashboard - Resumo                             â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  ðŸ’° Vendas Hoje        â”‚  ðŸ“¦ Pedidos Hoje         â”‚
+â”‚  R$ 12.450,00          â”‚  23 pedidos               â”‚
+â”‚  â–² 12% vs ontem        â”‚  â–² 8% vs ontem           â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  ðŸ“ˆ Meta Mensal        â”‚  ðŸ”„ Estoque Baixo         â”‚
+â”‚  78% da meta           â”‚  5 produtos               â”‚
+â”‚  R$ 156.000 / R$ 200.000â”‚ âš ï¸ AtenÃ§Ã£o              â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-## Métricas Disponíveis
+## MÃ©tricas DisponÃ­veis
 
 ### Vendas
 
-| Métrica | Descrição |
+| MÃ©trica | DescriÃ§Ã£o |
 |---------|-----------|
 | Vendas do Dia | Valor vendido hoje |
-| Vendas do Mês | Valor vendido no mês |
-| Ticket Médio | Valor médio por pedido |
-| Nº de Pedidos | Quantidade de pedidos |
-| Conversão | Visitantes → Vendas |
+| Vendas do MÃªs | Valor vendido no mÃªs |
+| Ticket MÃ©dio | Valor mÃ©dio por pedido |
+| NÂº de Pedidos | Quantidade de pedidos |
+| ConversÃ£o | Visitantes â†’ Vendas |
 
 ### Estoque
 
-| Métrica | Descrição |
+| MÃ©trica | DescriÃ§Ã£o |
 |---------|-----------|
 | Valor em Estoque | Valor total do estoque |
-| Itens Estoque Baixo | Produtos abaixo do mínimo |
-| Giro de Estoque | Velocidade de saída |
+| Itens Estoque Baixo | Produtos abaixo do mÃ­nimo |
+| Giro de Estoque | Velocidade de saÃ­da |
 | Dias de Estoque | Cobertura em dias |
 
 ### Financeiro
 
-| Métrica | Descrição |
+| MÃ©trica | DescriÃ§Ã£o |
 |---------|-----------|
 | Receita | Valor recebido |
 | Despesas | Valor gasto |
-| Lucro Líquido | Receita - Despesas |
+| Lucro LÃ­quido | Receita - Despesas |
 | Margem | Percentual de lucro |
-| Fluxo de Caixa | Entradas - Saídas |
+| Fluxo de Caixa | Entradas - SaÃ­das |
 
-### Produção
+### ProduÃ§Ã£o
 
-| Métrica | Descrição |
+| MÃ©trica | DescriÃ§Ã£o |
 |---------|-----------|
-| Ordens Ativas | Em produção |
-| Produção do Dia | Unidades produzidas |
-| Qualidade | % de aprovação |
-| Eficiência | Meta vs Real |
+| Ordens Ativas | Em produÃ§Ã£o |
+| ProduÃ§Ã£o do Dia | Unidades produzidas |
+| Qualidade | % de aprovaÃ§Ã£o |
+| EficiÃªncia | Meta vs Real |
 
-## Relatórios
+## RelatÃ³rios
 
-### Relatórios Prontos
+### RelatÃ³rios Prontos
 
-| Relatório | Descrição | Período |
+| RelatÃ³rio | DescriÃ§Ã£o | PerÃ­odo |
 |-----------|-----------|---------|
-| Vendas | Resumo de vendas | Diário/Semanal/Mensal |
-| Estoque | Posição de estoque | Atual |
+| Vendas | Resumo de vendas | DiÃ¡rio/Semanal/Mensal |
+| Estoque | PosiÃ§Ã£o de estoque | Atual |
 | Financeiro | Fluxo de caixa | Mensal |
-| Produção | Desempenho | Mensal |
+| ProduÃ§Ã£o | Desempenho | Mensal |
 | Clientes | Ranking | Mensal |
 
-### Criar Relatório Personalizado
+### Criar RelatÃ³rio Personalizado
 
 <Steps>
 
-1. **Acesse o módulo**
+1. **Acesse o mÃ³dulo**
    
    Clique em **Indicadores** no menu lateral.
 
-2. **Clique em "Novo Relatório"**
+2. **Clique em "Novo RelatÃ³rio"**
    
-   Botão no canto superior direito.
+   BotÃ£o no canto superior direito.
 
 3. **Selecione os dados**
    
    - Tabela de origem
    - Campos desejados
    - Filtros
-   - Período
+   - PerÃ­odo
 
-4. **Configure a visualização**
+4. **Configure a visualizaÃ§Ã£o**
    
-   - Tipo de gráfico
-   - Ordenação
+   - Tipo de grÃ¡fico
+   - OrdenaÃ§Ã£o
    - Agrupamento
 
-5. **Salve o relatório**
+5. **Salve o relatÃ³rio**
    
-   Dê um nome e salve para reutilizar.
+   DÃª um nome e salve para reutilizar.
 
 </Steps>
 
-## Gráficos Disponíveis
+## GrÃ¡ficos DisponÃ­veis
 
 | Tipo | Uso Recomendado |
 |------|-----------------|
-| 📊 Barras | Comparar valores |
-| 📈 Linha | Evolução temporal |
-| 🥧 Pizza | Proporções |
-| 🎯 KPI | Indicador único |
-| 📋 Tabela | Dados detalhados |
+| ðŸ“Š Barras | Comparar valores |
+| ðŸ“ˆ Linha | EvoluÃ§Ã£o temporal |
+| ðŸ¥§ Pizza | ProporÃ§Ãµes |
+| ðŸŽ¯ KPI | Indicador Ãºnico |
+| ðŸ“‹ Tabela | Dados detalhados |
 
 ## Metas
 
 ### Configurar Meta
 
-1. Acesse **Indicadores → Metas**
+1. Acesse **Indicadores â†’ Metas**
 2. Clique em "Nova Meta"
 3. Configure:
    - Nome da meta
-   - Tipo (vendas, produção, etc.)
+   - Tipo (vendas, produÃ§Ã£o, etc.)
    - Valor alvo
-   - Período
+   - PerÃ­odo
 4. Salve
 
 ### Acompanhar Meta
@@ -145,46 +146,46 @@ O sistema mostra progresso em tempo real:
 
 ```
 Meta de Vendas Mensal
-┌─────────────────────────────────────────┐
-│  ████████████████████░░░░  78%         │
-│  R$ 156.000 / R$ 200.000               │
-│  Restam 8 dias                          │
-└─────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–‘â–‘â–‘â–‘  78%         â”‚
+â”‚  R$ 156.000 / R$ 200.000               â”‚
+â”‚  Restam 8 dias                          â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ## Alertas
 
 ### Tipos de Alerta
 
-| Alerta | Condição |
+| Alerta | CondiÃ§Ã£o |
 |--------|----------|
-| 🔴 Estoque Baixo | Abaixo do ponto de reposição |
-| 🟡 Meta em Risco | Menos de 50% com metade do período |
-| 🟢 Venda Alta | Acima da média |
-| 🔵 Sistema | Atualizações disponíveis |
+| ðŸ”´ Estoque Baixo | Abaixo do ponto de reposiÃ§Ã£o |
+| ðŸŸ¡ Meta em Risco | Menos de 50% com metade do perÃ­odo |
+| ðŸŸ¢ Venda Alta | Acima da mÃ©dia |
+| ðŸ”µ Sistema | AtualizaÃ§Ãµes disponÃ­veis |
 
 ### Configurar Alertas
 
-1. Acesse **Indicadores → Alertas**
+1. Acesse **Indicadores â†’ Alertas**
 2. Selecione o tipo
-3. Configure as condições
-4. Defina o destinatário
+3. Configure as condiÃ§Ãµes
+4. Defina o destinatÃ¡rio
 5. Ative
 
-## Exportação
+## ExportaÃ§Ã£o
 
-### Formatos Disponíveis
+### Formatos DisponÃ­veis
 
 | Formato | Uso |
 |---------|-----|
-| **PDF** | Relatórios formatados |
-| **Excel** | Análise de dados |
-| **CSV** | Importação em outros sistemas |
-| **Imagem** | Gráficos para apresentação |
+| **PDF** | RelatÃ³rios formatados |
+| **Excel** | AnÃ¡lise de dados |
+| **CSV** | ImportaÃ§Ã£o em outros sistemas |
+| **Imagem** | GrÃ¡ficos para apresentaÃ§Ã£o |
 
 ### Exportar
 
-1. Selecione o relatório
+1. Selecione o relatÃ³rio
 2. Clique em "Exportar"
 3. Escolha o formato
 4. Clique em "Baixar"
@@ -196,10 +197,19 @@ Configure os alertas para ser notificado proativamente sobre problemas.
 :::
 
 :::caution[Importante]
-Revise os indicadores semanalmente para tomar decisões baseadas em dados.
+Revise os indicadores semanalmente para tomar decisÃµes baseadas em dados.
 :::
 
-## Próximo Passo
+## PrÃ³ximo Passo
 
-- [Custos](/modulos/custos) - Análise detalhada de custos
+- [Custos](/modulos/custos) - AnÃ¡lise detalhada de custos
 - [Pedidos](/modulos/pedidos) - Detalhes de vendas
+
+
+
+
+
+
+
+
+

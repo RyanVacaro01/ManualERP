@@ -1,41 +1,42 @@
----
+﻿---
 title: Recebimento
 description: Controle de recebimento de mercadorias
+slug: modulos/recebimento
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O módulo de Recebimento permite controlar a entrada de mercadorias na empresa.
+O mÃ³dulo de Recebimento permite controlar a entrada de mercadorias na empresa.
 
 ## Funcionalidades
 
-- Conferência de volumes
+- ConferÃªncia de volumes
 - Nota fiscal de entrada
 - Controle de qualidade
-- Baixa automática de estoque
+- Baixa automÃ¡tica de estoque
 - Registro de avarias
 
 ## Fluxo de Recebimento
 
 ```
-┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
-│Chegada   │──▶│Conferência│─▶│ Aprovação│──▶│ Baixa    │
-│Mercadoria│   │          │   │          │   │ Estoque  │
-└──────────┘   └──────────┘   └──────────┘   └──────────┘
-                     │              │              │
-                     ▼              ▼              ▼
-              ┌──────────┐   ┌──────────┐   ┌──────────┐
-              │Volumes   │   │Controle  │   │Atualização│
-              │          │   │Qualidade │   │          │
-              └──────────┘   └──────────┘   └──────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚Chegada   â”‚â”€â”€â–¶â”‚ConferÃªnciaâ”‚â”€â–¶â”‚ AprovaÃ§Ã£oâ”‚â”€â”€â–¶â”‚ Baixa    â”‚
+â”‚Mercadoriaâ”‚   â”‚          â”‚   â”‚          â”‚   â”‚ Estoque  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                     â”‚              â”‚              â”‚
+                     â–¼              â–¼              â–¼
+              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+              â”‚Volumes   â”‚   â”‚Controle  â”‚   â”‚AtualizaÃ§Ã£oâ”‚
+              â”‚          â”‚   â”‚Qualidade â”‚   â”‚          â”‚
+              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ## Status de Recebimento
 
-| Status | Cor | Descrição |
+| Status | Cor | DescriÃ§Ã£o |
 |--------|-----|-----------|
 | **Aguardando** | Cinza | Aguardando chegada |
-| **Conferindo** | Amarelo | Conferência em andamento |
+| **Conferindo** | Amarelo | ConferÃªncia em andamento |
 | **Aprovado** | Verde | Recebimento aprovado |
 | **Rejeitado** | Vermelho | Rejeitado por qualidade |
 | **Parcial** | Laranja | Recebimento parcial |
@@ -44,7 +45,7 @@ O módulo de Recebimento permite controlar a entrada de mercadorias na empresa.
 
 <Steps>
 
-1. **Acesse o módulo**
+1. **Acesse o mÃ³dulo**
    
    Clique em **Recebimento** no menu lateral.
 
@@ -60,13 +61,13 @@ O módulo de Recebimento permite controlar a entrada de mercadorias na empresa.
 
 4. **Conferir itens**
    
-   - Leia o código de barras ou confira manualmente
+   - Leia o cÃ³digo de barras ou confira manualmente
    - Verifique quantidades
    - Confira qualidade
 
-5. **Registre divergências**
+5. **Registre divergÃªncias**
    
-   Se houver diferença:
+   Se houver diferenÃ§a:
    - Itens faltantes
    - Itens avariados
    - Itens diferentes
@@ -77,22 +78,22 @@ O módulo de Recebimento permite controlar a entrada de mercadorias na empresa.
 
 </Steps>
 
-## Conferência de Itens
+## ConferÃªncia de Itens
 
 ### Checklist
 
 - [ ] Quantidade conferida
 - [ ] Itens conferidos um a um
 - [ ] Qualidade verificada
-- [ ] Embalagem íntegra
+- [ ] Embalagem Ã­ntegra
 - [ ] Nota fiscal conferida
 - [ ] Etiquetas corretas
 
-### Registro de Divergência
+### Registro de DivergÃªncia
 
-| Tipo | Descrição | Ação |
+| Tipo | DescriÃ§Ã£o | AÃ§Ã£o |
 |------|-----------|------|
-| **Falta** | Item não veio | Notificar fornecedor |
+| **Falta** | Item nÃ£o veio | Notificar fornecedor |
 | **Sobra** | Item a mais | Devolver ou negociar |
 | **Avaria** | Produto danificado | Registrar e notificar |
 | **Troca** | Item errado | Devolver e solicitar correto |
@@ -101,61 +102,70 @@ O módulo de Recebimento permite controlar a entrada de mercadorias na empresa.
 
 ### Dados da NF-e
 
-| Campo | Descrição |
+| Campo | DescriÃ§Ã£o |
 |-------|-----------|
-| Número | Número da NF-e |
-| Série | Série da NF-e |
-| Data Emissão | Data de emissão |
+| NÃºmero | NÃºmero da NF-e |
+| SÃ©rie | SÃ©rie da NF-e |
+| Data EmissÃ£o | Data de emissÃ£o |
 | Valor Total | Valor da nota |
 | Fornecedor | Emitente |
 
-### Validação Automática
+### ValidaÃ§Ã£o AutomÃ¡tica
 
 O sistema valida automaticamente:
-- ✅ CNPJ/CPF do emitente
-- ✅ Chave de acesso
-- ✅ Valores dos impostos
-- ✅ Itens descritos
+- âœ… CNPJ/CPF do emitente
+- âœ… Chave de acesso
+- âœ… Valores dos impostos
+- âœ… Itens descritos
 
 ## Controle de Qualidade
 
-### Critérios de Análise
+### CritÃ©rios de AnÃ¡lise
 
-| Critério | Descrição | Peso |
+| CritÃ©rio | DescriÃ§Ã£o | Peso |
 |----------|-----------|------|
-| Dimensões | Tamanho correto | 30% |
+| DimensÃµes | Tamanho correto | 30% |
 | Acabamento | Qualidade visual | 30% |
 | Funcionalidade | Funciona corretamente | 25% |
 | Embalagem | Embalagem adequada | 15% |
 
-### Aprovação/Rejeição
+### AprovaÃ§Ã£o/RejeiÃ§Ã£o
 
 1. Selecione o item
-2. Avalie cada critério
+2. Avalie cada critÃ©rio
 3. Aprove ou reprove
-4. Registre observações
+4. Registre observaÃ§Ãµes
 5. Confirme
 
 ## Baixa de Estoque
 
-Após a aprovação, o estoque é atualizado automaticamente:
+ApÃ³s a aprovaÃ§Ã£o, o estoque Ã© atualizado automaticamente:
 
 - Quantidade aumentada
-- Custo médio recalculado
+- Custo mÃ©dio recalculado
 - Lote registrado
-- Data de validade (se aplicável)
+- Data de validade (se aplicÃ¡vel)
 
 ## Dicas
 
 :::tip[Dica]
-Use leitura de código de barras para agilizar a conferência.
+Use leitura de cÃ³digo de barras para agilizar a conferÃªncia.
 :::
 
 :::caution[Importante]
-Sempre registre avarias imediatamente para garantir a reclamação ao fornecedor.
+Sempre registre avarias imediatamente para garantir a reclamaÃ§Ã£o ao fornecedor.
 :::
 
-## Próximo Passo
+## PrÃ³ximo Passo
 
 - [Estoque](/fluxos/gerenciar-estoque) - Ver estoque atualizado
 - [Compras](/modulos/compras) - Acompanhar compras
+
+
+
+
+
+
+
+
+

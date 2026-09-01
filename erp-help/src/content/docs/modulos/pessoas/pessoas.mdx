@@ -1,43 +1,44 @@
----
+﻿---
 title: Pessoas
-description: Gestão de pessoas, funcionários e equipes
+description: Gestão de pessoas e colaboradores
+slug: modulos/pessoas
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O módulo de Pessoas permite gerenciar funcionários, equipes e permissões de acesso.
+O mÃ³dulo de Pessoas permite gerenciar funcionÃ¡rios, equipes e permissÃµes de acesso.
 
 ## Funcionalidades
 
-- Cadastro de funcionários
-- Gestão de equipes
-- Controle de permissões
-- Histórico de acessos
-- Relatórios de pessoas
+- Cadastro de funcionÃ¡rios
+- GestÃ£o de equipes
+- Controle de permissÃµes
+- HistÃ³rico de acessos
+- RelatÃ³rios de pessoas
 
 ## Tela Principal
 
-A tela mostra todos os funcionários cadastrados:
+A tela mostra todos os funcionÃ¡rios cadastrados:
 
-| Coluna | Descrição |
+| Coluna | DescriÃ§Ã£o |
 |--------|-----------|
-| Foto | Imagem do funcionário |
+| Foto | Imagem do funcionÃ¡rio |
 | Nome | Nome completo |
-| Cargo | Função exercida |
-| Departamento | Setor de lotação |
+| Cargo | FunÃ§Ã£o exercida |
+| Departamento | Setor de lotaÃ§Ã£o |
 | Status | Ativo/Inativo |
 
-## Cadastro de Funcionário
+## Cadastro de FuncionÃ¡rio
 
 <Steps>
 
-1. **Acesse o módulo**
+1. **Acesse o mÃ³dulo**
    
    Clique em **Pessoas** no menu lateral.
 
-2. **Clique em "Novo Funcionário"**
+2. **Clique em "Novo FuncionÃ¡rio"**
    
-   Botão no canto superior direito.
+   BotÃ£o no canto superior direito.
 
 3. **Preencha dados pessoais**
    
@@ -52,143 +53,152 @@ A tela mostra todos os funcionários cadastrados:
    
    - Cargo
    - Departamento
-   - Data de admissão
-   - Salário
-   - Matrícula
+   - Data de admissÃ£o
+   - SalÃ¡rio
+   - MatrÃ­cula
 
 5. **Configure acesso ao sistema**
    
-   - Usuário
-   - Senha temporária
+   - UsuÃ¡rio
+   - Senha temporÃ¡ria
    - Perfil de acesso
 
-6. **Salve o funcionário**
+6. **Salve o funcionÃ¡rio**
    
    Clique em "Salvar"
 
 </Steps>
 
-## Dados do Funcionário
+## Dados do FuncionÃ¡rio
 
 ### Dados Pessoais
 
-| Campo | Obrigatório | Descrição |
+| Campo | ObrigatÃ³rio | DescriÃ§Ã£o |
 |-------|-------------|-----------|
-| Nome | ✅ | Nome completo |
-| CPF | ✅ | Documento fiscal |
-| RG | ✅ | Documento de identidade |
-| Data Nascimento | ✅ | Data de nascimento |
-| E-mail | ✅ | E-mail corporativo |
-| Telefone | ❌ | Telefone de contato |
+| Nome | âœ… | Nome completo |
+| CPF | âœ… | Documento fiscal |
+| RG | âœ… | Documento de identidade |
+| Data Nascimento | âœ… | Data de nascimento |
+| E-mail | âœ… | E-mail corporativo |
+| Telefone | âŒ | Telefone de contato |
 
 ### Dados Profissionais
 
-| Campo | Obrigatório | Descrição |
+| Campo | ObrigatÃ³rio | DescriÃ§Ã£o |
 |-------|-------------|-----------|
-| Cargo | ✅ | Função exercida |
-| Departamento | ✅ | Setor de lotação |
-| Data Admissão | ✅ | Data de entrada |
-| Salário | ✅ | Remuneração |
-| Matrícula | ✅ | Número de matrícula |
+| Cargo | âœ… | FunÃ§Ã£o exercida |
+| Departamento | âœ… | Setor de lotaÃ§Ã£o |
+| Data AdmissÃ£o | âœ… | Data de entrada |
+| SalÃ¡rio | âœ… | RemuneraÃ§Ã£o |
+| MatrÃ­cula | âœ… | NÃºmero de matrÃ­cula |
 
 ### Acesso ao Sistema
 
-| Campo | Obrigatório | Descrição |
+| Campo | ObrigatÃ³rio | DescriÃ§Ã£o |
 |-------|-------------|-----------|
-| Usuário | ✅ | Login para acesso |
-| Senha | ✅ | Senha temporária |
-| Perfil | ✅ | Nível de permissão |
+| UsuÃ¡rio | âœ… | Login para acesso |
+| Senha | âœ… | Senha temporÃ¡ria |
+| Perfil | âœ… | NÃ­vel de permissÃ£o |
 
 ## Equipes
 
 ### Criar Equipe
 
-1. Acesse **Pessoas → Equipes**
+1. Acesse **Pessoas â†’ Equipes**
 2. Clique em "Nova Equipe"
 3. Preencha:
    - Nome da equipe
-   - Responsável
-   - Descrição
+   - ResponsÃ¡vel
+   - DescriÃ§Ã£o
 4. Adicione membros
 5. Salve
 
 ### Estrutura de Equipes
 
 ```
-👥 Pessoas
-├── 🏢 Administrativo
-│   ├── Diretoria
-│   ├── Financeiro
-│   └── RH
-├── 🏭 Produção
-│   ├── Linha 1
-│   ├── Linha 2
-│   └── Controle Qualidade
-├── 📦 Logística
-│   ├── Estoque
-│   ├── Expedição
-│   └── Recebimento
-└── 💻 Comercial
-    ├── Vendas
-    ├── Suporte
-    └── Marketing
+ðŸ‘¥ Pessoas
+â”œâ”€â”€ ðŸ¢ Administrativo
+â”‚   â”œâ”€â”€ Diretoria
+â”‚   â”œâ”€â”€ Financeiro
+â”‚   â””â”€â”€ RH
+â”œâ”€â”€ ðŸ­ ProduÃ§Ã£o
+â”‚   â”œâ”€â”€ Linha 1
+â”‚   â”œâ”€â”€ Linha 2
+â”‚   â””â”€â”€ Controle Qualidade
+â”œâ”€â”€ ðŸ“¦ LogÃ­stica
+â”‚   â”œâ”€â”€ Estoque
+â”‚   â”œâ”€â”€ ExpediÃ§Ã£o
+â”‚   â””â”€â”€ Recebimento
+â””â”€â”€ ðŸ’» Comercial
+    â”œâ”€â”€ Vendas
+    â”œâ”€â”€ Suporte
+    â””â”€â”€ Marketing
 ```
 
-## Permissões
+## PermissÃµes
 
 ### Perfis de Acesso
 
-| Perfil | Descrição | Acesso |
+| Perfil | DescriÃ§Ã£o | Acesso |
 |--------|-----------|--------|
 | **Admin** | Administrador total | Tudo |
-| **Gerente** | Gestor de departamento | Depto + relatórios |
-| **Operador** | Executa tarefas | Módulos específicos |
+| **Gerente** | Gestor de departamento | Depto + relatÃ³rios |
+| **Operador** | Executa tarefas | MÃ³dulos especÃ­ficos |
 | **Consulta** | Apenas visualiza | Leitura apenas |
 
-### Configurar Permissões
+### Configurar PermissÃµes
 
-1. Acesse **Pessoas → Permissões**
+1. Acesse **Pessoas â†’ PermissÃµes**
 2. Selecione o perfil
-3. Configure para cada módulo:
-   - 🔍 Visualizar
-   - ✏️ Criar/Editar
-   - 🗑️ Excluir
-   - 📊 Relatórios
+3. Configure para cada mÃ³dulo:
+   - ðŸ” Visualizar
+   - âœï¸ Criar/Editar
+   - ðŸ—‘ï¸ Excluir
+   - ðŸ“Š RelatÃ³rios
 4. Salve
 
-### Matriz de Permissões
+### Matriz de PermissÃµes
 
-| Módulo | Admin | Gerente | Operador | Consulta |
+| MÃ³dulo | Admin | Gerente | Operador | Consulta |
 |--------|-------|---------|----------|----------|
-| Produtos | ✅ | ✅ | ✅ | 👁️ |
-| Clientes | ✅ | ✅ | ✅ | 👁️ |
-| Pedidos | ✅ | ✅ | ✅ | 👁️ |
-| Produção | ✅ | ✅ | ✅ | 👁️ |
-| Compras | ✅ | ✅ | ❌ | 👁️ |
-| Custos | ✅ | 👁️ | ❌ | ❌ |
-| Pessoas | ✅ | 👁️ | ❌ | ❌ |
+| Produtos | âœ… | âœ… | âœ… | ðŸ‘ï¸ |
+| Clientes | âœ… | âœ… | âœ… | ðŸ‘ï¸ |
+| Pedidos | âœ… | âœ… | âœ… | ðŸ‘ï¸ |
+| ProduÃ§Ã£o | âœ… | âœ… | âœ… | ðŸ‘ï¸ |
+| Compras | âœ… | âœ… | âŒ | ðŸ‘ï¸ |
+| Custos | âœ… | ðŸ‘ï¸ | âŒ | âŒ |
+| Pessoas | âœ… | ðŸ‘ï¸ | âŒ | âŒ |
 
-## Histórico de Acessos
+## HistÃ³rico de Acessos
 
-Visualize quando e como os funcionários acessaram:
+Visualize quando e como os funcionÃ¡rios acessaram:
 
-| Data | Hora | Usuário | Ação | IP |
+| Data | Hora | UsuÃ¡rio | AÃ§Ã£o | IP |
 |------|------|---------|------|-----|
-| 01/08 | 09:00 | João | Login | 192.168.1.1 |
+| 01/08 | 09:00 | JoÃ£o | Login | 192.168.1.1 |
 | 01/08 | 14:30 | Maria | Editar Pedido | 192.168.1.2 |
 | 01/08 | 17:00 | Pedro | Logout | 192.168.1.3 |
 
 ## Dicas
 
 :::tip[Dica]
-Mantenha o cadastro sempre atualizado com informações corretas de contato.
+Mantenha o cadastro sempre atualizado com informaÃ§Ãµes corretas de contato.
 :::
 
 :::caution[Importante]
-Revise as permissões regularmente para garantir a segurança do sistema.
+Revise as permissÃµes regularmente para garantir a seguranÃ§a do sistema.
 :::
 
-## Próximo Passo
+## PrÃ³ximo Passo
 
-- [Permissões](/referencias/permissoes) - Detalhes de permissões
-- [Extras](/modulos/extras) - Configurações do sistema
+- [PermissÃµes](/referencias/permissoes) - Detalhes de permissÃµes
+- [Extras](/modulos/extras) - ConfiguraÃ§Ãµes do sistema
+
+
+
+
+
+
+
+
+

@@ -1,42 +1,43 @@
----
+﻿---
 title: Expedição
 description: Controle de expedição e envio de pedidos
+slug: modulos/expedicao
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O módulo de Expedição permite gerenciar todo o processo de envio de pedidos.
+O mÃ³dulo de ExpediÃ§Ã£o permite gerenciar todo o processo de envio de pedidos.
 
 ## Funcionalidades
 
-- Separação de pedidos
-- Conferência de volumes
-- Expedição com transportadoras
+- SeparaÃ§Ã£o de pedidos
+- ConferÃªncia de volumes
+- ExpediÃ§Ã£o com transportadoras
 - Rastreamento de entregas
-- Gestão de devoluções
+- GestÃ£o de devoluÃ§Ãµes
 
-## Fluxo de Expedição
+## Fluxo de ExpediÃ§Ã£o
 
 ```
-┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
-│  Pedido  │──▶│ Separação│──▶│Conferência│──▶│  Envio   │
-│Faturado  │   │          │   │          │   │          │
-└──────────┘   └──────────┘   └──────────┘   └──────────┘
-                     │              │              │
-                     ▼              ▼              ▼
-              ┌──────────┐   ┌──────────┐   ┌──────────┐
-              │Reserva   │   │Volume    │   │Rastreio  │
-              │Estoque   │   │Completo  │   │          │
-              └──────────┘   └──────────┘   └──────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Pedido  â”‚â”€â”€â–¶â”‚ SeparaÃ§Ã£oâ”‚â”€â”€â–¶â”‚ConferÃªnciaâ”‚â”€â”€â–¶â”‚  Envio   â”‚
+â”‚Faturado  â”‚   â”‚          â”‚   â”‚          â”‚   â”‚          â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                     â”‚              â”‚              â”‚
+                     â–¼              â–¼              â–¼
+              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+              â”‚Reserva   â”‚   â”‚Volume    â”‚   â”‚Rastreio  â”‚
+              â”‚Estoque   â”‚   â”‚Completo  â”‚   â”‚          â”‚
+              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
-## Status de Expedição
+## Status de ExpediÃ§Ã£o
 
-| Status | Cor | Descrição |
+| Status | Cor | DescriÃ§Ã£o |
 |--------|-----|-----------|
-| **Aguardando** | Cinza | Aguardando separação |
-| **Separando** | Amarelo | Separação em andamento |
-| **Conferindo** | Azul | Conferência de volumes |
+| **Aguardando** | Cinza | Aguardando separaÃ§Ã£o |
+| **Separando** | Amarelo | SeparaÃ§Ã£o em andamento |
+| **Conferindo** | Azul | ConferÃªncia de volumes |
 | **Pronto** | Verde | Pronto para envio |
 | **Enviado** | Verde | Coletado pela transportadora |
 | **Entregue** | Verde | Cliente recebeu |
@@ -44,71 +45,71 @@ O módulo de Expedição permite gerenciar todo o processo de envio de pedidos.
 
 ## Tela Principal
 
-A tela mostra os pedidos prontos para expedição:
+A tela mostra os pedidos prontos para expediÃ§Ã£o:
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  🚚 Expedição - Pedidos Prontos                    │
-├─────────────────────────────────────────────────────┤
-│  Pedido    Cliente      volumes   Transportadora    │
-│  #1234     João Silva   2         Correios          │
-│  #1235     Maria Santos 1         Jadlog            │
-│  #1236     Pedro Lima   3         Total Express     │
-└─────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  ðŸšš ExpediÃ§Ã£o - Pedidos Prontos                    â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  Pedido    Cliente      volumes   Transportadora    â”‚
+â”‚  #1234     JoÃ£o Silva   2         Correios          â”‚
+â”‚  #1235     Maria Santos 1         Jadlog            â”‚
+â”‚  #1236     Pedro Lima   3         Total Express     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ## Separar Pedido
 
 <Steps>
 
-1. **Acesse o módulo**
+1. **Acesse o mÃ³dulo**
    
-   Clique em **Expedição** no menu lateral.
+   Clique em **ExpediÃ§Ã£o** no menu lateral.
 
 2. **Selecione o pedido**
    
    Clique no pedido a ser separado.
 
-3. **Imprima a separação**
+3. **Imprima a separaÃ§Ã£o**
    
-   Clique em "Imprimir Separação" para gerar o documento.
+   Clique em "Imprimir SeparaÃ§Ã£o" para gerar o documento.
 
 4. **Separe os itens**
    
-   - Vá ao estoque
+   - VÃ¡ ao estoque
    - Recolha os itens listados
-   - Confirme a separação no sistema
+   - Confirme a separaÃ§Ã£o no sistema
 
-5. **Confirme a separação**
+5. **Confirme a separaÃ§Ã£o**
    
-   Clique em "Confirmar Separação" após recolher todos os itens.
+   Clique em "Confirmar SeparaÃ§Ã£o" apÃ³s recolher todos os itens.
 
 </Steps>
 
 ## Conferir Volume
 
-Após a separação, conferir os volumes:
+ApÃ³s a separaÃ§Ã£o, conferir os volumes:
 
-### Checklist de Conferência
+### Checklist de ConferÃªncia
 
 - [ ] Todos os itens presentes
 - [ ] Quantidades corretas
 - [ ] Itens em bom estado
 - [ ] Embalagem adequada
-- [ ] Nota fiscal incluída
+- [ ] Nota fiscal incluÃ­da
 - [ ] Etiqueta de postagem
 
 ### Registrar Volume
 
 1. **Quantidade de volumes**
    
-   Informe quantas caixas/pacotes serão enviados.
+   Informe quantas caixas/pacotes serÃ£o enviados.
 
 2. **Peso de cada volume**
    
    Pese e registre o peso.
 
-3. **Dimensões**
+3. **DimensÃµes**
    
    Informe altura, largura e comprimento.
 
@@ -120,7 +121,7 @@ Após a separação, conferir os volumes:
    
    - Consulte valores
    - Compare prazos
-   - Escolha a melhor opção
+   - Escolha a melhor opÃ§Ã£o
 
 2. **Gere a etiqueta**
    
@@ -132,53 +133,53 @@ Após a separação, conferir os volumes:
 
 4. **Registre o envio**
    
-   Confirme o envio no sistema com o código de rastreio.
+   Confirme o envio no sistema com o cÃ³digo de rastreio.
 
 </Steps>
 
-## Transportadoras Disponíveis
+## Transportadoras DisponÃ­veis
 
 | Transportadora | Prazo | Cobertura | APIs |
 |----------------|-------|-----------|------|
-| **Correios** | 3-10 dias | Nacional | ✅ |
-| **Jadlog** | 2-7 dias | Nacional | ✅ |
-| **Total Express** | 3-8 dias | Nacional | ✅ |
-| **Rápido** | 1-3 dias | Regional | ✅ |
-| **Retirada** | Imediato | Local | ❌ |
+| **Correios** | 3-10 dias | Nacional | âœ… |
+| **Jadlog** | 2-7 dias | Nacional | âœ… |
+| **Total Express** | 3-8 dias | Nacional | âœ… |
+| **RÃ¡pido** | 1-3 dias | Regional | âœ… |
+| **Retirada** | Imediato | Local | âŒ |
 
 ## Rastreamento
 
 ### Acompanhar Entrega
 
-1. Acesse **Expedição → Enviados**
+1. Acesse **ExpediÃ§Ã£o â†’ Enviados**
 2. Clique no pedido
 3. Veja o rastreamento atualizado
 
 ### Status de Rastreamento
 
-| Status | Descrição |
+| Status | DescriÃ§Ã£o |
 |--------|-----------|
 | **Postado** | Coletado pela transportadora |
-| **Em Trânsito** | A caminho do destino |
-| **Em Separação** | No centro de distribuição |
+| **Em TrÃ¢nsito** | A caminho do destino |
+| **Em SeparaÃ§Ã£o** | No centro de distribuiÃ§Ã£o |
 | **Saiu para Entrega** |
 entregador |
 | **Entregue** | Cliente recebeu |
 | **Tentativa** | Tentativa realizada |
 
-## Devoluções
+## DevoluÃ§Ãµes
 
-### Registrar Devolução
+### Registrar DevoluÃ§Ã£o
 
 1. Acesse o pedido com problema
-2. Clique em "Registrar Devolução"
+2. Clique em "Registrar DevoluÃ§Ã£o"
 3. Informe o motivo
-4. Confirme a devolução
+4. Confirme a devoluÃ§Ã£o
 5. Atualize o estoque
 
-### Motivos de Devolução
+### Motivos de DevoluÃ§Ã£o
 
-| Motivo | Ação |
+| Motivo | AÃ§Ã£o |
 |--------|------|
 | Produto danificado | Troca ou reembolso |
 | Produto errado | Troca imediata |
@@ -188,14 +189,23 @@ entregador |
 ## Dicas
 
 :::tip[Dica]
-Use a leitura de código de barras para agilizar a conferência de volumes.
+Use a leitura de cÃ³digo de barras para agilizar a conferÃªncia de volumes.
 :::
 
 :::caution[Importante]
-Sempre confira os itens antes de expedir para evitar devoluções.
+Sempre confira os itens antes de expedir para evitar devoluÃ§Ãµes.
 :::
 
-## Próximo Passo
+## PrÃ³ximo Passo
 
 - [Pedidos](/modulos/pedidos) - Ver pedidos faturados
-- [Fluxo de Expedição](/fluxos/expedir-pedido) - Fluxo completo
+- [Fluxo de ExpediÃ§Ã£o](/fluxos/expedir-pedido) - Fluxo completo
+
+
+
+
+
+
+
+
+
