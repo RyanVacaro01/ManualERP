@@ -14,6 +14,7 @@
   --sl-color-gray-5: #64748b;
   --sl-color-gray-6: #475569;
   --sl-color-gray-7: #334155;
+  --sl-color-bg-nav: #1e293b;
 }
 
 [data-theme='dark'] {
@@ -31,6 +32,7 @@
   --sl-color-gray-5: #94a3b8;
   --sl-color-gray-6: #cbd5e1;
   --sl-color-gray-7: #e2e8f0;
+  --sl-color-bg-nav: #000000;
 }
 
 .starlight-content {
@@ -117,4 +119,12 @@ a:hover {
     right: 1rem;
     padding: 0.75rem;
   }
+}
+
+header .title a {
+  color: #f1f5f9 !important;
+}
+
+.sl-logo {
+  filter: brightness(0) invert(1);
 }
