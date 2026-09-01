@@ -1,44 +1,44 @@
-﻿---
+---
 title: Pedidos
-description: Gestão de pedidos de venda
+description: Criação e gestão de pedidos de venda
 slug: modulos/pedidos
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O mÃ³dulo de Pedidos permite criar e gerenciar todo o processo de vendas.
+O módulo de Pedidos permite criar e gerenciar todo o processo de vendas.
 
 ## Funcionalidades
 
-- CriaÃ§Ã£o de pedidos
-- AprovaÃ§Ã£o e segregaÃ§Ã£o
+- Criação de pedidos
+- Aprovação e segregação
 - Faturamento
 - Rastreamento de status
-- HistÃ³rico de pedidos
+- Histórico de pedidos
 
 ## Fluxo do Pedido
 
 ```
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  Pedido  â”‚â”€â”€â–¶â”‚ Aprovado â”‚â”€â”€â–¶â”‚ Faturado â”‚â”€â”€â–¶â”‚ Enviado  â”‚
-â”‚  Criado  â”‚   â”‚          â”‚   â”‚          â”‚   â”‚          â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-      â”‚              â”‚              â”‚              â”‚
-      â–¼              â–¼              â–¼              â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  Pendenteâ”‚   â”‚ Separandoâ”‚   â”‚  NF Geradaâ”‚   â”‚ Entregue â”‚
-â”‚          â”‚   â”‚          â”‚   â”‚          â”‚   â”‚          â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│  Pedido  │──▶│ Aprovado │──▶│ Faturado │──▶│ Enviado  │
+│  Criado  │   │          │   │          │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+      │              │              │              │
+      ▼              ▼              ▼              ▼
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│  Pendente│   │ Separando│   │  NF Gerada│   │ Entregue │
+│          │   │          │   │          │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
 ```
 
 ## Status do Pedido
 
-| Status | Cor | DescriÃ§Ã£o |
+| Status | Cor | Descrição |
 |--------|-----|-----------|
-| **Rascunho** | Cinza | Pedido em criaÃ§Ã£o |
-| **Pendente** | Amarelo | Aguardando aprovaÃ§Ã£o |
+| **Rascunho** | Cinza | Pedido em criação |
+| **Pendente** | Amarelo | Aguardando aprovação |
 | **Aprovado** | Verde | Aprovado para processamento |
-| **Separando** | Azul | SeparaÃ§Ã£o em andamento |
+| **Separando** | Azul | Separação em andamento |
 | **Faturado** | Roxo | NF emitida |
 | **Enviado** | Verde | Em transporte |
 | **Entregue** | Verde | Cliente recebeu |
@@ -48,33 +48,33 @@ O mÃ³dulo de Pedidos permite criar e gerenciar todo o processo de vendas.
 
 <Steps>
 
-1. **Acesse o mÃ³dulo**
+1. **Acesse o módulo**
    
    Clique em **Pedidos** no menu lateral.
 
 2. **Clique em "Novo Pedido"**
    
-   BotÃ£o no canto superior direito.
+   Botão no canto superior direito.
 
 3. **Selecione o cliente**
    
    - Busque por nome, CPF/CNPJ
    - Selecione o cliente
-   - Verifique o limite de crÃ©dito
+   - Verifique o limite de crédito
 
 4. **Adicione produtos**
    
    - Busque o produto por nome ou SKU
    - Informe a quantidade
-   - Confirme o preÃ§o
+   - Confirme o preço
    - Repita para cada item
 
 5. **Configure o pedido**
    
    - **Data de entrega** desejada
-   - **CondiÃ§Ã£o de pagamento**
-   - **Desconto** (se aplicÃ¡vel)
-   - **ObservaÃ§Ãµes**
+   - **Condição de pagamento**
+   - **Desconto** (se aplicável)
+   - **Observações**
 
 6. **Revise o pedido**
    
@@ -85,7 +85,7 @@ O mÃ³dulo de Pedidos permite criar e gerenciar todo o processo de vendas.
 7. **Salve ou envie**
    
    - **Salvar** - Salva como rascunho
-   - **Enviar** - Envia para aprovaÃ§Ã£o
+   - **Enviar** - Envia para aprovação
 
 </Steps>
 
@@ -93,47 +93,47 @@ O mÃ³dulo de Pedidos permite criar e gerenciar todo o processo de vendas.
 
 ### Campos do Item
 
-| Campo | ObrigatÃ³rio | DescriÃ§Ã£o |
+| Campo | Obrigatório | Descrição |
 |-------|-------------|-----------|
-| Produto | âœ… | Selecione o produto |
-| Quantidade | âœ… | Qtd desejada |
-| PreÃ§o UnitÃ¡rio | âœ… | PreÃ§o de venda |
-| Desconto | âŒ | Desconto no item |
+| Produto | ✅ | Selecione o produto |
+| Quantidade | ✅ | Qtd desejada |
+| Preço Unitário | ✅ | Preço de venda |
+| Desconto | ❌ | Desconto no item |
 | Total do Item | Auto | Calculado automaticamente |
 
 ### Valores do Pedido
 
-| Campo | DescriÃ§Ã£o |
+| Campo | Descrição |
 |-------|-----------|
 | Subtotal | Soma dos itens |
 | Desconto | Desconto total |
 | Frete | Valor do frete |
 | Total | Valor final |
 
-## AprovaÃ§Ã£o de Pedidos
+## Aprovação de Pedidos
 
-### Regras de AprovaÃ§Ã£o
+### Regras de Aprovação
 
-| Valor do Pedido | AprovaÃ§Ã£o NecessÃ¡ria |
+| Valor do Pedido | Aprovação Necessária |
 |-----------------|---------------------|
-| AtÃ© R$ 5.000 | AutomÃ¡tica |
+| Até R$ 5.000 | Automática |
 | R$ 5.000 - R$ 20.000 | Gerente |
 | Acima de R$ 20.000 | Diretor |
 
-### Processo de AprovaÃ§Ã£o
+### Processo de Aprovação
 
-1. Acesse **Pedidos â†’ Pendentes**
+1. Acesse **Pedidos → Pendentes**
 2. Clique no pedido
 3. Revise os itens e valores
 4. Clique em "Aprovar" ou "Rejeitar"
-5. Adicione observaÃ§Ã£o (opcional)
-6. Confirme a aÃ§Ã£o
+5. Adicione observação (opcional)
+6. Confirme a ação
 
 ## Faturamento
 
-ApÃ³s a aprovaÃ§Ã£o, o pedido pode ser faturado:
+Após a aprovação, o pedido pode ser faturado:
 
-1. Acesse **Pedidos â†’ Aprovados**
+1. Acesse **Pedidos → Aprovados**
 2. Selecione o(s) pedido(s)
 3. Clique em "Faturar"
 4. Confirme os dados da NF
@@ -141,28 +141,28 @@ ApÃ³s a aprovaÃ§Ã£o, o pedido pode ser faturado:
 
 ### Dados da NF-e
 
-| Campo | DescriÃ§Ã£o |
+| Campo | Descrição |
 |-------|-----------|
-| CFOP | CÃ³digo Fiscal de OperaÃ§Ãµes |
+| CFOP | Código Fiscal de Operações |
 | NCM | Nomenclatura Comum |
-| CST | CÃ³digo de SituaÃ§Ã£o TributÃ¡ria |
+| CST | Código de Situação Tributária |
 | ICMS | Imposto estadual |
 | PIS/COFINS | Tributos federais |
 
-## AÃ§Ãµes RÃ¡pidas
+## Ações Rápidas
 
-| Ãcone | AÃ§Ã£o | DescriÃ§Ã£o |
+| Ícone | Ação | Descrição |
 |-------|------|-----------|
-| âœï¸ | Editar | Alterar pedido |
-| ðŸ–¨ï¸ | Imprimir | Print do pedido |
-| ðŸ“§ | Enviar E-mail | Enviar resumo ao cliente |
-| ðŸ“‹ | Duplicar | Criar pedido similar |
-| ðŸ—‘ï¸ | Cancelar | Cancelar pedido |
+| ✏️ | Editar | Alterar pedido |
+| 🖨️ | Imprimir | Print do pedido |
+| 📧 | Enviar E-mail | Enviar resumo ao cliente |
+| 📋 | Duplicar | Criar pedido similar |
+| 🗑️ | Cancelar | Cancelar pedido |
 
-## RelatÃ³rios
+## Relatórios
 
-- **Pedidos do Dia** - Resumo diÃ¡rio
-- **Pedidos por Cliente** - HistÃ³rico por cliente
+- **Pedidos do Dia** - Resumo diário
+- **Pedidos por Cliente** - Histórico por cliente
 - **Pedidos por Produto** - Produtos mais vendidos
 - **Meta de Vendas** - Acompanhamento da meta
 
@@ -173,20 +173,11 @@ Use o atalho Ctrl+N para criar um novo pedido rapidamente.
 :::
 
 :::caution[Importante]
-Verifique o limite de crÃ©dito do cliente antes de aprovar o pedido.
+Verifique o limite de crédito do cliente antes de aprovar o pedido.
 :::
 
-## PrÃ³ximo Passo
+## Próximo Passo
 
 - [Fluxo de Pedido](/fluxos/criar-pedido) - Fluxo completo
-- [ExpediÃ§Ã£o](/modulos/expedicao) - Processar envio
+- [Expedição](/modulos/expedicao) - Processar envio
 - [Processar Venda](/fluxos/processar-venda) - Venda completa
-
-
-
-
-
-
-
-
-

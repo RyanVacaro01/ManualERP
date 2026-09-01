@@ -1,28 +1,28 @@
-﻿---
+---
 title: Custos
-description: Controle de custos e despesas
+description: Controle e análise de custos
 slug: modulos/custos
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O mÃ³dulo de Custos permite controlar e analisar todos os custos da operaÃ§Ã£o.
+O módulo de Custos permite controlar e analisar todos os custos da operação.
 
 ## Funcionalidades
 
-- CÃ¡lculo automÃ¡tico de custos
+- Cálculo automático de custos
 - Rateio de despesas
-- AnÃ¡lise de margem de lucro
-- RelatÃ³rios de custos
-- HistÃ³rico de variaÃ§Ãµes
+- Análise de margem de lucro
+- Relatórios de custos
+- Histórico de variações
 
 ## Tipos de Custos
 
 ### Custo de Produto
 
-| Componente | DescriÃ§Ã£o |
+| Componente | Descrição |
 |------------|-----------|
-| Custo de AquisiÃ§Ã£o | Valor pago ao fornecedor |
+| Custo de Aquisição | Valor pago ao fornecedor |
 | Frete de Entrada | Custo do frete na compra |
 | ICMS | Imposto sobre a mercadoria |
 | PIS/COFINS | Tributos federais |
@@ -31,14 +31,14 @@ O mÃ³dulo de Custos permite controlar e analisar todos os custos da operaÃ§�
 ### Custo Fixo
 
 - Aluguel
-- SalÃ¡rios
+- Salários
 - Encargos sociais
-- DepreciaÃ§Ã£o
-- Energia elÃ©trica
+- Depreciação
+- Energia elétrica
 
-### Custo VariÃ¡vel
+### Custo Variável
 
-- ComissÃµes
+- Comissões
 - Frete de entrega
 - Embalagem
 - Material de consumo
@@ -48,41 +48,41 @@ O mÃ³dulo de Custos permite controlar e analisar todos os custos da operaÃ§�
 A tela principal mostra:
 
 ```
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  ðŸ’° Custos - Resumo                                â”‚
-â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚  Custo Total do MÃªs: R$ 45.230,00                  â”‚
-â”‚  Custo por Produto: R$ 12,50 (mÃ©dia)               â”‚
-â”‚  Margem MÃ©dia: 35,2%                               â”‚
-â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚  ðŸ“Š GrÃ¡fico de EvoluÃ§Ã£o                            â”‚
-â”‚  [GrÃ¡fico de linha com evoluÃ§Ã£o mensal]            â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌─────────────────────────────────────────────────────┐
+│  💰 Custos - Resumo                                │
+├─────────────────────────────────────────────────────┤
+│  Custo Total do Mês: R$ 45.230,00                  │
+│  Custo por Produto: R$ 12,50 (média)               │
+│  Margem Média: 35,2%                               │
+├─────────────────────────────────────────────────────┤
+│  📊 Gráfico de Evolução                            │
+│  [Gráfico de linha com evolução mensal]            │
+└─────────────────────────────────────────────────────┘
 ```
 
-## CÃ¡lculo de Custo
+## Cálculo de Custo
 
 <Steps>
 
-1. **Acesse o mÃ³dulo**
+1. **Acesse o módulo**
    
    Clique em **Custos** no menu lateral.
 
-2. **Selecione o perÃ­odo**
+2. **Selecione o período**
    
-   Escolha o mÃªs/ano de referÃªncia.
+   Escolha o mês/ano de referência.
 
 3. **Importe dados**
    
    - Notas fiscais de entrada
    - Despesas fixas
-   - Despesas variÃ¡veis
+   - Despesas variáveis
 
 4. **Revise os valores**
    
-   Verifique se todos os custos estÃ£o corretos.
+   Verifique se todos os custos estão corretos.
 
-5. **Gere o relatÃ³rio**
+5. **Gere o relatório**
    
    Clique em "Calcular Custos" para processar.
 
@@ -92,86 +92,77 @@ A tela principal mostra:
 
 O rateio distribui despesas fixas entre os produtos:
 
-### MÃ©todos DisponÃ­veis
+### Métodos Disponíveis
 
-| MÃ©todo | DescriÃ§Ã£o | Quando Usar |
+| Método | Descrição | Quando Usar |
 |--------|-----------|-------------|
 | Por Quantidade | Divide igualmente | Produtos similares |
-| Por Peso | Baseado no peso | LogÃ­stica |
+| Por Peso | Baseado no peso | Logística |
 | Por Volume | Baseado no tamanho | Armazenagem |
-| Por Valor | Baseado no preÃ§o | Custos financeiros |
+| Por Valor | Baseado no preço | Custos financeiros |
 
 ### Configurar Rateio
 
-1. Acesse **Custos â†’ ConfiguraÃ§Ãµes**
-2. Selecione o mÃ©todo de rateio
+1. Acesse **Custos → Configurações**
+2. Selecione o método de rateio
 3. Configure as categorias
-4. Salve as configuraÃ§Ãµes
+4. Salve as configurações
 
-## RelatÃ³rios
+## Relatórios
 
-### RelatÃ³rio de Custo por Produto
+### Relatório de Custo por Produto
 
-| Coluna | DescriÃ§Ã£o |
+| Coluna | Descrição |
 |--------|-----------|
 | Produto | Nome do produto |
-| Custo de AquisiÃ§Ã£o | Valor de compra |
+| Custo de Aquisição | Valor de compra |
 | Custo Fixo Rateado | Despesas fixas alocadas |
-| Custo VariÃ¡vel | Despesas variÃ¡veis |
+| Custo Variável | Despesas variáveis |
 | Custo Total | Soma de todos |
-| PreÃ§o de Venda | Valor de venda |
+| Preço de Venda | Valor de venda |
 | Margem | Lucro percentual |
 
-### RelatÃ³rio de Margem
+### Relatório de Margem
 
 ```
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  ðŸ“Š AnÃ¡lise de Margem por Categoria                â”‚
-â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚  Roupas:     42,3% margem                          â”‚
-â”‚  CalÃ§ados:   38,7% margem                          â”‚
-â”‚  AcessÃ³rios: 51,2% margem                          â”‚
-â”‚  EletrÃ´nicos: 28,4% margem                         â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌─────────────────────────────────────────────────────┐
+│  📊 Análise de Margem por Categoria                │
+├─────────────────────────────────────────────────────┤
+│  Roupas:     42,3% margem                          │
+│  Calçados:   38,7% margem                          │
+│  Acessórios: 51,2% margem                          │
+│  Eletrônicos: 28,4% margem                         │
+└─────────────────────────────────────────────────────┘
 ```
 
-## FÃ³rmulas Importantes
+## Fórmulas Importantes
 
 ### Custo Total
 ```
-Custo Total = Custo AquisiÃ§Ã£o + Frete + Impostos + Rateio Fixo + Rateio VariÃ¡vel
+Custo Total = Custo Aquisição + Frete + Impostos + Rateio Fixo + Rateio Variável
 ```
 
 ### Margem de Lucro
 ```
-Margem (%) = ((PreÃ§o Venda - Custo Total) / PreÃ§o Venda) Ã— 100
+Margem (%) = ((Preço Venda - Custo Total) / Preço Venda) × 100
 ```
 
 ### Markup
 ```
-Markup = PreÃ§o Venda / Custo Total
+Markup = Preço Venda / Custo Total
 ```
 
 ## Dicas
 
 :::tip[Dica]
-Revise os custos mensalmente para identificar variaÃ§Ãµes e oportunidades de reduÃ§Ã£o.
+Revise os custos mensalmente para identificar variações e oportunidades de redução.
 :::
 
 :::caution[Importante]
-Mantenha os dados de custos sempre atualizados para anÃ¡lises precisas.
+Mantenha os dados de custos sempre atualizados para análises precisas.
 :::
 
-## PrÃ³ximo Passo
+## Próximo Passo
 
-- [Indicadores](/modulos/indicadores) - Visualize mÃ©tricas de custos
+- [Indicadores](/modulos/indicadores) - Visualize métricas de custos
 - [Produtos](/modulos/produtos) - Configure custos por produto
-
-
-
-
-
-
-
-
-

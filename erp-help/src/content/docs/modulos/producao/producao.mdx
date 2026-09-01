@@ -1,126 +1,126 @@
-﻿---
+---
 title: Produção
-description: Controle de ordens de produção
+description: Controle de processos de produção
 slug: modulos/producao
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O mÃ³dulo de ProduÃ§Ã£o permite gerenciar todo o processo de fabricaÃ§Ã£o.
+O módulo de Produção permite gerenciar todo o processo de fabricação.
 
 ## Funcionalidades
 
-- Ordens de produÃ§Ã£o
-- Controle de matÃ©ria-prima
-- Apontamento de produÃ§Ã£o
+- Ordens de produção
+- Controle de matéria-prima
+- Apontamento de produção
 - Controle de qualidade
 - Rastreabilidade
 
-## Fluxo de ProduÃ§Ã£o
+## Fluxo de Produção
 
 ```
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  Pedido  â”‚â”€â”€â–¶â”‚  Ordem   â”‚â”€â”€â–¶â”‚ProduÃ§Ã£o  â”‚â”€â”€â–¶â”‚  Produto â”‚
-â”‚  Venda   â”‚   â”‚ProduÃ§Ã£o  â”‚   â”‚  /       â”‚   â”‚Pronto    â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                     â”‚              â”‚
-                     â–¼              â–¼
-              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-              â”‚MatÃ©ria-  â”‚   â”‚Controle  â”‚
-              â”‚Prima     â”‚   â”‚Qualidade â”‚
-              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│  Pedido  │──▶│  Ordem   │──▶│Produção  │──▶│  Produto │
+│  Venda   │   │Produção  │   │  /       │   │Pronto    │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+                     │              │
+                     ▼              ▼
+              ┌──────────┐   ┌──────────┐
+              │Matéria-  │   │Controle  │
+              │Prima     │   │Qualidade │
+              └──────────┘   └──────────┘
 ```
 
-## Tipos de ProduÃ§Ã£o
+## Tipos de Produção
 
-| Tipo | DescriÃ§Ã£o | Exemplo |
+| Tipo | Descrição | Exemplo |
 |------|-----------|---------|
 | **Encomenda** | Produz sob demanda | Produto personalizado |
 | **Estoque** | Produz para estoque | Produto padronizado |
-| **Continua** | ProduÃ§Ã£o contÃ­nua | Linha de montagem |
+| **Continua** | Produção contínua | Linha de montagem |
 
-## Criar Ordem de ProduÃ§Ã£o
+## Criar Ordem de Produção
 
 <Steps>
 
-1. **Acesse o mÃ³dulo**
+1. **Acesse o módulo**
    
-   Clique em **ProduÃ§Ã£o** no menu lateral.
+   Clique em **Produção** no menu lateral.
 
 2. **Clique em "Nova Ordem"**
    
-   BotÃ£o no canto superior direito.
+   Botão no canto superior direito.
 
 3. **Selecione o produto**
    
    - Busque o produto a ser produzido
    - Informe a quantidade
-   - Defina a data prevista de conclusÃ£o
+   - Defina a data prevista de conclusão
 
 4. **Configure a ordem**
    
    - **Tipo** - Encomenda ou Estoque
    - **Prioridade** - Normal, Urgente
-   - **ObservaÃ§Ãµes** - InstruÃ§Ãµes especiais
+   - **Observações** - Instruções especiais
 
-5. **Revise matÃ©ria-prima**
+5. **Revise matéria-prima**
    
-   O sistema lista os materiais necessÃ¡rios:
+   O sistema lista os materiais necessários:
    - Verifique disponibilidade
-   - Reserve estoque (se necessÃ¡rio)
+   - Reserve estoque (se necessário)
 
 6. **Confirme a ordem**
    
-   Clique em "Criar Ordem de ProduÃ§Ã£o"
+   Clique em "Criar Ordem de Produção"
 
 </Steps>
 
-## Ordem de ProduÃ§Ã£o
+## Ordem de Produção
 
 ### Dados da Ordem
 
-| Campo | DescriÃ§Ã£o |
+| Campo | Descrição |
 |-------|-----------|
-| NÃºmero | NÃºmero Ãºnico da ordem |
+| Número | Número único da ordem |
 | Produto | Produto a ser fabricado |
 | Quantidade | Qtd a produzir |
-| Data InÃ­cio | Quando comeÃ§arÃ¡ |
-| Data Fim | PrevisÃ£o de conclusÃ£o |
-| Status | SituaÃ§Ã£o atual |
+| Data Início | Quando começará |
+| Data Fim | Previsão de conclusão |
+| Status | Situação atual |
 
 ### Status da Ordem
 
-| Status | Cor | DescriÃ§Ã£o |
+| Status | Cor | Descrição |
 |--------|-----|-----------|
 | **Criada** | Cinza | Ordem criada |
-| **Iniciada** | Azul | ProduÃ§Ã£o em andamento |
-| **Pausada** | Amarelo | ProduÃ§Ã£o pausada |
-| **ConcluÃ­da** | Verde | ProduÃ§Ã£o finalizada |
+| **Iniciada** | Azul | Produção em andamento |
+| **Pausada** | Amarelo | Produção pausada |
+| **Concluída** | Verde | Produção finalizada |
 | **Cancelada** | Vermelho | Ordem cancelada |
 
-## MatÃ©ria-Prima
+## Matéria-Prima
 
 ### Controle de Materiais
 
-A tela mostra todos os materiais necessÃ¡rios:
+A tela mostra todos os materiais necessários:
 
-| Material | Quantidade NecessÃ¡ria | DisponÃ­vel | Status |
+| Material | Quantidade Necessária | Disponível | Status |
 |----------|----------------------|------------|--------|
-| Tecido AlgodÃ£o | 10 m | 15 m | âœ… |
-| Linha | 5 rolos | 5 rolos | âœ… |
-| BotÃµes | 100 un | 80 un | âš ï¸ |
-| Etiquetas | 50 un | 50 un | âœ… |
+| Tecido Algodão | 10 m | 15 m | ✅ |
+| Linha | 5 rolos | 5 rolos | ✅ |
+| Botões | 100 un | 80 un | ⚠️ |
+| Etiquetas | 50 un | 50 un | ✅ |
 
 ### Reserva de Estoque
 
-Quando a ordem Ã© iniciada:
+Quando a ordem é iniciada:
 1. Sistema verifica disponibilidade
 2. Reserva automaticamente os materiais
 3. Baixa do estoque (se configurado)
 
-## Apontamento de ProduÃ§Ã£o
+## Apontamento de Produção
 
-Registre o andamento da produÃ§Ã£o:
+Registre o andamento da produção:
 
 <Steps>
 
@@ -128,7 +128,7 @@ Registre o andamento da produÃ§Ã£o:
    
    Clique na ordem em andamento.
 
-2. **Clique em "Apontar ProduÃ§Ã£o"**
+2. **Clique em "Apontar Produção"**
    
    Registre o progresso.
 
@@ -137,7 +137,7 @@ Registre o andamento da produÃ§Ã£o:
    - Quantidade produzida
    - Quantidade com defeito
    - Horas trabalhadas
-   - Operador responsÃ¡vel
+   - Operador responsável
 
 4. **Confirme o apontamento**
    
@@ -149,33 +149,33 @@ Registre o andamento da produÃ§Ã£o:
 
 ### Checklist de Qualidade
 
-ApÃ³s a conclusÃ£o, verifique a qualidade:
+Após a conclusão, verifique a qualidade:
 
-- [ ] DimensÃµes corretas
+- [ ] Dimensões corretas
 - [ ] Acabamento adequado
 - [ ] Sem defeitos visuais
 - [ ] Embalagem correta
 - [ ] Etiquetagem correta
 
-### AprovaÃ§Ã£o/ReprovaÃ§Ã£o
+### Aprovação/Reprovação
 
-1. Acesse a ordem concluÃ­da
+1. Acesse a ordem concluída
 2. Clique em "Controle de Qualidade"
 3. Preencha o checklist
 4. Aprove ou reprove
-5. Registre ocorrÃªncias (se houver)
+5. Registre ocorrências (se houver)
 
 ## Rastreabilidade
 
 Cada produto pode ser rastreado:
 
-| InformaÃ§Ã£o | DescriÃ§Ã£o |
+| Informação | Descrição |
 |------------|-----------|
-| Lote | NÃºmero do lote de produÃ§Ã£o |
-| Data FabricaÃ§Ã£o | Data de produÃ§Ã£o |
-| Validade | Data de validade (se aplicÃ¡vel) |
+| Lote | Número do lote de produção |
+| Data Fabricação | Data de produção |
+| Validade | Data de validade (se aplicável) |
 | Operador | Quem produziu |
-| MatÃ©ria-Prima | Lotes dos materiais |
+| Matéria-Prima | Lotes dos materiais |
 
 ## Dicas
 
@@ -184,19 +184,10 @@ Use a prioridade "Urgente" para ordens com prazo apertado. Elas aparecem destaca
 :::
 
 :::caution[Importante]
-Sempre verifique a disponibilidade de matÃ©ria-prima antes de iniciar a produÃ§Ã£o.
+Sempre verifique a disponibilidade de matéria-prima antes de iniciar a produção.
 :::
 
-## PrÃ³ximo Passo
+## Próximo Passo
 
-- [Estoque](/fluxos/gerenciar-estoque) - Gerenciar estoque de produÃ§Ã£o
-- [ExpediÃ§Ã£o](/modulos/expedicao) - Expedir produtos produzidos
-
-
-
-
-
-
-
-
-
+- [Estoque](/fluxos/gerenciar-estoque) - Gerenciar estoque de produção
+- [Expedição](/modulos/expedicao) - Expedir produtos produzidos

@@ -1,82 +1,82 @@
-﻿---
+---
 title: Arquivos
-description: Gestão de arquivos e documentos
+description: Gestão de documentos e arquivos anexos
 slug: modulos/arquivos
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O mÃ³dulo de Arquivos permite gerenciar todos os documentos e anexos do sistema.
+O módulo de Arquivos permite gerenciar todos os documentos e anexos do sistema.
 
 ## Funcionalidades
 
 - Upload de documentos
-- OrganizaÃ§Ã£o em pastas
+- Organização em pastas
 - Versionamento
 - Controle de acesso
-- Busca avanÃ§ada
+- Busca avançada
 
 ## Estrutura de Pastas
 
 ```
-ðŸ“ Arquivos
-â”œâ”€â”€ ðŸ“ Documentos Fiscais
-â”‚   â”œâ”€â”€ NF-e
-â”‚   â”œâ”€â”€ CT-e
-â”‚   â””â”€â”€ NFS-e
-â”œâ”€â”€ ðŸ“ Contratos
-â”‚   â”œâ”€â”€ Fornecedores
-â”‚   â””â”€â”€ Clientes
-â”œâ”€â”€ ðŸ“ RelatÃ³rios
-â”‚   â”œâ”€â”€ Financeiros
-â”‚   â”œâ”€â”€ Estoque
-â”‚   â””â”€â”€ Vendas
-â”œâ”€â”€ ðŸ“ Imagens
-â”‚   â”œâ”€â”€ Produtos
-â”‚   â””â”€â”€ Marketing
-â””â”€â”€ ðŸ“ Diversos
+📁 Arquivos
+├── 📁 Documentos Fiscais
+│   ├── NF-e
+│   ├── CT-e
+│   └── NFS-e
+├── 📁 Contratos
+│   ├── Fornecedores
+│   └── Clientes
+├── 📁 Relatórios
+│   ├── Financeiros
+│   ├── Estoque
+│   └── Vendas
+├── 📁 Imagens
+│   ├── Produtos
+│   └── Marketing
+└── 📁 Diversos
 ```
 
 ## Tela Principal
 
 A tela mostra todos os arquivos organizados:
 
-| Coluna | DescriÃ§Ã£o |
+| Coluna | Descrição |
 |--------|-----------|
-| Ãcone | Tipo do arquivo |
+| Ícone | Tipo do arquivo |
 | Nome | Nome do arquivo |
 | Tamanho | Tamanho em KB/MB |
 | Data | Data de upload |
 | Autor | Quem enviou |
-| AÃ§Ãµes | Download, Excluir |
+| Ações | Download, Excluir |
 
 ## Upload de Arquivo
 
 <Steps>
 
-1. **Acesse o mÃ³dulo**
+1. **Acesse o módulo**
    
    Clique em **Arquivos** no menu lateral.
 
-2. **Navegue atÃ© a pasta**
+2. **Navegue até a pasta**
    
    Acesse a pasta desejada.
 
 3. **Clique em "Upload"**
    
-   BotÃ£o no canto superior direito.
+   Botão no canto superior direito.
 
 4. **Selecione o arquivo**
    
    - Clique em "Selecionar Arquivo"
-   - Ou arraste o arquivo para a Ã¡rea indicada
+   - Ou arraste o arquivo para a área indicada
 
 5. **Configure o upload**
    
    - **Nome** - Nome do arquivo
-   - **DescriÃ§Ã£o** - DescriÃ§Ã£o opcional
+   - **Descrição** - Descrição opcional
    - **Tags** - Palavras-chave para busca
-   - **VersÃ£o** - VersÃ£o do documento
+   - **Versão** - Versão do documento
 
 6. **Confirme o upload**
    
@@ -86,21 +86,21 @@ A tela mostra todos os arquivos organizados:
 
 ## Formatos Suportados
 
-| Categoria | Formatos | Tamanho MÃ¡ximo |
+| Categoria | Formatos | Tamanho Máximo |
 |-----------|----------|----------------|
 | **Documentos** | PDF, DOC, DOCX | 50 MB |
 | **Planilhas** | XLS, XLSX, CSV | 50 MB |
-| **ApresentaÃ§Ãµes** | PPT, PPTX | 50 MB |
+| **Apresentações** | PPT, PPTX | 50 MB |
 | **Imagens** | JPG, PNG, GIF, WebP | 25 MB |
-| **VÃ­deos** | MP4, AVI, MOV | 500 MB |
-| **Ãudio** | MP3, WAV | 100 MB |
+| **Vídeos** | MP4, AVI, MOV | 500 MB |
+| **Áudio** | MP3, WAV | 100 MB |
 | **Outros** | ZIP, RAR | 100 MB |
 
-## OrganizaÃ§Ã£o
+## Organização
 
 ### Criar Pasta
 
-1. Acesse a localizaÃ§Ã£o desejada
+1. Acesse a localização desejada
 2. Clique em "Nova Pasta"
 3. Digite o nome
 4. Confirme
@@ -121,29 +121,29 @@ A tela mostra todos os arquivos organizados:
 
 ## Versionamento
 
-### VersÃµes do Arquivo
+### Versões do Arquivo
 
-O sistema mantÃ©m histÃ³rico de versÃµes:
+O sistema mantém histórico de versões:
 
-| VersÃ£o | Data | Autor | Tamanho |
+| Versão | Data | Autor | Tamanho |
 |--------|------|-------|---------|
-| 3.0 | 01/08/2026 | JoÃ£o | 1,2 MB |
+| 3.0 | 01/08/2026 | João | 1,2 MB |
 | 2.0 | 15/07/2026 | Maria | 1,1 MB |
 | 1.0 | 01/07/2026 | Pedro | 1,0 MB |
 
-### Criar Nova VersÃ£o
+### Criar Nova Versão
 
 1. Selecione o arquivo
-2. Clique em "Nova VersÃ£o"
-3. FaÃ§a o upload da nova versÃ£o
-4. Adicione descriÃ§Ã£o da alteraÃ§Ã£o
+2. Clique em "Nova Versão"
+3. Faça o upload da nova versão
+4. Adicione descrição da alteração
 5. Confirme
 
-### VersÃµes Anteriores
+### Versões Anteriores
 
 1. Clique no arquivo
-2. Acesse "HistÃ³rico de VersÃµes"
-3. Baixe a versÃ£o desejada
+2. Acesse "Histórico de Versões"
+3. Baixe a versão desejada
 
 ## Busca
 
@@ -151,27 +151,27 @@ O sistema mantÃ©m histÃ³rico de versÃµes:
 
 Use a barra de busca para encontrar arquivos por:
 - Nome
-- DescriÃ§Ã£o
+- Descrição
 - Tags
 - Autor
 
-### Busca AvanÃ§ada
+### Busca Avançada
 
 Filtros adicionais:
 
-| Filtro | DescriÃ§Ã£o |
+| Filtro | Descrição |
 |--------|-----------|
 | Tipo | PDF, DOC, XLS, etc. |
 | Tamanho | Min/Max |
-| Data | PerÃ­odo |
+| Data | Período |
 | Autor | Quem enviou |
-| Pasta | LocalizaÃ§Ã£o |
+| Pasta | Localização |
 
 ## Controle de Acesso
 
-### PermissÃµes
+### Permissões
 
-| PermissÃ£o | DescriÃ§Ã£o |
+| Permissão | Descrição |
 |-----------|-----------|
 | **Visualizar** | Pode ver o arquivo |
 | **Baixar** | Pode baixar |
@@ -182,9 +182,9 @@ Filtros adicionais:
 ### Configurar Acesso
 
 1. Selecione o arquivo/pasta
-2. Clique em "PermissÃµes"
-3. Adicione usuÃ¡rios/grupos
-4. Defina as permissÃµes
+2. Clique em "Permissões"
+3. Adicione usuários/grupos
+4. Defina as permissões
 5. Salve
 
 ## Dicas
@@ -194,19 +194,10 @@ Use tags para facilitar a busca posterior. Ex: "contrato", "2026", "fornecedor".
 :::
 
 :::caution[Importante]
-NÃ£o envie arquivos com dados sensÃ­veis sem proteÃ§Ã£o. Use criptografia quando necessÃ¡rio.
+Não envie arquivos com dados sensíveis sem proteção. Use criptografia quando necessário.
 :::
 
-## PrÃ³ximo Passo
+## Próximo Passo
 
-- [PermissÃµes](/referencias/permissoes) - Controle de acesso
-- [Extras](/modulos/extras) - ConfiguraÃ§Ãµes do sistema
-
-
-
-
-
-
-
-
-
+- [Permissões](/referencias/permissoes) - Controle de acesso
+- [Extras](/modulos/extras) - Configurações do sistema

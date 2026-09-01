@@ -1,42 +1,42 @@
-﻿---
+---
 title: Compras
-description: Gestão de compras e fornecedores
+description: Gestão de compras e pedidos a fornecedores
 slug: modulos/compras
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O mÃ³dulo de Compras permite gerenciar todo o processo de compras da empresa.
+O módulo de Compras permite gerenciar todo o processo de compras da empresa.
 
 ## Funcionalidades
 
-- CotaÃ§Ã£o com fornecedores
+- Cotação com fornecedores
 - Pedidos de compra
-- AprovaÃ§Ã£o de compras
+- Aprovação de compras
 - Recebimento de mercadorias
 - Controle de fornecedores
 
 ## Fluxo de Compras
 
 ```
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ Necessidadeâ”‚â”€â–¶â”‚ CotaÃ§Ã£o  â”‚â”€â–¶â”‚ AprovaÃ§Ã£oâ”‚â”€â–¶â”‚  Pedido  â”‚
-â”‚  /        â”‚   â”‚          â”‚   â”‚          â”‚   â”‚ Compra   â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                     â”‚              â”‚              â”‚
-                     â–¼              â–¼              â–¼
-              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-              â”‚Fornecedoresâ”‚ â”‚ ValidaÃ§Ã£oâ”‚   â”‚Recebimentâ”‚
-              â”‚          â”‚   â”‚          â”‚   â”‚          â”‚
-              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│ Necessidade│─▶│ Cotação  │─▶│ Aprovação│─▶│  Pedido  │
+│  /        │   │          │   │          │   │ Compra   │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+                     │              │              │
+                     ▼              ▼              ▼
+              ┌──────────┐   ┌──────────┐   ┌──────────┐
+              │Fornecedores│ │ Validação│   │Recebiment│
+              │          │   │          │   │          │
+              └──────────┘   └──────────┘   └──────────┘
 ```
 
 ## Status da Compra
 
-| Status | Cor | DescriÃ§Ã£o |
+| Status | Cor | Descrição |
 |--------|-----|-----------|
-| **Rascunho** | Cinza | Compra em criaÃ§Ã£o |
-| **CotaÃ§Ã£o** | Amarelo | Aguardando cotaÃ§Ãµes |
+| **Rascunho** | Cinza | Compra em criação |
+| **Cotação** | Amarelo | Aguardando cotações |
 | **Aprovado** | Verde | Compra aprovada |
 | **Enviado** | Azul | Pedido enviado ao fornecedor |
 | **Recebido** | Verde | Mercadoria recebida |
@@ -46,13 +46,13 @@ O mÃ³dulo de Compras permite gerenciar todo o processo de compras da empresa.
 
 <Steps>
 
-1. **Acesse o mÃ³dulo**
+1. **Acesse o módulo**
    
    Clique em **Compras** no menu lateral.
 
 2. **Clique em "Nova Compra"**
    
-   BotÃ£o no canto superior direito.
+   Botão no canto superior direito.
 
 3. **Selecione o fornecedor**
    
@@ -63,86 +63,86 @@ O mÃ³dulo de Compras permite gerenciar todo o processo de compras da empresa.
    
    - Busque o produto
    - Informe a quantidade
-   - Defina o preÃ§o de compra
+   - Defina o preço de compra
 
 5. **Configure a compra**
    
    - **Data de entrega** desejada
-   - **CondiÃ§Ã£o de pagamento**
-   - **ObservaÃ§Ãµes**
+   - **Condição de pagamento**
+   - **Observações**
 
-6. **Envie para aprovaÃ§Ã£o**
+6. **Envie para aprovação**
    
-   Clique em "Enviar para AprovaÃ§Ã£o"
+   Clique em "Enviar para Aprovação"
 
 </Steps>
 
-## CotaÃ§Ã£o
+## Cotação
 
-### Solicitar CotaÃ§Ã£o
+### Solicitar Cotação
 
-1. Acesse **Compras â†’ CotaÃ§Ãµes**
-2. Clique em "Nova CotaÃ§Ã£o"
+1. Acesse **Compras → Cotações**
+2. Clique em "Nova Cotação"
 3. Selecione os produtos
 4. Escolha os fornecedores
-5. Envie a solicitaÃ§Ã£o
+5. Envie a solicitação
 
-### FormulÃ¡rio de CotaÃ§Ã£o
+### Formulário de Cotação
 
-| Campo | DescriÃ§Ã£o |
+| Campo | Descrição |
 |-------|-----------|
 | Fornecedor | Quem cotou |
 | Produto | Item cotado |
-| PreÃ§o UnitÃ¡rio | Valor proposto |
+| Preço Unitário | Valor proposto |
 | Prazo de Entrega | Dias para entrega |
 | Validade | Validade da proposta |
 
-### Comparar CotaÃ§Ãµes
+### Comparar Cotações
 
 O sistema compara automaticamente:
 
-| Fornecedor | Produto | PreÃ§o | Prazo | Total |
+| Fornecedor | Produto | Preço | Prazo | Total |
 |------------|---------|-------|-------|-------|
 | Fornecedor A | Widget | R$ 10 | 5 dias | R$ 1.000 |
 | Fornecedor B | Widget | R$ 12 | 3 dias | R$ 1.200 |
 | Fornecedor C | Widget | R$ 9 | 7 dias | R$ 900 |
 
-## AprovaÃ§Ã£o de Compras
+## Aprovação de Compras
 
-### Regras de AprovaÃ§Ã£o
+### Regras de Aprovação
 
-| Valor da Compra | AprovaÃ§Ã£o NecessÃ¡ria |
+| Valor da Compra | Aprovação Necessária |
 |-----------------|---------------------|
-| AtÃ© R$ 2.000 | AutomÃ¡tica |
+| Até R$ 2.000 | Automática |
 | R$ 2.000 - R$ 10.000 | Gerente |
 | R$ 10.000 - R$ 50.000 | Diretor |
 | Acima de R$ 50.000 | Diretoria |
 
-### Processo de AprovaÃ§Ã£o
+### Processo de Aprovação
 
-1. Acesse **Compras â†’ Pendentes**
+1. Acesse **Compras → Pendentes**
 2. Clique na compra
 3. Revise itens e valores
 4. Aprove ou rejeite
-5. Adicione observaÃ§Ã£o
+5. Adicione observação
 
 ## Fornecedores
 
 ### Cadastro de Fornecedor
 
-1. Acesse **Compras â†’ Fornecedores**
+1. Acesse **Compras → Fornecedores**
 2. Clique em "Novo Fornecedor"
 3. Preencha os dados:
-   - RazÃ£o social
+   - Razão social
    - CNPJ
-   - EndereÃ§o
+   - Endereço
    - Contato
-   - Dados bancÃ¡rios
+   - Dados bancários
 4. Salve
 
-### ClassificaÃ§Ã£o de Fornecedores
+### Classificação de Fornecedores
 
-| ClassificaÃ§Ã£o | CritÃ©rio |
+| Classificação | Critério |
 |---------------|----------|
 | **A** | Entrega pontual, qualidade |
 | **B** | Bom desempenho geral |
@@ -152,23 +152,14 @@ O sistema compara automaticamente:
 ## Dicas
 
 :::tip[Dica]
-Use a cotaÃ§Ã£o para comparar preÃ§os e escolher a melhor opÃ§Ã£o.
+Use a cotação para comparar preços e escolher a melhor opção.
 :::
 
 :::caution[Importante]
-Verifique o histÃ³rico do fornecedor antes de aprovar uma compra.
+Verifique o histórico do fornecedor antes de aprovar uma compra.
 :::
 
-## PrÃ³ximo Passo
+## Próximo Passo
 
 - [Recebimento](/modulos/recebimento) - Receber mercadorias
 - [Fluxo de Compras](/fluxos/fluxo-compras) - Fluxo completo
-
-
-
-
-
-
-
-
-

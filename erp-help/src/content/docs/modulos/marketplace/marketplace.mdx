@@ -1,37 +1,37 @@
-﻿---
+---
 title: Marketplace
-description: Integração com marketplaces
+description: Integração com plataformas de venda online
 slug: modulos/marketplace
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O mÃ³dulo de Marketplace permite integrar o ERP com plataformas de venda online.
+O módulo de Marketplace permite integrar o ERP com plataformas de venda online.
 
 ## Funcionalidades
 
-- IntegraÃ§Ã£o com marketplaces
-- SincronizaÃ§Ã£o de produtos
-- ImportaÃ§Ã£o de pedidos
-- AtualizaÃ§Ã£o de estoque
+- Integração com marketplaces
+- Sincronização de produtos
+- Importação de pedidos
+- Atualização de estoque
 - Tracking de vendas
 
 ## Marketplaces Suportados
 
-| Marketplace | SincronizaÃ§Ã£o | Status |
+| Marketplace | Sincronização | Status |
 |-------------|---------------|--------|
-| **Mercado Livre** | âœ… Completa | Ativo |
-| **Shopee** | âœ… Completa | Ativo |
-| **Amazon** | âœ… Completa | Ativo |
-| **Magazine Luiza** | âœ… Parcial | Em desenvolvimento |
-| **Americanas** | âœ… Parcial | Em desenvolvimento |
-| **AliExpress** | âŒ NÃ£o suportado | - |
+| **Mercado Livre** | ✅ Completa | Ativo |
+| **Shopee** | ✅ Completa | Ativo |
+| **Amazon** | ✅ Completa | Ativo |
+| **Magazine Luiza** | ✅ Parcial | Em desenvolvimento |
+| **Americanas** | ✅ Parcial | Em desenvolvimento |
+| **AliExpress** | ❌ Não suportado | - |
 
-## Configurar IntegraÃ§Ã£o
+## Configurar Integração
 
 <Steps>
 
-1. **Acesse o mÃ³dulo**
+1. **Acesse o módulo**
    
    Clique em **Marketplace** no menu lateral.
 
@@ -48,50 +48,50 @@ O mÃ³dulo de Marketplace permite integrar o ERP com plataformas de venda onlin
 
 4. **Mapeie os dados**
    
-   Configure como os dados serÃ£o sincronizados:
-   - Produtos â†’ AnÃºncios
-   - Estoque â†’ Disponibilidade
-   - PreÃ§os â†’ PreÃ§os de venda
-   - Pedidos â†’ Vendas
+   Configure como os dados serão sincronizados:
+   - Produtos → Anúncios
+   - Estoque → Disponibilidade
+   - Preços → Preços de venda
+   - Pedidos → Vendas
 
-5. **Teste a integraÃ§Ã£o**
+5. **Teste a integração**
    
-   Clique em "Testar ConexÃ£o" para verificar.
+   Clique em "Testar Conexão" para verificar.
 
-6. **Ative a integraÃ§Ã£o**
+6. **Ative a integração**
    
-   Clique em "Ativar" para iniciar a sincronizaÃ§Ã£o.
+   Clique em "Ativar" para iniciar a sincronização.
 
 </Steps>
 
-## SincronizaÃ§Ã£o de Produtos
+## Sincronização de Produtos
 
-### O que Ã© sincronizado
+### O que é sincronizado
 
-| Dados | DireÃ§Ã£o | FrequÃªncia |
+| Dados | Direção | Frequência |
 |-------|---------|------------|
-| Produtos | ERP â†’ Marketplace | A cada 15 min |
-| Estoque | ERP â†’ Marketplace | A cada 5 min |
-| PreÃ§os | ERP â†’ Marketplace | A cada 15 min |
-| Pedidos | Marketplace â†’ ERP | A cada 10 min |
+| Produtos | ERP → Marketplace | A cada 15 min |
+| Estoque | ERP → Marketplace | A cada 5 min |
+| Preços | ERP → Marketplace | A cada 15 min |
+| Pedidos | Marketplace → ERP | A cada 10 min |
 | Status | Bidirecional | A cada 15 min |
 
 ### Mapeamento de Produtos
 
 | Campo ERP | Campo Marketplace |
 |-----------|-------------------|
-| SKU | ID do anÃºncio |
-| Nome | TÃ­tulo do anÃºncio |
-| DescriÃ§Ã£o | DescriÃ§Ã£o |
-| PreÃ§o | PreÃ§o de venda |
-| Estoque | Quantidade disponÃ­vel |
-| Imagens | Fotos do anÃºncio |
+| SKU | ID do anúncio |
+| Nome | Título do anúncio |
+| Descrição | Descrição |
+| Preço | Preço de venda |
+| Estoque | Quantidade disponível |
+| Imagens | Fotos do anúncio |
 
 ## Pedidos do Marketplace
 
 ### Visualizar Pedidos
 
-1. Acesse **Marketplace â†’ Pedidos**
+1. Acesse **Marketplace → Pedidos**
 2. Filtre por marketplace
 3. Veja os pedidos importados
 
@@ -99,71 +99,62 @@ O mÃ³dulo de Marketplace permite integrar o ERP com plataformas de venda onlin
 
 | Status Marketplace | Status ERP |
 |-------------------|------------|
-| Pago | ðŸŸ¢ Aprovado |
-| Enviado | ðŸšš Enviado |
-| Entregue | âœ… ConcluÃ­do |
-| Cancelado | âŒ Cancelado |
+| Pago | 🟢 Aprovado |
+| Enviado | 🚚 Enviado |
+| Entregue | ✅ Concluído |
+| Cancelado | ❌ Cancelado |
 
-## ConfiguraÃ§Ãµes
+## Configurações
 
-### Regras de SincronizaÃ§Ã£o
+### Regras de Sincronização
 
-| Regra | DescriÃ§Ã£o |
+| Regra | Descrição |
 |-------|-----------|
-| Estoque MÃ­nimo | Sincronizar apenas acima do mÃ­nimo |
-| PreÃ§o MÃ­nimo | NÃ£o baixar abaixo do mÃ­nimo |
-| Ativar Automaticamente | Novos produtos vÃ£o para o marketplace |
-| Desativar Sem Estoque | Desativar anÃºncios sem estoque |
+| Estoque Mínimo | Sincronizar apenas acima do mínimo |
+| Preço Mínimo | Não baixar abaixo do mínimo |
+| Ativar Automaticamente | Novos produtos vão para o marketplace |
+| Desativar Sem Estoque | Desativar anúncios sem estoque |
 
-### HorÃ¡rios de SincronizaÃ§Ã£o
+### Horários de Sincronização
 
 ```
-â° SincronizaÃ§Ã£o AutomÃ¡tica
-â”œâ”€â”€ Produtos: A cada 15 minutos
-â”œâ”€â”€ Estoque: A cada 5 minutos
-â”œâ”€â”€ Pedidos: A cada 10 minutos
-â””â”€â”€ Status: A cada 15 minutos
+⏰ Sincronização Automática
+├── Produtos: A cada 15 minutos
+├── Estoque: A cada 5 minutos
+├── Pedidos: A cada 10 minutos
+└── Status: A cada 15 minutos
 ```
 
 ## Dashboard
 
 O dashboard mostra:
 
-- ðŸ“Š Vendas por marketplace
-- ðŸ’° Receita total
-- ðŸ“¦ Pedidos pendentes
-- ðŸ”„ Taxa de sincronizaÃ§Ã£o
-- âš ï¸ Erros de integraÃ§Ã£o
+- 📊 Vendas por marketplace
+- 💰 Receita total
+- 📦 Pedidos pendentes
+- 🔄 Taxa de sincronização
+- ⚠️ Erros de integração
 
 ## Erros Comuns
 
-| Erro | Causa | SoluÃ§Ã£o |
+| Erro | Causa | Solução |
 |------|-------|---------|
-| **Credenciais invÃ¡lidas** | Token expirado | Renovar token |
-| **Estoque desatualizado** | Falha na sincronizaÃ§Ã£o | Verificar conexÃ£o |
-| **Pedido nÃ£o importado** | Erro de mapeamento | Revisar configuraÃ§Ã£o |
-| **Produto nÃ£o publicado** | Dados incompletos | Completar dados |
+| **Credenciais inválidas** | Token expirado | Renovar token |
+| **Estoque desatualizado** | Falha na sincronização | Verificar conexão |
+| **Pedido não importado** | Erro de mapeamento | Revisar configuração |
+| **Produto não publicado** | Dados incompletos | Completar dados |
 
 ## Dicas
 
 :::tip[Dica]
-Monitore o dashboard diariamente para garantir que tudo estÃ¡ sincronizado corretamente.
+Monitore o dashboard diariamente para garantir que tudo está sincronizado corretamente.
 :::
 
 :::caution[Importante]
 Mantenha o estoque atualizado no ERP para evitar vendas acima do estoque.
 :::
 
-## PrÃ³ximo Passo
+## Próximo Passo
 
-- [ConfiguraÃ§Ã£o Marketplace](/integracoes/marketplace-config) - Guia completo de configuraÃ§Ã£o
+- [Configuração Marketplace](/integracoes/marketplace-config) - Guia completo de configuração
 - [Pedidos](/modulos/pedidos) - Gerenciar pedidos importados
-
-
-
-
-
-
-
-
-

@@ -1,19 +1,19 @@
-﻿---
+---
 title: Clientes
-description: Gestão de clientes e cadastros
+description: Cadastro e gestão de clientes
 slug: modulos/clientes
 ---
 
 import { Steps, Aside } from '@astrojs/starlight/components';
 
-O mÃ³dulo de Clientes permite gerenciar todo o cadastro de clientes da empresa.
+O módulo de Clientes permite gerenciar todo o cadastro de clientes da empresa.
 
 ## Funcionalidades
 
 - Cadastro completo de clientes
-- HistÃ³rico de compras
-- Limites de crÃ©dito
-- ClassificaÃ§Ã£o (ativo, inativo, devedor)
+- Histórico de compras
+- Limites de crédito
+- Classificação (ativo, inativo, devedor)
 - Documentos anexos
 
 ## Tela Principal
@@ -22,14 +22,14 @@ A tela de listagem mostra todos os clientes com:
 
 - **Busca** - Por nome, CPF/CNPJ, e-mail
 - **Filtros** - Por status, tipo, cidade
-- **OrdenaÃ§Ã£o** - Por nome, data de cadastro
-- **AÃ§Ãµes** - Editar, excluir, historico
+- **Ordenação** - Por nome, data de cadastro
+- **Ações** - Editar, excluir, historico
 
 ### Colunas da Tabela
 
-| Coluna | DescriÃ§Ã£o |
+| Coluna | Descrição |
 |--------|-----------|
-| Nome | RazÃ£o social ou nome |
+| Nome | Razão social ou nome |
 | CPF/CNPJ | Documento fiscal |
 | E-mail | E-mail de contato |
 | Telefone | Telefone principal |
@@ -40,43 +40,43 @@ A tela de listagem mostra todos os clientes com:
 
 <Steps>
 
-1. **Acesse o mÃ³dulo**
+1. **Acesse o módulo**
    
    Clique em **Clientes** no menu lateral.
 
 2. **Clique em "Novo Cliente"**
    
-   BotÃ£o no canto superior direito.
+   Botão no canto superior direito.
 
 3. **Selecione o tipo**
    
-   - **Pessoa FÃ­sica** - CPF
-   - **Pessoa JurÃ­dica** - CNPJ
+   - **Pessoa Física** - CPF
+   - **Pessoa Jurídica** - CNPJ
 
 4. **Preencha os dados pessoais**
    
-   - Nome completo / RazÃ£o social
+   - Nome completo / Razão social
    - CPF / CNPJ
    - E-mail
    - Telefone
    - Data de nascimento (PF)
 
-5. **Preencha o endereÃ§o**
+5. **Preencha o endereço**
    
-   - CEP (preenchimento automÃ¡tico)
+   - CEP (preenchimento automático)
    - Logradouro
-   - NÃºmero
+   - Número
    - Complemento
    - Bairro
    - Cidade
    - Estado
 
-6. **Configure informaÃ§Ãµes adicionais**
+6. **Configure informações adicionais**
    
-   - Limite de crÃ©dito
-   - CondiÃ§Ã£o de pagamento
-   - Vendedor responsÃ¡vel
-   - ObservaÃ§Ãµes
+   - Limite de crédito
+   - Condição de pagamento
+   - Vendedor responsável
+   - Observações
 
 7. **Salve o cliente**
    
@@ -88,87 +88,78 @@ A tela de listagem mostra todos os clientes com:
 
 ### Dados Cadastrais
 
-| Campo | ObrigatÃ³rio | DescriÃ§Ã£o |
+| Campo | Obrigatório | Descrição |
 |-------|-------------|-----------|
-| Nome | âœ… | Nome completo ou razÃ£o social |
-| CPF/CNPJ | âœ… | Documento (validaÃ§Ã£o automÃ¡tica) |
-| E-mail | âœ… | E-mail principal |
-| Telefone | âŒ | Telefone de contato |
-| Tipo | âœ… | Pessoa FÃ­sica ou JurÃ­dica |
+| Nome | ✅ | Nome completo ou razão social |
+| CPF/CNPJ | ✅ | Documento (validação automática) |
+| E-mail | ✅ | E-mail principal |
+| Telefone | ❌ | Telefone de contato |
+| Tipo | ✅ | Pessoa Física ou Jurídica |
 
-### EndereÃ§o
+### Endereço
 
-| Campo | ObrigatÃ³rio | DescriÃ§Ã£o |
+| Campo | Obrigatório | Descrição |
 |-------|-------------|-----------|
-| CEP | âœ… | Preenche endereÃ§o automaticamente |
-| Logradouro | âœ… | Rua, avenida, etc. |
-| NÃºmero | âœ… | NÃºmero do endereÃ§o |
-| Complemento | âŒ | Sala, andar, etc. |
-| Bairro | âœ… | Bairro |
-| Cidade | âœ… | Cidade |
-| Estado | âœ… | UF |
+| CEP | ✅ | Preenche endereço automaticamente |
+| Logradouro | ✅ | Rua, avenida, etc. |
+| Número | ✅ | Número do endereço |
+| Complemento | ❌ | Sala, andar, etc. |
+| Bairro | ✅ | Bairro |
+| Cidade | ✅ | Cidade |
+| Estado | ✅ | UF |
 
-### InformaÃ§Ãµes Comerciais
+### Informações Comerciais
 
-| Campo | DescriÃ§Ã£o |
+| Campo | Descrição |
 |-------|-----------|
-| Limite de CrÃ©dito | Valor mÃ¡ximo de crÃ©dito |
+| Limite de Crédito | Valor máximo de crédito |
 | Saldo Devedor | Valor em aberto |
-| CondiÃ§Ã£o de Pagamento | Prazo de pagamento |
-| Vendedor | Vendedor responsÃ¡vel |
-| ClassificaÃ§Ã£o | A, B, C, D |
+| Condição de Pagamento | Prazo de pagamento |
+| Vendedor | Vendedor responsável |
+| Classificação | A, B, C, D |
 
-## ClassificaÃ§Ã£o de Clientes
+## Classificação de Clientes
 
-| ClassificaÃ§Ã£o | CritÃ©rio | AÃ§Ã£o |
+| Classificação | Critério | Ação |
 |---------------|----------|------|
-| **A** | Compras frequentes, em dia | Prioridade mÃ¡xima |
-| **B** | Compras regulares | AtenÃ§Ã£o normal |
+| **A** | Compras frequentes, em dia | Prioridade máxima |
+| **B** | Compras regulares | Atenção normal |
 | **C** | Poucas compras | Estimular compras |
 | **D** | Inadimplentes | Bloquear vendas |
 
-## HistÃ³rico de Compras
+## Histórico de Compras
 
-Acesse o histÃ³rico completo do cliente:
+Acesse o histórico completo do cliente:
 
 1. Clique no cliente desejado
-2. Acesse a aba "HistÃ³rico"
+2. Acesse a aba "Histórico"
 3. Visualize:
    - Todos os pedidos
    - Valor total gasto
-   - FrequÃªncia de compras
-   - Ãšltima compra
+   - Frequência de compras
+   - Última compra
 
-## AÃ§Ãµes RÃ¡pidas
+## Ações Rápidas
 
-| Ãcone | AÃ§Ã£o | DescriÃ§Ã£o |
+| Ícone | Ação | Descrição |
 |-------|------|-----------|
-| âœï¸ | Editar | Dados cadastrais |
-| ðŸ“ž | Contato | LigaÃ§Ãµes e e-mails |
-| ðŸ“‹ | Pedidos | Lista de pedidos |
-| ðŸ’° | Financeiro | Contas a receber |
-| ðŸ“„ | Documentos | Notas fiscais |
+| ✏️ | Editar | Dados cadastrais |
+| 📞 | Contato | Ligações e e-mails |
+| 📋 | Pedidos | Lista de pedidos |
+| 💰 | Financeiro | Contas a receber |
+| 📄 | Documentos | Notas fiscais |
 
 ## Dicas
 
 :::tip[Dica]
-Use o CEP para preenchimento automÃ¡tico do endereÃ§o. Isso evita erros de digitaÃ§Ã£o.
+Use o CEP para preenchimento automático do endereço. Isso evita erros de digitação.
 :::
 
 :::caution[Importante]
-Antes de excluir um cliente, verifique se hÃ¡ pedidos ou pendÃªncias financeiras.
+Antes de excluir um cliente, verifique se há pedidos ou pendências financeiras.
 :::
 
-## PrÃ³ximo Passo
+## Próximo Passo
 
 - [Pedidos](/modulos/pedidos) - Criar pedidos para o cliente
 - [Fluxo de Vendas](/fluxos/processar-venda) - Processar venda completa
-
-
-
-
-
-
-
-
-
