@@ -47,6 +47,13 @@ export default defineConfig({
             { label: '📋 Pedidos', slug: 'modulos/pedidos' },
             { label: '🏭 Produção', slug: 'modulos/producao' },
             { label: '🚚 Expedição', slug: 'modulos/expedicao' },
+            {
+              label: '📄 NFe Débitos',
+              collapsed: true,
+              items: [
+                { label: 'NF-e Multa e Juros', slug: 'modulos/nfe-debitos/nfe-multa-juros' },
+              ],
+            },
             { label: '🛒 Compras', slug: 'modulos/compras' },
             { label: '📥 Recebimento', slug: 'modulos/recebimento' },
             { label: '👤 Pessoas', slug: 'modulos/pessoas' },

@@ -1,0 +1,146 @@
+---
+title: NF-e Multa e Juros
+description: Emissão de Nota Fiscal de Débito por Multa e Juros Recebidos
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Este manual apresenta o passo a passo para emissão da Nota Fiscal de Débito referente a Multa e Juros Recebidos.
+
+## Pré-requisitos
+
+<Aside type="caution" title="Importante">
+Antes de iniciar, certifique-se de ter acesso ao módulo de **Expedição** e permissões para cadastro de CFOPs e parametrização de operações.
+</Aside>
+
+## Passo 1 - Cadastrar CFOPs 5.949 e 6.949
+
+Acesse o cadastro de **Natureza de Operação** e cadastre os CFOPs **5.949** e **6.949**.
+
+<Aside type="tip" title="Dica">
+Se já existir o cadastro, você pode adicionar ao final do CFOP o caractere `/` seguido de um número. Exemplo: `5.949/12`
+</Aside>
+
+### Configuração da Natureza de Operação
+
+Configure conforme as especificações abaixo:
+
+| Campo | Valor |
+|-------|-------|
+| **Código** | 5.949 ou 6.949 |
+| **Descrição da Natureza de Operação** | NOTA DE DEBITO DE MULTA E JUROS |
+| **Tipo de Operação** | Saída |
+| **Tipo de Movimento** | 99 - Geral |
+| **Movimentação** | Geral |
+
+### Aba "Geral"
+
+Nenhum checkbox deve estar marcado:
+
+- [ ] Movimentar Estoque
+- [ ] Gerar cobrança (Títulos)
+- [ ] Permitir NFe sem Quantidade
+- [ ] Operação Triangular
+- [ ] Imprimir DN Ref Tributável
+
+### Tributações
+
+| Tribuição | Configuração |
+|-----------|--------------|
+| **ICMS** | Sem tributação |
+| **IPI** | Sem tributação |
+| **PIS/COFINS** | Sem tributação |
+
+<Aside type="danger" title="Atenção">
+A nota deve ser criada **sem movimentar estoque**, **sem gerar cobrança** e **sem nenhuma tributação**.
+</Aside>
+
+## Passo 2 - Acessar Dados da Empresa
+
+1. Acesse o menu **Extras**
+2. Clique em **Dados da Empresa**
+3. Abra o cadastro da empresa que será utilizada
+
+```
+Extras → Dados da Empresa → [Selecionar Empresa]
+```
+
+## Passo 3 - Parametrização de Operações
+
+Acesse a parametrização para definir os CFOPs de multa e juros:
+
+1. Acesse **NF-e → Tributação → Parametrização de Operações**
+2. Localize a seção **Notas de Multa e Juros**
+3. Configure os CFOPs na coluna **Débito**:
+
+| Campo | CFOP |
+|-------|------|
+| **CFOP Intraestadual** | 5.949 |
+| **CFOP Interestadual** | 6.949 |
+
+4. Clique em **Alterar** para salvar as configurações
+
+```
+NF-e → Tributação → Parametrização de Operações
+```
+
+## Passo 4 - Gerar NF-e de Multa e Juros
+
+### 4.1 Acessar a Nota Fiscal
+
+1. Acesse o módulo **Expedição**
+2. Abra a nota que deseja gerar a NF de multa ou juros
+3. Clique no ícone indicado na barra de ferramentas
+
+### 4.2 Selecionar Tipo
+
+1. Clique no ícone de **NF-e Multa e Juro**
+2. Será exibido um menu com a opção
+
+### 4.3 Definir o Valor
+
+1. No campo **Multa e/ou Juro R$**, informe o valor desejado
+2. Clique em **OK**
+
+### 4.4 Finalizar
+
+<Steps>
+
+1. **Geração automática**
+   
+   O sistema irá gerar automaticamente a NF-e de multa e juros.
+
+2. **Liberar XML**
+   
+   Acesse a NF-e gerada e faça a liberação do XML.
+
+3. **Aprovar NF-e**
+   
+   Após a liberação, aprove a NF-e para finalizar o processo.
+
+</Steps>
+
+## Resumo do Fluxo
+
+```
+┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│  Cadastrar   │───▶│   Acessar    │───▶│ Parametrizar │───▶│    Gerar     │
+│  CFOPs       │    │  Empresa     │    │  Operações   │    │   NF-e       │
+│  5.949/6.949 │    │              │    │              │    │              │
+└──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
+```
+
+## Dicas
+
+:::tip[Dica]
+Utilize o caractere `/` para criar variações do CFOP caso já exista o cadastro padrão.
+:::
+
+:::caution[Importante]
+Sempre verifique se a nota foi configurada **sem tributação** e **sem movimentação de estoque** antes de gerar a NF-e.
+:::
+
+## Próximo Passo
+
+- [Expedição](/modulos/expedicao) - Ver todos os recursos do módulo
+- [Fluxo de Expedição](/fluxos/expedir-pedido) - Fluxo completo de expedição
