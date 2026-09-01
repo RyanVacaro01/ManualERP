@@ -10,9 +10,7 @@ export default defineConfig({
         src: './src/content/assets/logos/logo.png',
         alt: 'Logo ERP',
       },
-      social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/seu-usuario/erp-help' },
-      ],
+      
       editLink: {
         baseUrl: 'https://github.com/seu-usuario/erp-help/edit/main/',
       },
