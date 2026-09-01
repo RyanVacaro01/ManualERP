@@ -1,0 +1,120 @@
+---
+title: Cadastro de Produto
+description: Fluxo completo de cadastro de produto
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Este guia apresenta o fluxo completo para cadastrar um novo produto no sistema.
+
+## Pré-requisitos
+
+- ✅ Acesso ao módulo de Produtos
+- ✅ Permissão de cadastro
+- ✅ Dados do produto disponíveis
+
+## Fluxo Completo
+
+<Steps>
+
+1. **Preparar informações**
+   
+   Antes de iniciar, tenha em mãos:
+   - Nome do produto
+   - SKU (ou deixe o sistema gerar)
+   - Descrição detalhada
+   - Categoria
+   - Preço de custo e venda
+   - Estoque inicial
+   - Imagens (mínimo 1)
+
+2. **Acessar o módulo**
+   
+   - Clique em **Produtos** no menu lateral
+   - Clique em **"Novo Produto"**
+
+3. **Preencher dados básicos**
+   
+   | Campo | Obrigatório | Dica |
+   |-------|-------------|------|
+   | Nome | ✅ | Use nome claro e descritivo |
+   | SKU | ✅ | Gere automaticamente ou use padrão |
+   | Descrição | ✅ | Detalhe características |
+   | Categoria | ✅ | Selecione a mais específica |
+
+4. **Configurar preços**
+   
+   | Campo | Descrição |
+   |-------|-----------|
+   | Preço de Custo | Valor pago ao fornecedor |
+   | Preço de Venda | Valor cobrado do cliente |
+   | Margem | Calculada automaticamente |
+   | Preço Promocional | Valor em promoção (opcional) |
+
+5. **Adicionar imagens**
+   
+   - Clique em **"Adicionar Imagem"**
+   - Selecione arquivos JPG, PNG ou WebP
+   - Arraste para reordenar
+   - A primeira imagem será a principal
+
+6. **Configurar estoque**
+   
+   | Campo | Descrição |
+   |-------|-----------|
+   | Quantidade | Estoque disponível |
+   | Ponto de Reposição | Limite para alerta |
+   | Unidade | kg, un, lt, etc. |
+
+7. **Configurações adicionais**
+   
+   - **Peso** - Para cálculo de frete
+   - **Dimensões** - Altura, largura, profundidade
+   - **NCM** - Nomenclatura Comum
+   - **Código de Barras** - GTIN/EAN
+
+8. **Revisar e salvar**
+   
+   - Revise todas as informações
+   - Verifique se está correto
+   - Clique em **"Salvar"**
+
+</Steps>
+
+## Pós-Cadastro
+
+Após salvar, verifique:
+
+- [ ] Produto aparece na listagem
+- [ ] Imagens estão corretas
+- [ ] Preço está correto
+- [ ] Estoque está correto
+- [ ] Categoria está correta
+
+## Erros Comuns
+
+| Erro | Causa | Solução |
+|------|-------|---------|
+| SKU duplicado | Já existe produto com esse SKU | Use SKU diferente ou gere automático |
+| Imagem não carrega | Formato inválido | Use JPG, PNG ou WebP |
+| Estoque negativo | Quantidade incorreta | Verifique o valor informado |
+| Categoria inválida | Categoria não existe | Crie a categoria antes |
+
+## Dicas
+
+:::tip[Dica]
+Use o SKU automático para evitar duplicidade. O sistema gera um código único.
+:::
+
+:::tip[Dica]
+Adicione todas as imagens necessárias. Produtos com mais imagens vendem mais.
+:::
+
+:::caution[Importante]
+Verifique o preço de venda antes de salvar. É mais fácil corrigir agora do que depois.
+:::
+
+## Próximo Passo
+
+- [Produtos](/modulos/produtos) - Ver todos os recursos do módulo
+- [Criar Pedido](/fluxos/criar-pedido) - Usar o produto em um pedido

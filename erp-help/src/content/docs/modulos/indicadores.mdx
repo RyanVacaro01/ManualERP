@@ -1,0 +1,205 @@
+---
+title: Indicadores
+description: Dashboards e relatórios de desempenho
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+O módulo de Indicadores permite visualizar métricas e relatórios do negócio.
+
+## Funcionalidades
+
+- Dashboards em tempo real
+- Relatórios personalizados
+- Metas e acompanhamento
+- Exportação de dados
+- Alertas automáticos
+
+## Dashboard Principal
+
+O dashboard mostra as principais métricas:
+
+```
+┌─────────────────────────────────────────────────────┐
+│  📊 Dashboard - Resumo                             │
+├─────────────────────────────────────────────────────┤
+│  💰 Vendas Hoje        │  📦 Pedidos Hoje         │
+│  R$ 12.450,00          │  23 pedidos               │
+│  ▲ 12% vs ontem        │  ▲ 8% vs ontem           │
+├─────────────────────────────────────────────────────┤
+│  📈 Meta Mensal        │  🔄 Estoque Baixo         │
+│  78% da meta           │  5 produtos               │
+│  R$ 156.000 / R$ 200.000│ ⚠️ Atenção              │
+└─────────────────────────────────────────────────────┘
+```
+
+## Métricas Disponíveis
+
+### Vendas
+
+| Métrica | Descrição |
+|---------|-----------|
+| Vendas do Dia | Valor vendido hoje |
+| Vendas do Mês | Valor vendido no mês |
+| Ticket Médio | Valor médio por pedido |
+| Nº de Pedidos | Quantidade de pedidos |
+| Conversão | Visitantes → Vendas |
+
+### Estoque
+
+| Métrica | Descrição |
+|---------|-----------|
+| Valor em Estoque | Valor total do estoque |
+| Itens Estoque Baixo | Produtos abaixo do mínimo |
+| Giro de Estoque | Velocidade de saída |
+| Dias de Estoque | Cobertura em dias |
+
+### Financeiro
+
+| Métrica | Descrição |
+|---------|-----------|
+| Receita | Valor recebido |
+| Despesas | Valor gasto |
+| Lucro Líquido | Receita - Despesas |
+| Margem | Percentual de lucro |
+| Fluxo de Caixa | Entradas - Saídas |
+
+### Produção
+
+| Métrica | Descrição |
+|---------|-----------|
+| Ordens Ativas | Em produção |
+| Produção do Dia | Unidades produzidas |
+| Qualidade | % de aprovação |
+| Eficiência | Meta vs Real |
+
+## Relatórios
+
+### Relatórios Prontos
+
+| Relatório | Descrição | Período |
+|-----------|-----------|---------|
+| Vendas | Resumo de vendas | Diário/Semanal/Mensal |
+| Estoque | Posição de estoque | Atual |
+| Financeiro | Fluxo de caixa | Mensal |
+| Produção | Desempenho | Mensal |
+| Clientes | Ranking | Mensal |
+
+### Criar Relatório Personalizado
+
+<Steps>
+
+1. **Acesse o módulo**
+   
+   Clique em **Indicadores** no menu lateral.
+
+2. **Clique em "Novo Relatório"**
+   
+   Botão no canto superior direito.
+
+3. **Selecione os dados**
+   
+   - Tabela de origem
+   - Campos desejados
+   - Filtros
+   - Período
+
+4. **Configure a visualização**
+   
+   - Tipo de gráfico
+   - Ordenação
+   - Agrupamento
+
+5. **Salve o relatório**
+   
+   Dê um nome e salve para reutilizar.
+
+</Steps>
+
+## Gráficos Disponíveis
+
+| Tipo | Uso Recomendado |
+|------|-----------------|
+| 📊 Barras | Comparar valores |
+| 📈 Linha | Evolução temporal |
+| 🥧 Pizza | Proporções |
+| 🎯 KPI | Indicador único |
+| 📋 Tabela | Dados detalhados |
+
+## Metas
+
+### Configurar Meta
+
+1. Acesse **Indicadores → Metas**
+2. Clique em "Nova Meta"
+3. Configure:
+   - Nome da meta
+   - Tipo (vendas, produção, etc.)
+   - Valor alvo
+   - Período
+4. Salve
+
+### Acompanhar Meta
+
+O sistema mostra progresso em tempo real:
+
+```
+Meta de Vendas Mensal
+┌─────────────────────────────────────────┐
+│  ████████████████████░░░░  78%         │
+│  R$ 156.000 / R$ 200.000               │
+│  Restam 8 dias                          │
+└─────────────────────────────────────────┘
+```
+
+## Alertas
+
+### Tipos de Alerta
+
+| Alerta | Condição |
+|--------|----------|
+| 🔴 Estoque Baixo | Abaixo do ponto de reposição |
+| 🟡 Meta em Risco | Menos de 50% com metade do período |
+| 🟢 Venda Alta | Acima da média |
+| 🔵 Sistema | Atualizações disponíveis |
+
+### Configurar Alertas
+
+1. Acesse **Indicadores → Alertas**
+2. Selecione o tipo
+3. Configure as condições
+4. Defina o destinatário
+5. Ative
+
+## Exportação
+
+### Formatos Disponíveis
+
+| Formato | Uso |
+|---------|-----|
+| **PDF** | Relatórios formatados |
+| **Excel** | Análise de dados |
+| **CSV** | Importação em outros sistemas |
+| **Imagem** | Gráficos para apresentação |
+
+### Exportar
+
+1. Selecione o relatório
+2. Clique em "Exportar"
+3. Escolha o formato
+4. Clique em "Baixar"
+
+## Dicas
+
+:::tip[Dica]
+Configure os alertas para ser notificado proativamente sobre problemas.
+:::
+
+:::caution[Importante]
+Revise os indicadores semanalmente para tomar decisões baseadas em dados.
+:::
+
+## Próximo Passo
+
+- [Custos](/modulos/custos) - Análise detalhada de custos
+- [Pedidos](/modulos/pedidos) - Detalhes de vendas

@@ -1,0 +1,202 @@
+---
+title: Arquivos
+description: Gestão de documentos e arquivos anexos
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+O módulo de Arquivos permite gerenciar todos os documentos e anexos do sistema.
+
+## Funcionalidades
+
+- Upload de documentos
+- Organização em pastas
+- Versionamento
+- Controle de acesso
+- Busca avançada
+
+## Estrutura de Pastas
+
+```
+📁 Arquivos
+├── 📁 Documentos Fiscais
+│   ├── NF-e
+│   ├── CT-e
+│   └── NFS-e
+├── 📁 Contratos
+│   ├── Fornecedores
+│   └── Clientes
+├── 📁 Relatórios
+│   ├── Financeiros
+│   ├── Estoque
+│   └── Vendas
+├── 📁 Imagens
+│   ├── Produtos
+│   └── Marketing
+└── 📁 Diversos
+```
+
+## Tela Principal
+
+A tela mostra todos os arquivos organizados:
+
+| Coluna | Descrição |
+|--------|-----------|
+| Ícone | Tipo do arquivo |
+| Nome | Nome do arquivo |
+| Tamanho | Tamanho em KB/MB |
+| Data | Data de upload |
+| Autor | Quem enviou |
+| Ações | Download, Excluir |
+
+## Upload de Arquivo
+
+<Steps>
+
+1. **Acesse o módulo**
+   
+   Clique em **Arquivos** no menu lateral.
+
+2. **Navegue até a pasta**
+   
+   Acesse a pasta desejada.
+
+3. **Clique em "Upload"**
+   
+   Botão no canto superior direito.
+
+4. **Selecione o arquivo**
+   
+   - Clique em "Selecionar Arquivo"
+   - Ou arraste o arquivo para a área indicada
+
+5. **Configure o upload**
+   
+   - **Nome** - Nome do arquivo
+   - **Descrição** - Descrição opcional
+   - **Tags** - Palavras-chave para busca
+   - **Versão** - Versão do documento
+
+6. **Confirme o upload**
+   
+   Clique em "Enviar" para concluir.
+
+</Steps>
+
+## Formatos Suportados
+
+| Categoria | Formatos | Tamanho Máximo |
+|-----------|----------|----------------|
+| **Documentos** | PDF, DOC, DOCX | 50 MB |
+| **Planilhas** | XLS, XLSX, CSV | 50 MB |
+| **Apresentações** | PPT, PPTX | 50 MB |
+| **Imagens** | JPG, PNG, GIF, WebP | 25 MB |
+| **Vídeos** | MP4, AVI, MOV | 500 MB |
+| **Áudio** | MP3, WAV | 100 MB |
+| **Outros** | ZIP, RAR | 100 MB |
+
+## Organização
+
+### Criar Pasta
+
+1. Acesse a localização desejada
+2. Clique em "Nova Pasta"
+3. Digite o nome
+4. Confirme
+
+### Mover Arquivo
+
+1. Selecione o arquivo
+2. Clique em "Mover"
+3. Selecione o destino
+4. Confirme
+
+### Renomear
+
+1. Selecione o arquivo
+2. Clique em "Renomear"
+3. Digite o novo nome
+4. Confirme
+
+## Versionamento
+
+### Versões do Arquivo
+
+O sistema mantém histórico de versões:
+
+| Versão | Data | Autor | Tamanho |
+|--------|------|-------|---------|
+| 3.0 | 01/08/2026 | João | 1,2 MB |
+| 2.0 | 15/07/2026 | Maria | 1,1 MB |
+| 1.0 | 01/07/2026 | Pedro | 1,0 MB |
+
+### Criar Nova Versão
+
+1. Selecione o arquivo
+2. Clique em "Nova Versão"
+3. Faça o upload da nova versão
+4. Adicione descrição da alteração
+5. Confirme
+
+### Versões Anteriores
+
+1. Clique no arquivo
+2. Acesse "Histórico de Versões"
+3. Baixe a versão desejada
+
+## Busca
+
+### Busca Simples
+
+Use a barra de busca para encontrar arquivos por:
+- Nome
+- Descrição
+- Tags
+- Autor
+
+### Busca Avançada
+
+Filtros adicionais:
+
+| Filtro | Descrição |
+|--------|-----------|
+| Tipo | PDF, DOC, XLS, etc. |
+| Tamanho | Min/Max |
+| Data | Período |
+| Autor | Quem enviou |
+| Pasta | Localização |
+
+## Controle de Acesso
+
+### Permissões
+
+| Permissão | Descrição |
+|-----------|-----------|
+| **Visualizar** | Pode ver o arquivo |
+| **Baixar** | Pode baixar |
+| **Editar** | Pode alterar |
+| **Excluir** | Pode remover |
+| **Compartilhar** | Pode compartilhar |
+
+### Configurar Acesso
+
+1. Selecione o arquivo/pasta
+2. Clique em "Permissões"
+3. Adicione usuários/grupos
+4. Defina as permissões
+5. Salve
+
+## Dicas
+
+:::tip[Dica]
+Use tags para facilitar a busca posterior. Ex: "contrato", "2026", "fornecedor".
+:::
+
+:::caution[Importante]
+Não envie arquivos com dados sensíveis sem proteção. Use criptografia quando necessário.
+:::
+
+## Próximo Passo
+
+- [Permissões](/referencias/permissoes) - Controle de acesso
+- [Extras](/modulos/extras) - Configurações do sistema

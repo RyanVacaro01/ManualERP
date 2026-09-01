@@ -1,0 +1,201 @@
+---
+title: Expedição
+description: Controle de expedição e envio de pedidos
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+O módulo de Expedição permite gerenciar todo o processo de envio de pedidos.
+
+## Funcionalidades
+
+- Separação de pedidos
+- Conferência de volumes
+- Expedição com transportadoras
+- Rastreamento de entregas
+- Gestão de devoluções
+
+## Fluxo de Expedição
+
+```
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│  Pedido  │──▶│ Separação│──▶│Conferência│──▶│  Envio   │
+│Faturado  │   │          │   │          │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+                     │              │              │
+                     ▼              ▼              ▼
+              ┌──────────┐   ┌──────────┐   ┌──────────┐
+              │Reserva   │   │Volume    │   │Rastreio  │
+              │Estoque   │   │Completo  │   │          │
+              └──────────┘   └──────────┘   └──────────┘
+```
+
+## Status de Expedição
+
+| Status | Cor | Descrição |
+|--------|-----|-----------|
+| **Aguardando** | Cinza | Aguardando separação |
+| **Separando** | Amarelo | Separação em andamento |
+| **Conferindo** | Azul | Conferência de volumes |
+| **Pronto** | Verde | Pronto para envio |
+| **Enviado** | Verde | Coletado pela transportadora |
+| **Entregue** | Verde | Cliente recebeu |
+| **Devolvido** | Vermelho | Devolvido |
+
+## Tela Principal
+
+A tela mostra os pedidos prontos para expedição:
+
+```
+┌─────────────────────────────────────────────────────┐
+│  🚚 Expedição - Pedidos Prontos                    │
+├─────────────────────────────────────────────────────┤
+│  Pedido    Cliente      volumes   Transportadora    │
+│  #1234     João Silva   2         Correios          │
+│  #1235     Maria Santos 1         Jadlog            │
+│  #1236     Pedro Lima   3         Total Express     │
+└─────────────────────────────────────────────────────┘
+```
+
+## Separar Pedido
+
+<Steps>
+
+1. **Acesse o módulo**
+   
+   Clique em **Expedição** no menu lateral.
+
+2. **Selecione o pedido**
+   
+   Clique no pedido a ser separado.
+
+3. **Imprima a separação**
+   
+   Clique em "Imprimir Separação" para gerar o documento.
+
+4. **Separe os itens**
+   
+   - Vá ao estoque
+   - Recolha os itens listados
+   - Confirme a separação no sistema
+
+5. **Confirme a separação**
+   
+   Clique em "Confirmar Separação" após recolher todos os itens.
+
+</Steps>
+
+## Conferir Volume
+
+Após a separação, conferir os volumes:
+
+### Checklist de Conferência
+
+- [ ] Todos os itens presentes
+- [ ] Quantidades corretas
+- [ ] Itens em bom estado
+- [ ] Embalagem adequada
+- [ ] Nota fiscal incluída
+- [ ] Etiqueta de postagem
+
+### Registrar Volume
+
+1. **Quantidade de volumes**
+   
+   Informe quantas caixas/pacotes serão enviados.
+
+2. **Peso de cada volume**
+   
+   Pese e registre o peso.
+
+3. **Dimensões**
+   
+   Informe altura, largura e comprimento.
+
+## Expedir com Transportadora
+
+<Steps>
+
+1. **Selecione a transportadora**
+   
+   - Consulte valores
+   - Compare prazos
+   - Escolha a melhor opção
+
+2. **Gere a etiqueta**
+   
+   Clique em "Gerar Etiqueta" para criar a postagem.
+
+3. **Colete o volume**
+   
+   Aguarde a coleta ou leve ao posto de coleta.
+
+4. **Registre o envio**
+   
+   Confirme o envio no sistema com o código de rastreio.
+
+</Steps>
+
+## Transportadoras Disponíveis
+
+| Transportadora | Prazo | Cobertura | APIs |
+|----------------|-------|-----------|------|
+| **Correios** | 3-10 dias | Nacional | ✅ |
+| **Jadlog** | 2-7 dias | Nacional | ✅ |
+| **Total Express** | 3-8 dias | Nacional | ✅ |
+| **Rápido** | 1-3 dias | Regional | ✅ |
+| **Retirada** | Imediato | Local | ❌ |
+
+## Rastreamento
+
+### Acompanhar Entrega
+
+1. Acesse **Expedição → Enviados**
+2. Clique no pedido
+3. Veja o rastreamento atualizado
+
+### Status de Rastreamento
+
+| Status | Descrição |
+|--------|-----------|
+| **Postado** | Coletado pela transportadora |
+| **Em Trânsito** | A caminho do destino |
+| **Em Separação** | No centro de distribuição |
+| **Saiu para Entrega** |
+entregador |
+| **Entregue** | Cliente recebeu |
+| **Tentativa** | Tentativa realizada |
+
+## Devoluções
+
+### Registrar Devolução
+
+1. Acesse o pedido com problema
+2. Clique em "Registrar Devolução"
+3. Informe o motivo
+4. Confirme a devolução
+5. Atualize o estoque
+
+### Motivos de Devolução
+
+| Motivo | Ação |
+|--------|------|
+| Produto danificado | Troca ou reembolso |
+| Produto errado | Troca imediata |
+| Arrependimento | Reembolso |
+| Atraso na entrega | Verificar com transportadora |
+
+## Dicas
+
+:::tip[Dica]
+Use a leitura de código de barras para agilizar a conferência de volumes.
+:::
+
+:::caution[Importante]
+Sempre confira os itens antes de expedir para evitar devoluções.
+:::
+
+## Próximo Passo
+
+- [Pedidos](/modulos/pedidos) - Ver pedidos faturados
+- [Fluxo de Expedição](/fluxos/expedir-pedido) - Fluxo completo

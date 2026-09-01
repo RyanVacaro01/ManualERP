@@ -1,0 +1,231 @@
+---
+title: Permissões
+description: Controle de acesso por perfil de usuário
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Visão Geral
+
+O sistema utiliza perfis de acesso para controlar o que cada usuário pode visualizar e modificar.
+
+## Perfis de Acesso
+
+### Admin
+
+Acesso total ao sistema.
+
+| Módulo | Ver | Criar | Editar | Excluir | Relatórios |
+|--------|-----|-------|--------|---------|------------|
+| Produtos | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Clientes | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Pedidos | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Produção | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Expedição | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Compras | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Recebimento | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Custos | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Pessoas | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Marketplace | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Indicadores | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Arquivos | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Extras | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+---
+
+### Gerente
+
+Acesso ao departamento + relatórios.
+
+| Módulo | Ver | Criar | Editar | Excluir | Relatórios |
+|--------|-----|-------|--------|---------|------------|
+| Produtos | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Clientes | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Pedidos | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Produção | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Expedição | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Compras | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Recebimento | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Custos | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Pessoas | 👁️ | ❌ | ❌ | ❌ | ❌ |
+| Marketplace | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Indicadores | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Arquivos | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Extras | 👁️ | ❌ | ❌ | ❌ | ❌ |
+
+---
+
+### Operador
+
+Acesso a módulos específicos.
+
+| Módulo | Ver | Criar | Editar | Excluir | Relatórios |
+|--------|-----|-------|--------|---------|------------|
+| Produtos | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Clientes | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Pedidos | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Produção | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Expedição | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Compras | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Recebimento | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Custos | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Pessoas | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Marketplace | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Indicadores | 👁️ | ❌ | ❌ | ❌ | ❌ |
+| Arquivos | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Extras | ❌ | ❌ | ❌ | ❌ | ❌ |
+
+---
+
+### Consulta
+
+Apenas visualização.
+
+| Módulo | Ver | Criar | Editar | Excluir | Relatórios |
+|--------|-----|-------|--------|---------|------------|
+| Produtos | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Clientes | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Pedidos | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Produção | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Expedição | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Compras | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Recebimento | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Custos | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Pessoas | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Marketplace | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Indicadores | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Arquivos | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+| Extras | ❌ | ❌ | ❌ | ❌ | ❌ |
+
+## Legenda
+
+| Símbolo | Significado |
+|---------|-------------|
+| ✅ | Permitido |
+| ❌ | Negado |
+| 👁️ | Somente visualização |
+
+## Configurar Permissões
+
+<Steps>
+
+1. **Acesse o módulo**
+   
+   Clique em **Pessoas** no menu lateral.
+
+2. **Selecione o funcionário**
+   
+   Clique no funcionário que deseja configurar.
+
+3. **Acesse permissões**
+   
+   Clique na aba "Permissões".
+
+4. **Configure cada módulo**
+   
+   Marque ou desmarque as permissões:
+   - Visualizar
+   - Criar
+   - Editar
+   - Excluir
+   - Relatórios
+
+5. **Salve**
+   
+   Clique em "Salvar Alterações"
+
+</Steps>
+
+## Perfis Personalizados
+
+### Criar Perfil Customizado
+
+1. Acesse **Pessoas → Perfis**
+2. Clique em "Novo Perfil"
+3. Defina o nome
+4. Configure as permissões
+5. Salve
+
+### Exemplo de Perfil
+
+**Perfil: Vendedor**
+
+| Módulo | Ver | Criar | Editar | Excluir | Relatórios |
+|--------|-----|-------|--------|---------|------------|
+| Produtos | 👁️ | ❌ | ❌ | ❌ | ❌ |
+| Clientes | ✅ | ✅ | ✅ | ❌ | 👁️ |
+| Pedidos | ✅ | ✅ | ✅ | ❌ | 👁️ |
+| Indicadores | 👁️ | ❌ | ❌ | ❌ | 👁️ |
+
+## Regras de Negócio
+
+### Aprovação de Pedidos
+
+| Perfil | Pode Aprovar | Limite |
+|--------|--------------|--------|
+| Admin | ✅ | Sem limite |
+| Gerente | ✅ | Até R$ 20.000 |
+| Operador | ❌ | - |
+| Consulta | ❌ | - |
+
+### Aprovação de Compras
+
+| Perfil | Pode Aprovar | Limite |
+|--------|--------------|--------|
+| Admin | ✅ | Sem limite |
+| Gerente | ✅ | Até R$ 10.000 |
+| Operador | ❌ | - |
+| Consulta | ❌ | - |
+
+### Exclusão de Registros
+
+| Perfil | Pode Excluir |
+|--------|--------------|
+| Admin | ✅ |
+| Gerente | ❌ |
+| Operador | ❌ |
+| Consulta | ❌ |
+
+:::caution[Importante]
+Somente administradores podem excluir registros. Essa ação é registrada nos logs de auditoria.
+:::
+
+## Logs de Permissão
+
+Toda alteração de permissão é registrada:
+
+| Campo | Descrição |
+|-------|-----------|
+| Data/Hora | Quando foi alterado |
+| Usuário | Quem alterou |
+| Funcionário | Quem teve a permissão alterada |
+| Módulo | Qual módulo |
+| Permissão | O que foi alterado |
+
+## Boas Práticas
+
+:::tip[Dica]
+Princípio do menor privilegiamento: conceda apenas as permissões necessárias.
+:::
+
+:::tip[Dica]
+Revise as permissões regularmente, especialmente quando alguém muda de cargo.
+:::
+
+:::caution[Importante]
+Nunca compartilhe contas de usuário. Cada pessoa deve ter sua própria conta.
+:::
+
+## Dicas
+
+:::tip[Dica]"
+Crie perfis específicos para cada função da empresa.
+:::
+
+:::tip[Dica]
+Use o perfil "Consulta" para quem precisa apenas visualizar dados.
+:::
+
+:::tip[Dica]
+Mantenha um registro de quem tem acesso a que módulos.
+:::

@@ -1,0 +1,182 @@
+---
+title: Pedidos
+description: Criação e gestão de pedidos de venda
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+O módulo de Pedidos permite criar e gerenciar todo o processo de vendas.
+
+## Funcionalidades
+
+- Criação de pedidos
+- Aprovação e segregação
+- Faturamento
+- Rastreamento de status
+- Histórico de pedidos
+
+## Fluxo do Pedido
+
+```
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│  Pedido  │──▶│ Aprovado │──▶│ Faturado │──▶│ Enviado  │
+│  Criado  │   │          │   │          │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+      │              │              │              │
+      ▼              ▼              ▼              ▼
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│  Pendente│   │ Separando│   │  NF Gerada│   │ Entregue │
+│          │   │          │   │          │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+```
+
+## Status do Pedido
+
+| Status | Cor | Descrição |
+|--------|-----|-----------|
+| **Rascunho** | Cinza | Pedido em criação |
+| **Pendente** | Amarelo | Aguardando aprovação |
+| **Aprovado** | Verde | Aprovado para processamento |
+| **Separando** | Azul | Separação em andamento |
+| **Faturado** | Roxo | NF emitida |
+| **Enviado** | Verde | Em transporte |
+| **Entregue** | Verde | Cliente recebeu |
+| **Cancelado** | Vermelho | Pedido cancelado |
+
+## Criar Pedido
+
+<Steps>
+
+1. **Acesse o módulo**
+   
+   Clique em **Pedidos** no menu lateral.
+
+2. **Clique em "Novo Pedido"**
+   
+   Botão no canto superior direito.
+
+3. **Selecione o cliente**
+   
+   - Busque por nome, CPF/CNPJ
+   - Selecione o cliente
+   - Verifique o limite de crédito
+
+4. **Adicione produtos**
+   
+   - Busque o produto por nome ou SKU
+   - Informe a quantidade
+   - Confirme o preço
+   - Repita para cada item
+
+5. **Configure o pedido**
+   
+   - **Data de entrega** desejada
+   - **Condição de pagamento**
+   - **Desconto** (se aplicável)
+   - **Observações**
+
+6. **Revise o pedido**
+   
+   - Verifique os itens
+   - Confirme os valores
+   - Totalize
+
+7. **Salve ou envie**
+   
+   - **Salvar** - Salva como rascunho
+   - **Enviar** - Envia para aprovação
+
+</Steps>
+
+## Itens do Pedido
+
+### Campos do Item
+
+| Campo | Obrigatório | Descrição |
+|-------|-------------|-----------|
+| Produto | ✅ | Selecione o produto |
+| Quantidade | ✅ | Qtd desejada |
+| Preço Unitário | ✅ | Preço de venda |
+| Desconto | ❌ | Desconto no item |
+| Total do Item | Auto | Calculado automaticamente |
+
+### Valores do Pedido
+
+| Campo | Descrição |
+|-------|-----------|
+| Subtotal | Soma dos itens |
+| Desconto | Desconto total |
+| Frete | Valor do frete |
+| Total | Valor final |
+
+## Aprovação de Pedidos
+
+### Regras de Aprovação
+
+| Valor do Pedido | Aprovação Necessária |
+|-----------------|---------------------|
+| Até R$ 5.000 | Automática |
+| R$ 5.000 - R$ 20.000 | Gerente |
+| Acima de R$ 20.000 | Diretor |
+
+### Processo de Aprovação
+
+1. Acesse **Pedidos → Pendentes**
+2. Clique no pedido
+3. Revise os itens e valores
+4. Clique em "Aprovar" ou "Rejeitar"
+5. Adicione observação (opcional)
+6. Confirme a ação
+
+## Faturamento
+
+Após a aprovação, o pedido pode ser faturado:
+
+1. Acesse **Pedidos → Aprovados**
+2. Selecione o(s) pedido(s)
+3. Clique em "Faturar"
+4. Confirme os dados da NF
+5. Gere a nota fiscal
+
+### Dados da NF-e
+
+| Campo | Descrição |
+|-------|-----------|
+| CFOP | Código Fiscal de Operações |
+| NCM | Nomenclatura Comum |
+| CST | Código de Situação Tributária |
+| ICMS | Imposto estadual |
+| PIS/COFINS | Tributos federais |
+
+## Ações Rápidas
+
+| Ícone | Ação | Descrição |
+|-------|------|-----------|
+| ✏️ | Editar | Alterar pedido |
+| 🖨️ | Imprimir | Print do pedido |
+| 📧 | Enviar E-mail | Enviar resumo ao cliente |
+| 📋 | Duplicar | Criar pedido similar |
+| 🗑️ | Cancelar | Cancelar pedido |
+
+## Relatórios
+
+- **Pedidos do Dia** - Resumo diário
+- **Pedidos por Cliente** - Histórico por cliente
+- **Pedidos por Produto** - Produtos mais vendidos
+- **Meta de Vendas** - Acompanhamento da meta
+
+## Dicas
+
+:::tip[Dica]
+Use o atalho Ctrl+N para criar um novo pedido rapidamente.
+:::
+
+:::caution[Importante]
+Verifique o limite de crédito do cliente antes de aprovar o pedido.
+:::
+
+## Próximo Passo
+
+- [Fluxo de Pedido](/fluxos/criar-pedido) - Fluxo completo
+- [Expedição](/modulos/expedicao) - Processar envio
+- [Processar Venda](/fluxos/processar-venda) - Venda completa

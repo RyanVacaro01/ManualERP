@@ -1,0 +1,247 @@
+---
+title: Gerenciar Estoque
+description: Fluxo completo de gestão de estoque
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Este guia apresenta o fluxo completo de gestão de estoque.
+
+## Visão Geral
+
+```
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│Entrada   │──▶│ Controle │──▶│ Saída    │──▶│ Análise  │
+│Estoque   │   │          │   │          │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+      │              │              │              │
+      ▼              ▼              ▼              ▼
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│Compras   │   │ Inventário│  │ Vendas   │   │ Relatórios│
+│Recebimento│  │          │   │ Produção │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+```
+
+## Movimentações de Estoque
+
+### Entradas
+
+| Tipo | Descrição |
+|------|-----------|
+| **Compra** | Entrada por compra a fornecedor |
+| **Devolução** | Devolução de venda |
+| **Produção** | Entrada por produção |
+| **Ajuste** | Ajuste manual (conferência) |
+| **Transferência** | Entrada de outra filial |
+
+### Saídas
+
+| Tipo | Descrição |
+|------|-----------|
+| **Venda** | Saída por venda |
+| **Devolução** | Devolução a fornecedor |
+| **Produção** | Consumo na produção |
+| **Ajuste** | Ajuste manual (conferência) |
+| **Transferência** | Saída para outra filial |
+
+## Painel de Estoque
+
+O painel mostra a visão geral:
+
+```
+┌─────────────────────────────────────────────────────┐
+│  📦 Estoque - Resumo                               │
+├─────────────────────────────────────────────────────┤
+│  Valor Total: R$ 456.789,00                        │
+│  Itens: 1.234 produtos                             │
+│  Estoque Baixo: 12 itens ⚠️                        │
+│  Estoque Zerado: 3 itens 🔴                        │
+└─────────────────────────────────────────────────────┘
+```
+
+## Consultar Estoque
+
+### Busca Simples
+
+1. Acesse **Estoque**
+2. Use a barra de busca
+3. Filtre por categoria, fornecedor
+
+### Busca Avançada
+
+| Filtro | Descrição |
+|--------|-----------|
+| Produto | Nome ou SKU |
+| Categoria | Categoria do produto |
+| Fornecedor | Fornecedor |
+| Lote | Número do lote |
+| Validade | Data de validade |
+| Localização | Prateleira/endereço |
+
+### Informações do Produto
+
+| Campo | Descrição |
+|-------|-----------|
+| SKU | Código do produto |
+| Produto | Nome do produto |
+| Quantidade | Estoque atual |
+| Reservado | Em pedidos pendentes |
+| Disponível | Quantidade - Reservado |
+| Custo Médio | Custo médio ponderado |
+| Valor Total | Qtd × Custo Médio |
+
+## Ajustes de Estoque
+
+### Tipos de Ajuste
+
+| Tipo | Quando Usar |
+|------|-------------|
+| **Conferência** | Após inventário físico |
+| **Avaria** | Produto danificado |
+| **Perda** | Produto perdido |
+| **Sobra** | Produto encontrado |
+| **Correção** | Erro de digitação |
+
+### Realizar Ajuste
+
+<Steps>
+
+1. **Acesse o produto**
+   
+   Busque o produto no estoque.
+
+2. **Clique em "Ajustar Estoque"**
+   
+   Botão nas ações do produto.
+
+3. **Selecione o tipo de ajuste**
+   
+   - Entrada ou Saída
+   - Motivo do ajuste
+
+4. **Informe a quantidade**
+   
+   - Quantidade a ajustar
+   - Justificativa
+
+5. **Confirme o ajuste**
+   
+   Clique em "Confirmar"
+
+</Steps>
+
+## Inventário
+
+### Criar Inventário
+
+1. Acesse **Estoque → Inventário**
+2. Clique em "Novo Inventário"
+3. Configure:
+   - Período
+   - Produtos (todos ou selecionados)
+   - Responsáveis
+4. Inicie o inventário
+
+### Processo de Contagem
+
+1. Imprima a listagem de contagem
+2. Contagem física dos produtos
+3. Registre as quantidades
+4. Compare com o sistema
+5. Ajuste divergências
+6. Finalize o inventário
+
+### Relatório de Inventário
+
+| Coluna | Descrição |
+|--------|-----------|
+| Produto | Nome do produto |
+| Sistema | Quantidade no sistema |
+| Contagem | Quantidade contada |
+| Diferença | Variação |
+| Ação | Ajustar ou ignorar |
+
+## Lotes e Validade
+
+### Gestão por Lote
+
+| Campo | Descrição |
+|-------|-----------|
+| Lote | Número do lote |
+| Fornecedor | Quem forneceu |
+| Data Fabricação | Data de fabricação |
+| Data Validade | Prazo de validade |
+| Quantidade | Qtd no lote |
+
+### PEPS (Primeiro a Entrar, Primeiro a Saída)
+
+O sistema utiliza PEPS por padrão:
+- Vendas usam o lote mais antigo
+- Garante saída antes do vencimento
+- Rastreabilidade completa
+
+## Alertas de Estoque
+
+### Configurar Alertas
+
+| Alerta | Condição | Ação |
+|--------|----------|------|
+| **Estoque Baixo** | Abaixo do mínimo | Notificar Compras |
+| **Estoque Crítico** | Abaixo do crítico | Urgência |
+| **Validade Próxima** | 30 dias para vencer | Atenção |
+| **Sem Movimento** | 90 dias sem saída | Revisar |
+
+### Painel de Alertas
+
+```
+┌─────────────────────────────────────────────────────┐
+│  ⚠️ Alertas de Estoque                             │
+├─────────────────────────────────────────────────────┤
+│  🔴 Estoque Zerado (3 itens)                        │
+│  - Widget A (SKU: 001)                             │
+│  - Widget B (SKU: 002)                             │
+│  - Widget C (SKU: 003)                             │
+├─────────────────────────────────────────────────────┤
+│  🟡 Estoque Baixo (12 itens)                        │
+│  - Ver lista completa                              │
+└─────────────────────────────────────────────────────┘
+```
+
+## Relatórios
+
+### Relatório de Posição
+
+| Produto | Qtd | Custo | Valor |
+|---------|-----|-------|-------|
+| Widget A | 100 | R$ 10 | R$ 1.000 |
+| Widget B | 50 | R$ 20 | R$ 1.000 |
+| Widget C | 200 | R$ 5 | R$ 1.000 |
+| **Total** | | | **R$ 3.000** |
+
+### Relatório de Giro
+
+| Produto | Saída Mensal | Estoque | Dias Cobertura |
+|---------|--------------|---------|----------------|
+| Widget A | 100 | 100 | 30 dias |
+| Widget B | 50 | 50 | 30 dias |
+| Widget C | 200 | 200 | 30 dias |
+
+## Dicas
+
+:::tip[Dica]
+Configure alertas de estoque baixo para evitar ruptura.
+:::
+
+:::tip[Dica]
+Realize inventário rotativo para manter a precisão.
+:::
+
+:::caution[Importante]
+Sempre registre ajustes com justificativa para auditoria.
+:::
+
+## Próximo Passo
+
+- [Produtos](/modulos/produtos) - Cadastrar produtos
+- [Compras](/modulos/compras) - Comprar para repor estoque
+- [Indicadores](/modulos/indicadores) - Acompanhar métricas

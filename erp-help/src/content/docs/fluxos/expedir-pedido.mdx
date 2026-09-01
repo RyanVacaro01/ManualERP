@@ -1,0 +1,252 @@
+---
+title: Expedir Pedido
+description: Fluxo completo de expedição de pedidos
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Este guia apresenta o fluxo completo de expedição de pedidos.
+
+## Visão Geral
+
+```
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│  Pedido  │──▶│ Separação│──▶│Conferência│──▶│  Envio   │
+│Faturado  │   │          │   │          │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+      │              │              │              │
+      ▼              ▼              ▼              ▼
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│NF Emitida│   │Reserva   │   │Volumes   │   │Rastreio  │
+│          │   │Estoque   │   │Prontos   │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+```
+
+## Etapas do Processo
+
+### 1. Separação
+
+<Steps>
+
+1. **Acessar pedidos prontos**
+   
+   - Acesse **Expedição → Aguardando Separação**
+   - Veja a lista de pedidos
+
+2. **Imprimir separação**
+   
+   - Selecione o pedido
+   - Clique em "Imprimir Separação"
+   - O documento lista todos os itens
+
+3. **Separar itens**
+   
+   - Vá ao estoque
+   - Recolha os itens listados
+   - Confira cada item
+
+4. **Confirmar separação**
+   
+   - Registre no sistema
+   - Marque itens separados
+
+</Steps>
+
+### 2. Conferência
+
+<Steps>
+
+1. **Verificar volumes**
+   
+   - Quantidade de caixas/pacotes
+   - Peso de cada volume
+   - Dimensões
+
+2. **Conferir itens**
+   
+   - Itens presentes
+   - Quantidades corretas
+   - Itens em bom estado
+
+3. **Embalagem**
+   
+   - Embalagem adequada
+   - Proteção para frágeis
+   - Etiquetas corretas
+
+4. **Documentação**
+   
+   - Nota fiscal inclusa
+   - Danfe impresso
+   - Manual/instruções (se aplicável)
+
+</Steps>
+
+### 3. Expedição
+
+<Steps>
+
+1. **Selecionar transportadora**
+   
+   | Transportadora | Prazo | Cobertura |
+   |----------------|-------|-----------|
+   | Correios | 3-10 dias | Nacional |
+   | Jadlog | 2-7 dias | Nacional |
+   | Total Express | 3-8 dias | Nacional |
+
+2. **Gerar etiqueta**
+   
+   - Selecione a transportadora
+   - Informe peso e dimensões
+   - Gere a etiqueta de postagem
+
+3. **Coletar volume**
+   
+   - Aguarde a coleta
+   - Ou leve ao posto de coleta
+
+4. **Registrar envio**
+   
+   - Confirme o envio no sistema
+   - Registre o código de rastreio
+
+</Steps>
+
+### 4. Rastreamento
+
+<Steps>
+
+1. **Acompanhar status**
+   
+   - Acesse **Expedição → Enviados**
+   - Veja o rastreamento
+
+2. **Atualizar status**
+   
+   | Status | Ação |
+   |--------|------|
+   | Postado | Confirmar envio |
+   | Em Trânsito | Monitorar |
+   | Em Separação | Aguardar |
+   | Saiu para Entrega | Notificar cliente |
+   | Entregue | Finalizar pedido |
+
+3. **Resolver problemas**
+   
+   - Atrasos: Contatar transportadora
+   - Extravios: Abrir ocorrência
+   - Devoluções: Processar retorno
+
+</Steps>
+
+## Documentos
+
+### Separacao
+
+Lista de itens para separação:
+
+```
+┌─────────────────────────────────────────────────────┐
+│  📋 Separação - Pedido #1234                       │
+├─────────────────────────────────────────────────────┤
+│  Cliente: Maria Santos                             │
+│  Endereço: Rua ABC, 123 - São Paulo/SP             │
+├─────────────────────────────────────────────────────┤
+│  Item          SKU     Qtd    Local     Status     │
+│  Widget A      001      2     P1-A3     ✅         │
+│  Widget B      002      1     P2-B1     ✅         │
+│  Widget C      003      3     P1-C2     ⏳         │
+└─────────────────────────────────────────────────────┘
+```
+
+### Etiqueta
+
+```
+┌─────────────────────────────────────────────────────┐
+│  🏷️ Etiqueta de Postagem                          │
+├─────────────────────────────────────────────────────┤
+│  Destinatário: Maria Santos                        │
+│  Endereço: Rua ABC, 123 - São Paulo/SP             │
+│  CEP: 01234-567                                    │
+│                                                    │
+│  Remetente: Sua Empresa                            │
+│  CNPJ: 12.345.678/0001-90                          │
+│                                                    │
+│  Peso: 2,5 kg                                     │
+│  Dimensões: 30x20x15 cm                           │
+│  Volume: 1 de 1                                    │
+│                                                    │
+│  [CÓDIGO DE BARRAS]                               │
+│  Rastreio: BR123456789BR                          │
+└─────────────────────────────────────────────────────┘
+```
+
+## Conferência
+
+### Checklist
+
+- [ ] Todos os itens presentes
+- [ ] Quantidades corretas
+- [ ] Itens em bom estado
+- [ ] Embalagem adequada
+- [ ] Nota fiscal inclusa
+- [ ] Etiqueta correta
+- [ ] Endereço conferido
+
+### Registro de Divergência
+
+| Tipo | Descrição | Ação |
+|------|-----------|------|
+| **Falta** | Item não encontrado | Verificar estoque |
+| **Avaria** | Produto danificado | Trocar item |
+| **Diferença** | Quantidade diferente | Ajustar |
+
+## Transportadoras
+
+### Seleção
+
+| Critério | Descrição |
+|----------|-----------|
+| **Prazo** | Tempo de entrega |
+| **Preço** | Custo do frete |
+| **Cobertura** | Região atendida |
+| **Rastreamento** | Acompanhamento |
+
+### Cálculo de Frete
+
+O sistema calcula automaticamente:
+- Peso do volume
+- Dimensões (cubagem)
+- CEP de destino
+- Modalidade escolhida
+
+## Status de Rastreamento
+
+| Status | Descrição |
+|--------|-----------|
+| **Postado** | Coletado pela transportadora |
+| **Em Trânsito** | A caminho do destino |
+| **Em Separação** | No centro de distribuição |
+| **Saiu para Entrega** | Com o entregador |
+| **Entregue** | Cliente recebeu |
+| **Tentativa** | Tentativa realizada |
+
+## Dicas
+
+:::tip[Dica]
+Use leitura de código de barras para agilizar a conferência.
+:::
+
+:::tip[Dica]
+Separe pedidos por região para otimizar o roteiro de entrega.
+:::
+
+:::caution[Importante]
+Sempre confira os itens antes de expedir para evitar devoluções.
+:::
+
+## Próximo Passo
+
+- [Expedição](/modulos/expedicao) - Ver todos os recursos
+- [Pedidos](/modulos/pedidos) - Gerenciar pedidos
+- [Processar Venda](/fluxos/processar-venda) - Fluxo completo

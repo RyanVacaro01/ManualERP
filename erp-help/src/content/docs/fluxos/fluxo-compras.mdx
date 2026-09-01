@@ -1,0 +1,240 @@
+---
+title: Fluxo de Compras
+description: Fluxo completo de compras a fornecedores
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Este guia apresenta o fluxo completo de compras a fornecedores.
+
+## Visão Geral
+
+```
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│Necessidade│─▶│ Cotação  │─▶│ Aprovação│─▶│  Pedido  │
+│          │   │          │   │          │   │ Compra   │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+      │              │              │              │
+      ▼              ▼              ▼              ▼
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│Estoque   │   │Fornecedores│ │ Validar  │   │Receber   │
+│Baixo     │   │          │   │          │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
+```
+
+## Etapas do Processo
+
+### 1. Identificação da Necessidade
+
+<Steps>
+
+1. **Alerta automático**
+   
+   O sistema alerta quando estoque fica baixo.
+
+2. **Solicitação manual**
+   
+   Funcionário solicita compra.
+
+3. **Verificação**
+   
+   - Estoque atual
+   - Pedidos pendentes
+   - Necessidade real
+
+</Steps>
+
+### 2. Cotação com Fornecedores
+
+<Steps>
+
+1. **Criar cotação**
+   
+   - Acesse **Compras → Cotações**
+   - Clique em "Nova Cotação"
+   - Selecione os produtos
+
+2. **Selecionar fornecedores**
+   
+   - Escolha 3 fornecedores (mínimo)
+   - Envie solicitação
+
+3. **Receber propostas**
+   
+   - Aguarde respostas
+   - Compare preços e prazos
+
+4. **Avaliar propostas**
+   
+   | Critério | Peso |
+   |----------|------|
+   | Preço | 40% |
+   | Prazo | 30% |
+   | Condição Pagamento | 20% |
+   | Qualidade | 10% |
+
+</Steps>
+
+### 3. Aprovação da Compra
+
+<Steps>
+
+1. **Preparar aprovação**
+   
+   - Selecione a melhor cotação
+   - Preencha dados complementares
+
+2. **Enviar para aprovação**
+   
+   - Regras automáticas de aprovação
+   - Aprovação manual (se necessário)
+
+3. **Aprovar**
+   
+   - Revise dados
+   - Aprove ou rejeite
+   - Adicione observações
+
+</Steps>
+
+### 4. Pedido de Compra
+
+<Steps>
+
+1. **Gerar pedido**
+   
+   - Aprovação gera pedido automaticamente
+   - Ou crie manualmente
+
+2. **Enviar ao fornecedor**
+   
+   - E-mail automático
+   - PDF do pedido
+   - Confirmação
+
+3. **Acompanhar**
+   
+   - Status do pedido
+   - Previsão de entrega
+
+</Steps>
+
+### 5. Recebimento
+
+<Steps>
+
+1. **Conferir volumes**
+   
+   - Quantidade de volumes
+   - Integridade das embalagens
+
+2. **Conferir itens**
+   
+   - Quantidades
+   - Qualidade
+   - Nota fiscal
+
+3. **Registrar divergências**
+   
+   - Itens faltantes
+   - Itens avariados
+   - Itens diferentes
+
+4. **Confirmar recebimento**
+   
+   - Baixa automática no estoque
+   - Atualização de custos
+
+</Steps>
+
+## Regras de Aprovação
+
+| Valor | Aprovação |
+|-------|-----------|
+| Até R$ 2.000 | Automática |
+| R$ 2.000 - R$ 10.000 | Gerente |
+| R$ 10.000 - R$ 50.000 | Diretor |
+| Acima de R$ 50.000 | Diretoria |
+
+## Fornecedores
+
+### Classificação
+
+| Classe | Critério | Ação |
+|--------|----------|------|
+| **A** | Entrega pontual, qualidade | Preferencial |
+| **B** | Bom desempenho | Normal |
+| **C** | Problemas ocasionais | Monitorar |
+| **D** | Problemas frequentes | Reavaliar |
+
+### Avaliação
+
+Após cada compra, avalie o fornecedor:
+
+| Critério | Nota (1-5) |
+|----------|------------|
+| Qualidade do produto | ⭐⭐⭐⭐⭐ |
+| Prazo de entrega | ⭐⭐⭐⭐ |
+| Preço | ⭐⭐⭐⭐⭐ |
+| Atendimento | ⭐⭐⭐⭐ |
+| Embalagem | ⭐⭐⭐⭐⭐ |
+
+## Cotações
+
+### Formulário
+
+| Campo | Descrição |
+|-------|-----------|
+| Fornecedor | Quem cotou |
+| Produto | Item cotado |
+| Preço Unitário | Valor proposto |
+| Prazo Entrega | Dias para entrega |
+| Validade Proposta | Validade da cotação |
+
+### Comparação
+
+| Fornecedor | Produto | Preço | Prazo | Total |
+|------------|---------|-------|-------|-------|
+| Fornecedor A | Widget | R$ 10 | 5 dias | R$ 1.000 |
+| Fornecedor B | Widget | R$ 12 | 3 dias | R$ 1.200 |
+| Fornecedor C | Widget | R$ 9 | 7 dias | R$ 900 |
+
+## Relatórios
+
+### Compras do Mês
+
+| Métrica | Valor |
+|---------|-------|
+| Total de compras | R$ 45.000,00 |
+| Nº de pedidos | 23 |
+| Ticket médio | R$ 1.956,52 |
+| Fornecedores ativos | 12 |
+
+### Compras por Fornecedor
+
+| Fornecedor | Compras | % Total |
+|------------|---------|---------|
+| Fornecedor A | R$ 15.000 | 33% |
+| Fornecedor B | R$ 12.000 | 27% |
+| Fornecedor C | R$ 10.000 | 22% |
+| Outros | R$ 8.000 | 18% |
+
+## Dicas
+
+:::tip[Dica]
+Cote com pelo menos 3 fornecedores para garantir competitividade.
+:::
+
+:::tip[Dica]
+Mantenha um cadastro atualizado de fornecedores classificados.
+:::
+
+:::caution[Importante]
+Verifique a classificação do fornecedor antes de aprovar uma compra.
+:::
+
+## Próximo Passo
+
+- [Compras](/modulos/compras) - Ver todos os recursos
+- [Recebimento](/modulos/recebimento) - Receber mercadorias
+- [Estoque](/fluxos/gerenciar-estoque) - Atualizar estoque

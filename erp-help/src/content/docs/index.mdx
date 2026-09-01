@@ -1,0 +1,57 @@
+---
+title: Bem-vindo ao ERP
+description: Portal de ajuda e documentação do sistema ERP
+template: splash
+hero:
+  tagline: Central de ajuda completa para todos os módulos do sistema.
+  image:
+    file: ../assets/logos/logo.png
+    alt: Logo ERP
+  actions:
+    - text: Primeiros Passos
+      link: /primeiros-passos
+      icon: right-arrow
+    - text: Módulos do Sistema
+      link: /modulos/produtos
+      icon: open-book
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Navegação Rápida
+
+<CardGrid stagger>
+  <Card title="📦 Produtos" icon="package">
+    Gerencie seu catálogo de produtos, variações e preços.
+    [Acessar módulo →](/modulos/produtos)
+  </Card>
+  <Card title="👥 Clientes" icon="users">
+    Cadastro e gestão de clientes e dados cadastrais.
+    [Acessar módulo →](/modulos/clientes)
+  </Card>
+  <Card title="📋 Pedidos" icon="list-check">
+    Criação, processamento e acompanhamento de pedidos.
+    [Acessar módulo →](/modulos/pedidos)
+  </Card>
+  <Card title="🚚 Expedição" icon="truck">
+    Controle de expedição e rastreamento de entregas.
+    [Acessar módulo →](/modulos/expedicao)
+  </Card>
+  <Card title="🛒 Compras" icon="shopping-cart">
+    Gestão de compras e pedidos a fornecedores.
+    [Acessar módulo →](/modulos/compras)
+  </Card>
+  <Card title="📊 Indicadores" icon="chart">
+    Dashboards e relatórios de desempenho.
+    [Acessar módulo →](/modulos/indicadores)
+  </Card>
+</CardGrid>
+
+---
+
+## Precisa de ajuda?
+
+- [**Erros Comuns**](/troubleshoot/erros-comuns) - Soluções para problemas frequentes
+- [**FAQ**](/troubleshoot/faq) - Perguntas frequentes
+- [**Suporte**](/troubleshoot/suporte) - Fale conosco

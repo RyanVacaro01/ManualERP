@@ -1,0 +1,81 @@
+---
+interface Props {
+  title: string;
+  icon?: string;
+  type?: 'tip' | 'note' | 'warning' | 'caution';
+}
+
+const { 
+  title, 
+  icon = '💡', 
+  type = 'tip' 
+} = Astro.props;
+
+const colors = {
+  tip: { bg: '#f0fdf4', border: '#22c55e', text: '#166534' },
+  note: { bg: '#eff6ff', border: '#3b82f6', text: '#1e40af' },
+  warning: { bg: '#fffbeb', border: '#f59e0b', text: '#92400e' },
+  caution: { bg: '#fef2f2', border: '#ef4444', text: '#991b1b' }
+};
+
+const color = colors[type];
+---
+
+<div 
+  class="callout-custom" 
+  style={`
+    background: ${color.bg};
+    border-left: 4px solid ${color.border};
+    color: ${color.text};
+  `}
+>
+  <div class="callout-header">
+    <span class="callout-icon">{icon}</span>
+    <span class="callout-title">{title}</span>
+  </div>
+  <div class="callout-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .callout-custom {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+  }
+  
+  .callout-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .callout-icon {
+    font-size: 1.25rem;
+  }
+  
+  .callout-title {
+    font-size: 1rem;
+  }
+  
+  .callout-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .callout-content :global(p) {
+    margin: 0;
+  }
+  
+  .callout-content :global(ul) {
+    margin: 0.5rem 0 0;
+    padding-left: 1.5rem;
+  }
+  
+  .callout-content :global(li) {
+    margin: 0.25rem 0;
+  }
+</style>

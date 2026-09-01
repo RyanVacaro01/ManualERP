@@ -1,0 +1,100 @@
+---
+interface Props {
+  url: string;
+  title?: string;
+  width?: string;
+  height?: string;
+}
+
+const { 
+  url, 
+  title = 'Video Tutorial', 
+  width = '100%', 
+  height = '400px' 
+} = Astro.props;
+
+// Extrair ID do vídeo do YouTube
+function getYouTubeId(url: string): string | null {
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([^&\s?]+)/);
+  return match ? match[1] : null;
+}
+
+// Extrair ID do vídeo do Vimeo
+function getVimeoId(url: string): string | null {
+  const match = url.match(/vimeo\.com\/(\d+)/);
+  return match ? match[1] : null;
+}
+
+const youtubeId = getYouTubeId(url);
+const vimeoId = getVimeoId(url);
+---
+
+<div class="video-embed">
+  {youtubeId && (
+    <iframe
+      src={`https://www.youtube.com/embed/${youtubeId}`}
+      title={title}
+      width={width}
+      height={height}
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    />
+  )}
+  
+  {vimeoId && (
+    <iframe
+      src={`https://player.vimeo.com/video/${vimeoId}`}
+      title={title}
+      width={width}
+      height={height}
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+    />
+  )}
+  
+  {!youtubeId && !vimeoId && (
+    <div class="video-error">
+      <p>Formato de vídeo não suportado. Use URLs do YouTube ou Vimeo.</p>
+    </div>
+  )}
+  
+  {title && (
+    <p class="video-title">{title}</p>
+  )}
+</div>
+
+<style>
+  .video-embed {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-embed iframe {
+    display: block;
+    max-width: 100%;
+  }
+  
+  .video-title {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+    color: var(--sl-color-text-muted);
+    text-align: center;
+  }
+  
+  .video-error {
+    padding: 2rem;
+    text-align: center;
+    background: var(--sl-color-gray-1);
+    color: var(--sl-color-text-muted);
+  }
+  
+  @media (max-width: 768px) {
+    .video-embed iframe {
+      height: 250px;
+    }
+  }
+</style>

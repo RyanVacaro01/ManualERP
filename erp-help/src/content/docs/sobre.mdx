@@ -1,0 +1,61 @@
+---
+title: Sobre o Sistema
+description: Conheça o sistema ERP e suas funcionalidades
+---
+
+O sistema ERP é uma plataforma completa para gestão empresarial, integrando todos os departamentos em um único sistema.
+
+## Visão Geral
+
+O sistema é composto por **14 módulos** que cobrem todas as áreas da operação:
+
+### Gestão Comercial
+- **Produtos** - Cadastro e gestão do catálogo
+- **Clientes** - Cadastro e relacionamento
+- **Pedidos** - Processamento de vendas
+- **Marketplace** - Integração com plataformas de venda
+
+### Gestão Operacional
+- **Produção** - Controle de fabricação
+- **Estoque** - Gestão de estoque
+- **Expedição** - Envio e rastreamento
+- **Compras** - Gestão de compras
+- **Recebimento** - Controle de recebimentos
+
+### Gestão Administrativa
+- **Custos** - Controle de custos
+- **Pessoas** - Gestão de pessoas
+- **Arquivos** - Documentos e anexos
+- **Indicadores** - Relatórios e dashboards
+- **Extras** - Configurações e utilitários
+
+## Fluxo de Dados
+
+```
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│  Cadastro   │───▶│   Pedido    │───▶│  Produção   │
+│  Produto    │    │   Venda     │    │             │
+└─────────────┘    └─────────────┘    └─────────────┘
+                                              │
+                                              ▼
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│  Relatórios │◀───│  Expedição  │◀───│   Estoque   │
+│             │    │             │    │             │
+└─────────────┘    └─────────────┘    └─────────────┘
+```
+
+## Tecnologias
+
+- **Frontend:** Interface web responsiva
+- **Backend:** API RESTful
+- **Banco de Dados:** Banco relacional
+- **Integrações:** APIs externas (marketplace, NF-e, etc.)
+
+## Requisitos do Sistema
+
+| Componente | Mínimo | Recomendado |
+|------------|--------|-------------|
+| Navegador | Chrome 90+, Firefox 88+ | Chrome latest |
+| Resolução | 1280x720 | 1920x1080 |
+| Conexão | 5 Mbps | 10+ Mbps |
+| RAM | 4 GB | 8+ GB |

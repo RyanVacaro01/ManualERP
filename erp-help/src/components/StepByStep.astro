@@ -1,0 +1,138 @@
+---
+interface Props {
+  steps: Array<{
+    title: string;
+    description?: string;
+    code?: string;
+    image?: string;
+  }>;
+}
+
+const { steps } = Astro.props;
+---
+
+<div class="step-by-step">
+  {steps.map((step, index) => (
+    <div class="step">
+      <div class="step-header">
+        <span class="step-number">{index + 1}</span>
+        <div class="step-info">
+          <h3 class="step-title">{step.title}</h3>
+          {step.description && (
+            <p class="step-description">{step.description}</p>
+          )}
+        </div>
+      </div>
+      {step.code && (
+        <div class="step-code">
+          <pre><code>{step.code}</code></pre>
+        </div>
+      )}
+      {step.image && (
+        <div class="step-image">
+          <img src={step.image} alt={step.title} loading="lazy" />
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
+<style>
+  .step-by-step {
+    margin: 1.5rem 0;
+  }
+  
+  .step {
+    position: relative;
+    padding-left: 3rem;
+    padding-bottom: 1.5rem;
+    border-left: 2px solid var(--sl-color-gray-3);
+    margin-left: 0.75rem;
+  }
+  
+  .step:last-child {
+    border-left: 2px solid transparent;
+    padding-bottom: 0;
+  }
+  
+  .step-header {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .step-number {
+    position: absolute;
+    left: -2.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--sl-color-accent);
+    color: white;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  
+  .step-info {
+    flex: 1;
+  }
+  
+  .step-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--sl-color-text);
+  }
+  
+  .step-description {
+    margin: 0.5rem 0 0;
+    color: var(--sl-color-text-muted);
+    line-height: 1.6;
+  }
+  
+  .step-code {
+    margin-top: 0.75rem;
+    padding: 1rem;
+    background: var(--sl-color-gray-1);
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+  
+  .step-code pre {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+  
+  .step-code code {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    color: var(--sl-color-text);
+  }
+  
+  .step-image {
+    margin-top: 0.75rem;
+  }
+  
+  .step-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--sl-color-gray-3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .step {
+      padding-left: 2.5rem;
+    }
+    
+    .step-number {
+      left: -1.85rem;
+      width: 24px;
+      height: 24px;
+      font-size: 0.75rem;
+    }
+  }
+</style>

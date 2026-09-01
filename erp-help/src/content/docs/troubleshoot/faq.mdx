@@ -1,0 +1,229 @@
+---
+title: Perguntas Frequentes (FAQ)
+description: Respostas para as dúvidas mais comuns
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## Geral
+
+### O que é o sistema ERP?
+
+O sistema ERP é uma plataforma de gestão empresarial que integra todos os departamentos da empresa em um único sistema, incluindo vendas, estoque, produção, compras, financeiro e mais.
+
+---
+
+### Como acesso o sistema?
+
+Acesse via navegador web na URL fornecida pela sua empresa. Não é necessária instalação.
+
+**Exemplo:** `https://erp.suaempresa.com.br`
+
+---
+
+### Quais navegadores são suportados?
+
+- Google Chrome 90+
+- Mozilla Firefox 88+
+- Microsoft Edge 90+
+- Safari 14+
+
+**Não suportado:** Internet Explorer
+
+---
+
+### O sistema funciona em celular?
+
+Sim! O sistema é responsivo e pode ser acessado via celular. Para melhor experiência, use em tela landscape.
+
+---
+
+### Como redefinir minha senha?
+
+1. Na tela de login, clique em "Esqueci minha senha"
+2. Insira seu e-mail
+3. Verifique sua caixa de entrada
+4. Siga as instruções no e-mail
+
+## Conta e Acesso
+
+### Minha conta foi bloqueada. O que fazer?
+
+Sua conta é bloqueada após 5 tentativas incorretas de login.
+
+**Solução:**
+- Aguarde 15 minutos para desbloqueio automático
+- Ou contate o administrador
+
+---
+
+### Como alterar minha senha?
+
+1. Acesse **Perfil → Segurança**
+2. Clique em "Alterar Senha"
+3. Insira a senha atual
+4. Digite a nova senha
+5. Confirme a nova senha
+
+---
+
+### Como ativar a autenticação em duas etapas (2FA)?
+
+1. Acesse **Perfil → Segurança**
+2. Clique em "Ativar 2FA"
+3. Escaneie o QR Code com seu app (Google Authenticator, Authy, etc.)
+4. Insira o código gerado
+5. Salve os códigos de backup
+
+---
+
+### Como ver minhas sessões ativas?
+
+1. Acesse **Perfil → Segurança → Sessões**
+2. Revise as sessões ativas
+3. Encerre sessões desconhecidas
+
+## Módulos
+
+### Como cadastrar um produto?
+
+1. Acesse **Produtos**
+2. Clique em "Novo Produto"
+3. Preencha os dados
+4. Adicione imagens
+5. Configure preços e estoque
+6. Salve
+
+**Guia completo:** [Cadastro de Produto](/fluxos/cadastro-produto)
+
+---
+
+### Como criar um pedido?
+
+1. Acesse **Pedidos**
+2. Clique em "Novo Pedido"
+3. Selecione o cliente
+4. Adicione os produtos
+5. Configure entrega e pagamento
+6. Salve ou envie para aprovação
+
+**Guia completo:** [Criar Pedido](/fluxos/criar-pedido)
+
+---
+
+### Como consultar o estoque?
+
+1. Acesse **Estoque**
+2. Use a barra de busca ou filtros
+3. Veja quantidades disponíveis
+
+**Guia completo:** [Gerenciar Estoque](/fluxos/gerenciar-estoque)
+
+---
+
+### Como emitir uma Nota Fiscal?
+
+1. Acesse o pedido aprovado
+2. Clique em "Faturar"
+3. Confirme os dados da NF
+4. Gere a nota fiscal
+
+**Guia completo:** [Processar Venda](/fluxos/processar-venda)
+
+---
+
+### Como configurar a integração com Marketplace?
+
+1. Acesse **Marketplace**
+2. Selecione a plataforma
+3. Configure as credenciais
+4. Mapeie os dados
+5. Ative a integração
+
+**Guia completo:** [Marketplace](/modulos/marketplace)
+
+## Relatórios
+
+### Como gerar relatórios?
+
+1. Acesse **Indicadores**
+2. Selecione o tipo de relatório
+3. Configure filtros e período
+4. Gere o relatório
+5. Exporte se necessário
+
+---
+
+### Como exportar dados?
+
+1. Acesse o relatório desejado
+2. Clique em "Exportar"
+3. Escolha o formato (PDF, Excel, CSV)
+4. Baixe o arquivo
+
+---
+
+### Como configurar metas?
+
+1. Acesse **Indicators → Metas**
+2. Clique em "Nova Meta"
+3. Configure tipo, valor e período
+4. Salve
+
+## Problemas Técnicos
+
+### Sistema lento. O que fazer?
+
+1. Verifique sua conexão com a internet
+2. Feche abas desnecessárias
+3. Limpe o cache do navegador (Ctrl + Shift + Delete)
+4. Use Chrome ou Firefox atualizado
+
+---
+
+### Não consigo imprimir. O que fazer?
+
+1. Verifique se a impressora está ligada
+2. Verifique se há papel
+3. Atualize o driver da impressora
+4. Tente imprimir novamente
+
+---
+
+### Nota Fiscal rejeitada. O que fazer?
+
+1. Consulte o motivo da rejeição
+2. Verifique os dados cadastrais
+3. Confirme NCM e CFOP
+4. Corrija e reemita
+
+---
+
+### Integração com Marketplace parou. O que fazer?
+
+1. Verifique as credenciais
+2. Renove o token se necessário
+3. Consulte o status da API
+4. Verifique os logs de erro
+
+## Dicas
+
+:::tip[Dica]
+Pressione `?` em qualquer lugar do sistema para ver todos os atalhos de teclado.
+:::
+
+:::tip[Dica]
+Use `Ctrl + K` para busca global em qualquer módulo.
+:::
+
+:::tip[Dica]
+Configure alertas de estoque baixo para evitar ruptura.
+:::
+
+## Ainda com dúvidas?
+
+Se não encontrou sua pergunta aqui:
+
+1. Consulte a [documentação completa](/modulos/produtos)
+2. Busque no sistema usando a barra de pesquisa
+3. Entre em contato com o [suporte](/troubleshoot/suporte)

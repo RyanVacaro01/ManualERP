@@ -1,0 +1,87 @@
+---
+title: Instalação
+description: Como acessar e configurar o sistema ERP
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+## Acesso ao Sistema
+
+O sistema ERP é acessível via navegador web, sem necessidade de instalação local.
+
+### URL de Acesso
+
+| Ambiente | URL |
+|----------|-----|
+| Produção | `https://erp.suaempresa.com.br` |
+| Homologação | `https://hom.erp.suaempresa.com.br` |
+| Teste | `https://test.erp.suaempresa.com.br` |
+
+<Steps>
+
+1. **Abra o navegador**
+   
+   Utilize Chrome, Firefox ou Edge (versões atualizadas).
+
+2. **Acesse a URL**
+   
+   Digite a URL do sistema na barra de endereços.
+
+3. **Aceite o certificado SSL**
+   
+   Caso solicite, confirme que deseja prosseguir.
+
+4. **Salve o acesso**
+   
+   Adicione aos favoritos para acesso rápido.
+
+</Steps>
+
+<Aside type="tip">
+Para melhor experiência, crie um atalho na área de trabalho:
+- Chrome: Menu → Mais ferramentas → Criar atalho
+- Firefox: Menu → Página → Salvar como atalho
+</Aside>
+
+## Requisitos Técnicos
+
+### Navegadores Suportados
+
+| Navegador | Versão Mínima | Status |
+|-----------|---------------|--------|
+| Google Chrome | 90+ | ✅ Suportado |
+| Mozilla Firefox | 88+ | ✅ Suportado |
+| Microsoft Edge | 90+ | ✅ Suportado |
+| Safari | 14+ | ✅ Suportado |
+| Internet Explorer | - | ❌ Não suportado |
+
+### Configurações Recomendadas
+
+- **Resolução:** 1920x1080 ou superior
+- **Zoom:** 100% (padrão)
+- **JavaScript:** Habilitado
+- **Cookies:** Habilitados
+- **Pop-up blocker:** Desabilitado para o domínio
+
+## Configuração de Proxy
+
+Se sua empresa utiliza proxy, configure no navegador:
+
+```
+Servidor: proxy.suaempresa.com.br
+Porta: 8080
+Usuário: seu_usuario
+Senha: sua_senha
+```
+
+## Acesso via Mobile
+
+O sistema é responsivo e pode ser acessado via celular:
+
+1. Abra o navegador do dispositivo
+2. Acesse a URL do sistema
+3. Faça login normalmente
+
+:::note[Nota]
+Para melhor experiência em dispositivos móveis, recomendamos usar em tela landscape quando possível.
+:::
