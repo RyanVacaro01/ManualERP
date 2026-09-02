@@ -174,3 +174,84 @@ header .title a {
 .sl-theme-toggle {
   display: none !important;
 }
+
+/* Landing Page - Hero */
+sl-hero {
+  text-align: center;
+}
+
+sl-hero::part(title) {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+sl-hero::part(tagline) {
+  font-size: 1.15rem;
+  color: var(--sl-color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Landing Page - Search Hero */
+.search-hero {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--sl-color-text-muted);
+}
+
+.search-hero strong {
+  color: var(--sl-color-text);
+}
+
+/* Landing Page - Cards */
+.card-grid {
+  gap: 1rem;
+}
+
+sl-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+}
+
+sl-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] sl-card {
+  background-color: #0f172a;
+  border-color: #1e293b;
+}
+
+[data-theme='dark'] sl-card:hover {
+  border-color: #334155;
+}
+
+/* Landing Page - Section Headers */
+.starlight-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--sl-color-gray-2);
+}
+
+/* Landing Page - Links inside cards */
+sl-card a {
+  font-weight: 500;
+}
+
+/* Landing Page - Horizontal rule */
+.starlight-content hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid var(--sl-color-gray-2);
+}

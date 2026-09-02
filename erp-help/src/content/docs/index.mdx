@@ -1,17 +1,20 @@
 ---
-title: Bem-vindo ao ERP
-description: Portal de ajuda e documentação do sistema ERP
+title: Ajuda ERP
+description: Aprenda a usar cada módulo do sistema ERP em passos simples
 template: splash
 hero:
-  tagline: Central de ajuda completa para todos os módulos do sistema.
+  tagline: >
+    Aprenda a usar cada módulo do sistema em passos simples.
+    Busque, encontre e resolva tudo rápido.
   image:
     file: ../assets/logos/logo.png
     alt: Logo ERP
   actions:
-    - text: Primeiros Passos
+    - text: Comece por aqui
       link: /primeiros-passos
-      icon: right-arrow
-    - text: Módulos do Sistema
+      icon: rocket
+      variant: primary
+    - text: Ver todos os módulos
       link: /modulos/produtos
       icon: open-book
       variant: minimal
@@ -19,39 +22,128 @@ hero:
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Navegação Rápida
+<div class="search-hero">
+
+**O que você precisa?** Use a busca para encontrar rápido.
+
+</div>
+
+---
+
+## Como podemos ajudar?
 
 <CardGrid stagger>
-  <Card title="📦 Produtos" icon="package">
-    Gerencie seu catálogo de produtos, variações e preços.
-    [Acessar módulo →](/modulos/produtos)
+  <Card title="Novo por aqui?" icon="rocket">
+    Acesse o guia completo de primeiros passos e configure tudo.
+    [Começar agora →](/primeiros-passos)
   </Card>
-  <Card title="👥 Clientes" icon="users">
-    Cadastro e gestão de clientes e dados cadastrais.
-    [Acessar módulo →](/modulos/clientes)
+  <Card title="Precisa de ajuda?" icon="question">
+    Encontre soluções para os erros mais comuns e tire suas dúvidas.
+    [Ver suporte →](/troubleshoot/erros-comuns)
   </Card>
-  <Card title="📋 Pedidos" icon="list-check">
-    Criação, processamento e acompanhamento de pedidos.
-    [Acessar módulo →](/modulos/pedidos)
-  </Card>
-  <Card title="🚚 Expedição" icon="truck">
-    Controle de expedição e rastreamento de entregas.
-    [Acessar módulo →](/modulos/expedicao)
-  </Card>
-  <Card title="🛒 Compras" icon="shopping-cart">
-    Gestão de compras e pedidos a fornecedores.
-    [Acessar módulo →](/modulos/compras)
-  </Card>
-  <Card title="📊 Indicadores" icon="chart">
-    Dashboards e relatórios de desempenho.
-    [Acessar módulo →](/modulos/indicadores)
+  <Card title="Já sabe o que procura?" icon="magnifier">
+    Use a busca para encontrar qualquer coisa em segundos.
+    [Buscar agora →](#)
   </Card>
 </CardGrid>
 
 ---
 
-## Precisa de ajuda?
+## Módulos do Sistema
 
-- [**Erros Comuns**](/troubleshoot/erros-comuns) - Soluções para problemas frequentes
-- [**FAQ**](/troubleshoot/faq) - Perguntas frequentes
-- [**Suporte**](/troubleshoot/suporte) - Fale conosco
+<CardGrid>
+  <Card title="Produtos" icon="package">
+    Cadastro, variações, preços e gestão do catálogo.
+    [Acessar →](/modulos/produtos)
+  </Card>
+  <Card title="Clientes" icon="users">
+    Cadastro completo, histórico e gestão de relacionamento.
+    [Acessar →](/modulos/clientes)
+  </Card>
+  <Card title="Pedidos" icon="list-check">
+    Criação, processamento, aprovação e faturamento.
+    [Acessar →](/modulos/pedidos)
+  </Card>
+  <Card title="Expedição" icon="truck">
+    Separação, conferência, envio e rastreamento.
+    [Acessar →](/modulos/expedicao)
+  </Card>
+  <Card title="Compras" icon="shopping-cart">
+    Cotação, aprovação e gestão de fornecedores.
+    [Acessar →](/modulos/compras)
+  </Card>
+  <Card title="Recebimento" icon="package-search">
+    Conferência de volumes e baixa automática.
+    [Acessar →](/modulos/recebimento)
+  </Card>
+  <Card title="Produção" icon="factory">
+    Ordens de produção, matéria-prima e qualidade.
+    [Acessar →](/modulos/producao)
+  </Card>
+  <Card title="Custos" icon="currency-usd">
+    Cálculo, rateio e análise de margem de lucro.
+    [Acessar →](/modulos/custos)
+  </Card>
+  <Card title="Pessoas" icon="account-group">
+    Funcionários, equipes e permissões de acesso.
+    [Acessar →](/modulos/pessoas)
+  </Card>
+  <Card title="Marketplace" icon="store">
+    Integração com Mercado Livre, Shopee e Amazon.
+    [Acessar →](/modulos/marketplace)
+  </Card>
+  <Card title="Indicadores" icon="chart-line">
+    Dashboards, relatórios e metas em tempo real.
+    [Acessar →](/modulos/indicadores)
+  </Card>
+  <Card title="Arquivos" icon="folder">
+    Upload, versionamento e controle de documentos.
+    [Acessar →](/modulos/arquivos)
+  </Card>
+  <Card title="Extras" icon="cog">
+    Configurações, integrações, logs e utilitários.
+    [Acessar →](/modulos/extras)
+  </Card>
+</CardGrid>
+
+---
+
+## Fluxos de Trabalho
+
+<CardGrid>
+  <Card title="Cadastro de Produto" icon="package-plus">
+    Fluxo completo para cadastrar um novo produto.
+    [Ver fluxo →](/fluxos/cadastro-produto)
+  </Card>
+  <Card title="Criar Pedido" icon="cart-plus">
+    Do início ao fim: como criar um pedido de venda.
+    [Ver fluxo →](/fluxos/criar-pedido)
+  </Card>
+  <Card title="Processar Venda" icon="cash-register">
+    Fluxo completo: pedido → aprovação → NF → entrega.
+    [Ver fluxo →](/fluxos/processar-venda)
+  </Card>
+  <Card title="Gerenciar Estoque" icon="warehouse">
+    Entradas, saídas, ajustes e inventário.
+    [Ver fluxo →](/fluxos/gerenciar-estoque)
+  </Card>
+</CardGrid>
+
+---
+
+## Ainda precisa de ajuda?
+
+<CardGrid>
+  <Card title="Erros Comuns" icon="alert-circle">
+    Soluções para os problemas mais frequentes.
+    [Ver erros →](/troubleshoot/erros-comuns)
+  </Card>
+  <Card title="Perguntas Frequentes" icon="frequently-asked-questions">
+    Respostas rápidas para as dúvidas mais comuns.
+    [Ver FAQ →](/troubleshoot/faq)
+  </Card>
+  <Card title="Suporte" icon="headphones">
+    Fale com a equipe de suporte técnico.
+    [Abrir chamado →](/troubleshoot/suporte)
+  </Card>
+</CardGrid>
