@@ -49,13 +49,21 @@
 
 [data-theme='dark'] .sl-sidebar a,
 [data-theme='dark'] .on-this-page a,
-[data-theme='dark'] .sidebar a {
+[data-theme='dark'] .sidebar a,
+[data-theme='dark'] .table-of-contents a,
+[data-theme='dark'] .toc a,
+[data-theme='dark'] nav a,
+[data-theme='dark'] aside a {
   color: #f1f5f9 !important;
 }
 
 [data-theme='dark'] .sl-sidebar a:hover,
 [data-theme='dark'] .on-this-page a:hover,
-[data-theme='dark'] .sidebar a:hover {
+[data-theme='dark'] .sidebar a:hover,
+[data-theme='dark'] .table-of-contents a:hover,
+[data-theme='dark'] .toc a:hover,
+[data-theme='dark'] nav a:hover,
+[data-theme='dark'] aside a:hover {
   color: #ffffff !important;
   text-decoration: underline;
 }
@@ -152,6 +160,20 @@ header .title a {
 
 [data-theme='dark'] header a {
   color: #f1f5f9 !important;
+}
+
+[data-theme='dark'] .right-sidebar a,
+[data-theme='dark'] .toc-panel a,
+[data-theme='dark'] [class*="table-of-contents"] a,
+[data-theme='dark'] [class*="on-this-page"] a {
+  color: #f1f5f9 !important;
+}
+
+[data-theme='dark'] .right-sidebar a:hover,
+[data-theme='dark'] .toc-panel a:hover,
+[data-theme='dark'] [class*="table-of-contents"] a:hover,
+[data-theme='dark'] [class*="on-this-page"] a:hover {
+  color: #ffffff !important;
 }
 
 .sl-logo {
