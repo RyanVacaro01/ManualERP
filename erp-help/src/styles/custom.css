@@ -202,6 +202,12 @@ sl-hero::part(tagline) {
   display: none !important;
 }
 
+/* Hide page title on splash template */
+[data-template='splash'] .content-panel h1,
+[data-template='splash'] h1 {
+  display: none !important;
+}
+
 /* Hero Card */
 .hero-card {
   max-width: 640px;
