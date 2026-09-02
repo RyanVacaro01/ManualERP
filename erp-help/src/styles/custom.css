@@ -167,6 +167,15 @@ header .title a {
   color: #f1f5f9 !important;
 }
 
+/* Hide header title text - show only logo */
+.site-title span,
+.site-title {
+  font-size: 0;
+  color: transparent;
+  width: 0;
+  overflow: hidden;
+}
+
 .sl-logo {
   filter: none;
   max-width: 180px;
