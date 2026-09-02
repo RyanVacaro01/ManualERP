@@ -168,12 +168,8 @@ header .title a {
 }
 
 /* Hide header title text - show only logo */
-.site-title span,
-.site-title {
-  font-size: 0;
-  color: transparent;
-  width: 0;
-  overflow: hidden;
+.site-title span {
+  display: none;
 }
 
 .sl-logo {
