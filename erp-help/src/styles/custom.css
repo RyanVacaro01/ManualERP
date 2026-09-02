@@ -174,17 +174,3 @@ header .title a {
 .sl-theme-toggle {
   display: none !important;
 }
-
-.hero-title,
-.hero .title,
-[data-theme='dark'] .hero-title,
-[data-theme='dark'] .hero .title {
-  color: #ffffff !important;
-}
-
-.hero-tagline,
-.hero .tagline,
-[data-theme='dark'] .hero-tagline,
-[data-theme='dark'] .hero .tagline {
-  color: #f1f5f9 !important;
-}
