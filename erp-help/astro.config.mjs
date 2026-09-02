@@ -5,7 +5,7 @@ export default defineConfig({
   site: 'https://ajuda.seuerp.com.br',
   integrations: [
     starlight({
-      title: 'Ajuda ERP',
+      title: 'MODUM ERP',
       logo: {
         src: './src/content/assets/logos/logo.png',
         alt: 'Logo ERP',
