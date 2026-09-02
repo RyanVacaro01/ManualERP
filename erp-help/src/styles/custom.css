@@ -47,6 +47,19 @@
   border-color: #334155;
 }
 
+[data-theme='dark'] .sl-sidebar a,
+[data-theme='dark'] .on-this-page a,
+[data-theme='dark'] .sidebar a {
+  color: #f1f5f9 !important;
+}
+
+[data-theme='dark'] .sl-sidebar a:hover,
+[data-theme='dark'] .on-this-page a:hover,
+[data-theme='dark'] .sidebar a:hover {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
 .starlight-content {
   font-size: 1rem;
   line-height: 1.7;
@@ -134,6 +147,10 @@ a:hover {
 }
 
 header .title a {
+  color: #f1f5f9 !important;
+}
+
+[data-theme='dark'] header a {
   color: #f1f5f9 !important;
 }
 
