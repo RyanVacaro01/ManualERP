@@ -174,3 +174,27 @@ header .title a {
 .sl-theme-toggle {
   display: none !important;
 }
+
+.hero-title,
+.hero .title {
+  color: #ffffff !important;
+}
+
+.hero-tagline,
+.hero .tagline {
+  color: #f1f5f9 !important;
+}
+
+[data-theme='dark'] .edit-link a,
+[data-theme='dark'] .last-updated {
+  color: #f1f5f9 !important;
+}
+
+[data-theme='dark'] .pagination .label,
+[data-theme='dark'] .pagination .title {
+  color: #f1f5f9 !important;
+}
+
+[data-theme='dark'] footer a {
+  color: #f1f5f9 !important;
+}
