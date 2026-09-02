@@ -18,9 +18,6 @@ export default defineConfig({
         },
       },
       
-      editLink: {
-        baseUrl: 'https://github.com/seu-usuario/erp-help/edit/main/',
-      },
       lastUpdated: true,
       tableOfContents: {
         minHeadingLevel: 2,
