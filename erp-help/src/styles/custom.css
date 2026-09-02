@@ -174,32 +174,3 @@ header .title a {
 .sl-theme-toggle {
   display: none !important;
 }
-
-.hero .title {
-  color: #ffffff !important;
-}
-
-.hero .tagline {
-  color: #ffffff !important;
-}
-
-.hero .sl-hero-btn.primary {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-}
-
-.hero .sl-hero-btn.primary:hover {
-  background-color: #f1f5f9 !important;
-}
-
-[data-theme='dark'] .pagination a {
-  color: #f1f5f9 !important;
-}
-
-[data-theme='dark'] .last-updated {
-  color: #94a3b8 !important;
-}
-
-[data-theme='dark'] footer {
-  color: #f1f5f9 !important;
-}
