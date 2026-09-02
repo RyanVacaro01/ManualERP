@@ -168,11 +168,9 @@ header .title a {
 }
 
 .sl-logo {
-  filter: brightness(0) invert(1);
-}
-
-.sl-theme-toggle {
-  display: none !important;
+  filter: none;
+  max-width: 180px;
+  height: auto;
 }
 
 /* Landing Page - Hero */
@@ -191,6 +189,15 @@ sl-hero::part(tagline) {
   color: var(--sl-color-text-muted);
   max-width: 600px;
   margin: 0 auto;
+}
+
+/* Hero container centering */
+[data-template='splash'] .starlight-hero,
+.splash-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* Landing Page - Search Hero */
