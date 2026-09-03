@@ -171,7 +171,9 @@ export function renderItem(entry: SidebarEntry, groupLabel: string, depth = 0): 
         role="region"
         aria-label="${entry.label}"
       >
-        ${childrenHtml}
+        <div class="sidebar-group-inner">
+          ${childrenHtml}
+        </div>
       </div>
     </div>
   `;
