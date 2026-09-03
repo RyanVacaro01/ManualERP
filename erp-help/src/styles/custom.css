@@ -21,8 +21,7 @@
   --sl-color-gray-6: #454159;
   --sl-color-gray-7: #23202f;
   --sl-color-bg-inline-code: #f1f0f6;
-  --sidebar-width: 276px;
-  --sidebar-collapsed-width: 68px;
+  --sl-sidebar-width: 276px;
   color-scheme: light;
 }
 
@@ -144,22 +143,12 @@ a:hover {
   height: auto;
 }
 
-/* Main content area spacing for fixed sidebar */
-#main-content,
-.content-panel {
-  margin-left: var(--sidebar-width);
-  transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body.sidebar-collapsed #main-content,
-body.sidebar-collapsed .content-panel {
-  margin-left: var(--sidebar-collapsed-width);
-}
-
-@media (max-width: 1024px) {
-  #main-content,
-  .content-panel {
-    margin-left: 0;
+/* Largura da sidebar sincronizada com o layout do Starlight.
+   O painel (.sidebar-pane) e o deslocamento do conteúdo usam
+   --sl-sidebar-width, então o modo recolhido ajusta tudo junto. */
+@media (min-width: 1025px) {
+  body.sidebar-collapsed {
+    --sl-sidebar-width: 68px;
   }
 }
 
@@ -645,10 +634,5 @@ textarea:focus-visible,
   .sidebar-overlay,
   .feedback-widget {
     display: none !important;
-  }
-
-  #main-content,
-  .content-panel {
-    margin-left: 0 !important;
   }
 }

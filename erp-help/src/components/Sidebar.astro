@@ -3,7 +3,6 @@ import { getIcon, renderGroup } from '../lib/sidebar';
 
 const { sidebar } = Astro.locals.starlightRoute;
 const navHtml = sidebar.map((group) => renderGroup(group)).join('');
-const searchIconHtml = getIcon('search');
 const headphonesIconHtml = getIcon('headphones');
 const chevronLeftIconHtml = getIcon('chevron-left');
 const menuIconHtml = getIcon('menu');
@@ -23,15 +22,14 @@ const menuIconHtml = getIcon('menu');
 
     display: flex;
     flex-direction: column;
-    width: var(--sidebar-width, 276px);
-    height: 100vh;
-    height: 100dvh;
+    width: var(--sl-sidebar-width, 276px);
+    height: calc(100vh - var(--sl-nav-height));
+    height: calc(100dvh - var(--sl-nav-height));
     background: var(--sb-bg);
-    border-right: 1px solid var(--sb-border);
     position: fixed;
     left: 0;
-    top: 0;
-    z-index: 100;
+    top: var(--sl-nav-height);
+    z-index: 1;
     overflow: hidden;
     transition: width 0.22s var(--sb-ease), transform 0.25s var(--sb-ease);
   }
@@ -127,63 +125,7 @@ const menuIconHtml = getIcon('menu');
     transform: rotate(180deg);
   }
 
-  /* ---------- Busca ---------- */
-  .sidebar-wrapper .search-wrapper {
-    position: relative;
-    margin-top: 12px;
-  }
-
-  .sidebar-wrapper .search-input {
-    width: 100%;
-    padding: 8px 34px 8px 34px;
-    font-size: 13px;
-    font-family: inherit;
-    color: var(--sb-text);
-    background: var(--sb-hover);
-    border: 1px solid transparent;
-    border-radius: var(--sb-radius);
-    outline: none;
-    transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
-  }
-
-  .sidebar-wrapper .search-input::placeholder {
-    color: var(--sb-muted);
-  }
-
-  .sidebar-wrapper .search-input:focus {
-    background: var(--sb-bg);
-    border-color: var(--sb-accent);
-    box-shadow: 0 0 0 3px var(--sb-active-bg);
-  }
-
-  .sidebar-wrapper .search-icon {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--sb-muted);
-    pointer-events: none;
-    display: flex;
-  }
-
-  .sidebar-wrapper .search-icon .icon-svg {
-    width: 15px;
-    height: 15px;
-  }
-
-  .sidebar-wrapper .search-shortcut {
-    position: absolute;
-    right: 9px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 10px;
-    font-family: ui-monospace, monospace;
-    color: var(--sb-muted);
-    background: var(--sb-bg);
-    border: 1px solid var(--sb-border);
-    padding: 1px 5px;
-    border-radius: 4px;
-  }
+  /* A busca oficial fica no header (Pagefind, Ctrl+K nativo). */
 
   /* ---------- Navegação (scroll independente) ---------- */
   .sidebar-wrapper .sidebar-nav {
@@ -464,13 +406,9 @@ const menuIconHtml = getIcon('menu');
     height: 17px;
   }
 
-  /* ---------- Modo recolhido ---------- */
-  .sidebar-wrapper.collapsed {
-    width: var(--sidebar-collapsed-width, 68px);
-  }
+  /* ---------- Modo recolhido (largura via --sl-sidebar-width) ---------- */
 
   .sidebar-wrapper.collapsed .brand-text,
-  .sidebar-wrapper.collapsed .search-wrapper,
   .sidebar-wrapper.collapsed .section-title,
   .sidebar-wrapper.collapsed .item-label,
   .sidebar-wrapper.collapsed .group-label,
@@ -552,7 +490,7 @@ const menuIconHtml = getIcon('menu');
   /* Botão flutuante p/ expandir quando recolhida */
   .sidebar-expand-fab {
     position: fixed;
-    left: calc(var(--sidebar-collapsed-width, 68px) - 11px);
+    left: calc(var(--sl-sidebar-width, 68px) - 11px);
     top: 50%;
     transform: translateY(-50%);
     width: 22px;
@@ -600,11 +538,10 @@ const menuIconHtml = getIcon('menu');
     }
 
     .sidebar-wrapper.collapsed {
-      width: var(--sidebar-width, 276px);
+      width: 276px;
     }
 
     .sidebar-wrapper.collapsed .brand-text,
-    .sidebar-wrapper.collapsed .search-wrapper,
     .sidebar-wrapper.collapsed .section-title,
     .sidebar-wrapper.collapsed .item-label,
     .sidebar-wrapper.collapsed .group-label,
@@ -655,18 +592,6 @@ const menuIconHtml = getIcon('menu');
           <span class="icon" aria-hidden="true" set:html={chevronLeftIconHtml} />
         </button>
       </div>
-
-      <div class="search-wrapper">
-        <input
-          type="search"
-          class="search-input"
-          placeholder="Buscar no manual..."
-          aria-label="Buscar na documentação"
-          autocomplete="off"
-        />
-        <span class="search-icon" aria-hidden="true" set:html={searchIconHtml} />
-        <kbd class="search-shortcut">⌘K</kbd>
-      </div>
     </header>
 
     <nav class="sidebar-nav" aria-label="Seções do manual" set:html={navHtml} />
@@ -699,12 +624,19 @@ const menuIconHtml = getIcon('menu');
     const toggleBtn = wrapper?.querySelector('[data-collapse-toggle]');
     const expandFab = wrapper?.querySelector('[data-expand-fab]');
     const overlay = document.querySelector('[data-sidebar-overlay]');
-    const searchInput = wrapper?.querySelector('.search-input');
+    const sidebarPane = document.getElementById('starlight__sidebar');
     const mobileBreakpoint = 1024;
     let isCollapsed = false;
     let isMobileOpen = false;
 
     const isMobile = () => window.innerWidth <= mobileBreakpoint;
+    const closeMobilePane = () => {
+      if (sidebarPane && 'hidePopover' in sidebarPane) {
+        sidebarPane.hidePopover();
+      } else {
+        setMobileOpen(false);
+      }
+    };
 
     function setCollapsed(collapsed) {
       isCollapsed = collapsed;
@@ -738,55 +670,8 @@ const menuIconHtml = getIcon('menu');
       });
     }
 
-    function handleSearch() {
-      if (!searchInput) return;
-      const query = searchInput.value.toLowerCase().trim();
-      const items = wrapper?.querySelectorAll('.sidebar-item, .sidebar-group') || [];
-
-      // Ao buscar: expande tudo para mostrar resultados em contexto
-      if (query !== '') {
-        wrapper?.querySelectorAll('.sidebar-group-content').forEach((c) => c.classList.add('open'));
-        wrapper?.querySelectorAll('.sidebar-group-toggle').forEach((b) => {
-          b.classList.add('expanded');
-          b.setAttribute('aria-expanded', 'true');
-        });
-      }
-
-      items.forEach((item) => {
-        const label = item.querySelector(':scope > .sidebar-item .item-label, :scope > .sidebar-group-toggle .group-label, :scope.item-label, :scope.group-label');
-        const text = (item.getAttribute('data-label') || label?.textContent || '').toLowerCase();
-        const selfMatch = query === '' || text.includes(query);
-        if (item.classList.contains('sidebar-group')) {
-          const descendants = item.querySelectorAll('.sidebar-item, .sidebar-group-toggle');
-          let childMatch = false;
-          descendants.forEach((d) => {
-            const dt = (d.getAttribute('data-label') || d.textContent || '').toLowerCase();
-            const m = query === '' || dt.includes(query);
-            d.style.display = m ? '' : 'none';
-            if (m) childMatch = true;
-          });
-          item.style.display = selfMatch || childMatch || query === '' ? '' : 'none';
-        } else {
-          item.style.display = selfMatch ? '' : 'none';
-        }
-      });
-
-      wrapper?.querySelectorAll('.sidebar-section').forEach((section) => {
-        const visible = section.querySelectorAll('.sidebar-item:not([style*="none"]), .sidebar-group-toggle:not([style*="none"])');
-        section.style.display = visible.length > 0 || query === '' ? '' : 'none';
-      });
-    }
-
     function handleKeydown(e) {
-      if (e.key === 'Escape') {
-        if (isMobileOpen) setMobileOpen(false);
-        if (document.activeElement === searchInput) searchInput.blur();
-      }
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        if (isMobile() && !isMobileOpen) setMobileOpen(true);
-        searchInput?.focus();
-      }
+      if (e.key === 'Escape' && isMobileOpen) setMobileOpen(false);
     }
 
     function init() {
@@ -803,9 +688,13 @@ const menuIconHtml = getIcon('menu');
         else setCollapsed(!isCollapsed);
       });
       expandFab?.addEventListener('click', () => setCollapsed(false));
-      overlay?.addEventListener('click', () => setMobileOpen(false));
-      searchInput?.addEventListener('input', handleSearch);
+      overlay?.addEventListener('click', closeMobilePane);
       document.addEventListener('keydown', handleKeydown);
+
+      // Sincroniza com o popover mobile nativo do Starlight (botão hambúrguer do header).
+      sidebarPane?.addEventListener('toggle', (e) => {
+        setMobileOpen(e.newState === 'open');
+      });
 
       window.addEventListener('resize', () => {
         if (!isMobile()) {
