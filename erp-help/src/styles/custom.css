@@ -654,8 +654,24 @@ site-search .dialog-frame {
   padding: 1.25rem;
 }
 
+/* Botão Pesquisar do header: centralizado, texto e ícone brancos */
+.header button[data-open-modal] {
+  margin-inline: auto;
+  color: var(--sl-color-white);
+}
+
+.header button[data-open-modal]:hover {
+  color: var(--sl-color-text);
+  border-color: var(--sl-color-accent);
+}
+
+.header button[data-open-modal] svg {
+  flex-shrink: 0;
+}
+
 site-search button > kbd {
   background-color: var(--sl-color-gray-1);
+  color: var(--sl-color-white);
 }
 
 #starlight__search {
