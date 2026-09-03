@@ -1,34 +1,25 @@
-import type { SidebarGroup, SidebarItem } from '@astrojs/starlight';
-
-export interface ActiveInfo {
-  group: SidebarGroup;
-  item: SidebarItem;
-  parent?: SidebarItem;
+export interface SidebarLink {
+  type: 'link';
+  label: string;
+  href: string;
+  isCurrent: boolean;
+  badge?: unknown;
+  attrs?: Record<string, string | number | boolean | undefined>;
 }
 
-export function findActiveItem(groups: SidebarGroup[], currentPath: string): ActiveInfo | null {
-  for (const group of groups) {
-    for (const item of group.items) {
-      if (item.type === 'link' && item.slug === currentPath) {
-        return { group, item };
-      }
-      if (item.type === 'group' && item.items) {
-        for (const child of item.items) {
-          if (child.type === 'link' && child.slug === currentPath) {
-            return { group, item: child, parent: item };
-          }
-          if (child.type === 'group' && child.items) {
-            for (const grandChild of child.items) {
-              if (grandChild.type === 'link' && grandChild.slug === currentPath) {
-                return { group, item: grandChild, parent: child };
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  return null;
+export interface SidebarGroup {
+  type: 'group';
+  label: string;
+  entries: SidebarEntry[];
+  collapsed: boolean;
+  badge?: unknown;
+}
+
+export type SidebarEntry = SidebarLink | SidebarGroup;
+
+function entryHasCurrent(entry: SidebarEntry): boolean {
+  if (entry.type === 'link') return !!entry.isCurrent;
+  return entry.entries.some(entryHasCurrent);
 }
 
 export const moduleIcons: Record<string, string> = {
@@ -49,53 +40,49 @@ export const moduleIcons: Record<string, string> = {
 
 export const groupIcons: Record<string, string> = {
   'inicio': 'home',
+  'início': 'home',
   'primeiros passos': 'play-circle',
   'modulos': 'grid',
+  'módulos': 'grid',
   'fluxos de trabalho': 'git-branch',
   'integrações': 'plug',
+  'integracoes': 'plug',
   'ajuda': 'life-buoy',
   'referências': 'book-open',
+  'referencias': 'book-open',
 };
 
-export function getIconForItem(item: SidebarItem, groupLabel: string): string {
-  const slug = item.type === 'link' ? item.slug : '';
-  
+export function getIconForItem(entry: SidebarEntry, groupLabel: string): string {
+  const href = entry.type === 'link' ? entry.href : '';
+
   for (const [key, icon] of Object.entries(moduleIcons)) {
-    if (slug.includes(key)) return icon;
+    if (href.includes(key)) return icon;
   }
-  
-  if (item.type === 'group') {
-    const label = item.label.toLowerCase();
+
+  if (entry.type === 'group') {
+    const label = entry.label.toLowerCase();
     for (const [key, icon] of Object.entries(groupIcons)) {
       if (label.includes(key)) return icon;
     }
+    // Fallback: usa o icone do grupo pai quando for subgrupo (ex: Expedicao, NF-e)
+    const parent = groupLabel.toLowerCase();
+    for (const [key, icon] of Object.entries(moduleIcons)) {
+      if (parent.includes(key)) return icon;
+    }
   }
-  
+
   return 'file-text';
 }
 
-export function isItemActive(item: SidebarItem, activeInfo: ActiveInfo | null, parent?: SidebarItem): boolean {
-  if (!activeInfo) return false;
-  if (item.type === 'link' && item.slug === activeInfo.item.slug) return true;
-  if (parent && parent.type === 'group' && parent.items?.some(i => i.type === 'link' && i.slug === activeInfo.item.slug)) return true;
-  return false;
+export function isGroupExpanded(group: SidebarGroup): boolean {
+  if (entryHasCurrent(group)) return true;
+  return !group.collapsed;
 }
 
-export function isGroupExpanded(group: SidebarGroup, activeInfo: ActiveInfo | null): boolean {
-  if (!activeInfo) return group.collapsed !== true;
-  return group.items.some(item => 
-    (item.type === 'link' && item.slug === activeInfo.item.slug) ||
-    (item.type === 'group' && item.items?.some(child => child.type === 'link' && child.slug === activeInfo.item.slug))
-  );
-}
-
-export function isItemExpanded(item: SidebarItem, activeInfo: ActiveInfo | null): boolean {
-  if (!activeInfo) return item.collapsed !== true;
-  if (item.type !== 'group') return false;
-  return item.items?.some(child => 
-    (child.type === 'link' && child.slug === activeInfo.item.slug) ||
-    (child.type === 'group' && child.items?.some(gc => gc.type === 'link' && gc.slug === activeInfo.item.slug))
-  ) ?? false;
+export function isEntryExpanded(entry: SidebarEntry): boolean {
+  if (entry.type !== 'group') return false;
+  if (entryHasCurrent(entry)) return true;
+  return !entry.collapsed;
 }
 
 export const iconMap: Record<string, string> = {
@@ -133,75 +120,71 @@ export function getIcon(iconName: string): string {
   return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-svg">${path}</svg>`;
 }
 
-export function renderItem(item: SidebarItem, groupLabel: string, depth: number = 0, parent?: SidebarItem, activeInfo?: ActiveInfo | null): string {
-  const active = isItemActive(item, activeInfo, parent);
-  const expanded = isItemExpanded(item, activeInfo);
-  const hasChildren = item.type === 'group' && item.items && item.items.length > 0;
-  const icon = getIconForItem(item, groupLabel);
+function slugify(label: string): string {
+  return label.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+export function renderItem(entry: SidebarEntry, groupLabel: string, depth = 0): string {
+  const icon = getIconForItem(entry, groupLabel);
   const indent = depth * 16;
-  
-  if (item.type === 'link') {
+
+  if (entry.type === 'link') {
+    const active = !!entry.isCurrent;
     return `
-      <a 
-        href="${item.slug}"
+      <a
+        href="${entry.href}"
         class="sidebar-item ${active ? 'active' : ''} depth-${depth}"
         style="--indent: ${indent}px;"
-        data-slug="${item.slug}"
+        ${active ? 'aria-current="page"' : ''}
       >
         <span class="item-icon" aria-hidden="true">${getIcon(icon)}</span>
-        <span class="item-label">${item.label}</span>
+        <span class="item-label">${entry.label}</span>
         ${active ? '<span class="active-indicator" aria-hidden="true"></span>' : ''}
       </a>
     `;
   }
-  
-  if (item.type === 'group') {
-    const childrenHtml = item.items?.map(child => renderItem(child, groupLabel, depth + 1, item, activeInfo)).join('') || '';
-    const labelIcon = getIconForItem(item, groupLabel);
-    
-    return `
-      <div class="sidebar-group depth-${depth}" style="--indent: ${indent}px;">
-        <button 
-          class="sidebar-group-toggle ${expanded ? 'expanded' : ''} ${active ? 'active' : ''}"
-          data-group="${item.label}"
-          aria-expanded="${expanded}"
-          aria-controls="group-${item.label.replace(/\s+/g, '-').toLowerCase()}"
-        >
-          <span class="group-icon" aria-hidden="true">${getIcon(labelIcon)}</span>
-          <span class="group-label">${item.label}</span>
-          ${hasChildren ? `<span class="chevron" aria-hidden="true">${getIcon('chevron-right')}</span>` : ''}
-          ${active ? '<span class="active-indicator" aria-hidden="true"></span>' : ''}
-        </button>
-        <div 
-          id="group-${item.label.replace(/\s+/g, '-').toLowerCase()}"
-          class="sidebar-group-content ${expanded ? 'open' : ''}"
-          role="region"
-          aria-label="${item.label}"
-        >
-          ${childrenHtml}
-        </div>
+
+  const expanded = isEntryExpanded(entry);
+  const active = entryHasCurrent(entry);
+  const childrenHtml = entry.entries.map((child) => renderItem(child, groupLabel, depth + 1)).join('');
+  const groupId = `group-${slugify(entry.label)}-${depth}`;
+
+  return `
+    <div class="sidebar-group depth-${depth}" style="--indent: ${indent}px;">
+      <button
+        class="sidebar-group-toggle ${expanded ? 'expanded' : ''} ${active ? 'active' : ''}"
+        data-group="${entry.label}"
+        aria-expanded="${expanded}"
+        aria-controls="${groupId}"
+      >
+        <span class="group-icon" aria-hidden="true">${getIcon(icon)}</span>
+        <span class="group-label">${entry.label}</span>
+        <span class="chevron" aria-hidden="true">${getIcon('chevron-right')}</span>
+        ${active ? '<span class="active-indicator" aria-hidden="true"></span>' : ''}
+      </button>
+      <div
+        id="${groupId}"
+        class="sidebar-group-content ${expanded ? 'open' : ''}"
+        role="region"
+        aria-label="${entry.label}"
+      >
+        ${childrenHtml}
       </div>
-    `;
-  }
-  
-  if (item.type === 'separator') {
-    return '<hr class="sidebar-separator" aria-hidden="true" />';
-  }
-  
-  return '';
+    </div>
+  `;
 }
 
-export function renderGroup(group: SidebarGroup, activeInfo: ActiveInfo | null): string {
-  const expanded = isGroupExpanded(group, activeInfo);
+export function renderGroup(group: SidebarGroup): string {
+  const expanded = isGroupExpanded(group);
   const groupLabel = group.label.toLowerCase();
   const icon = groupIcons[groupLabel] || 'folder';
-  const itemsHtml = group.items?.map(item => renderItem(item, group.label, 0, undefined, activeInfo)).join('') || '';
-  
+  const itemsHtml = group.entries.map((entry) => renderItem(entry, group.label, 0)).join('');
+
   return `
-    <section class="sidebar-section" aria-labelledby="section-${groupLabel.replace(/\s+/g, '-')}">
+    <section class="sidebar-section" aria-labelledby="section-${slugify(group.label)}">
       <div class="section-header">
         <span class="section-icon" aria-hidden="true">${getIcon(icon)}</span>
-        <h2 id="section-${groupLabel.replace(/\s+/g, '-')}" class="section-title">${group.label}</h2>
+        <h2 id="section-${slugify(group.label)}" class="section-title">${group.label}</h2>
       </div>
       <div class="section-content ${expanded ? 'open' : ''}" data-section="${groupLabel}">
         ${itemsHtml}

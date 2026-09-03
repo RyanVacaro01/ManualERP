@@ -1,17 +1,12 @@
 ---
-import type { SidebarGroup, SidebarItem } from '@astrojs/starlight';
-import { getSidebar } from 'astro:config/client';
-import { 
-  findActiveItem, 
-  getIcon, 
-  renderGroup, 
-  ActiveInfo 
-} from '../lib/sidebar';
+import { getIcon, renderGroup } from '../lib/sidebar';
 
-const sidebar = getSidebar();
-const currentSlug = Astro.url.pathname;
-
-const activeInfo = findActiveItem(sidebar, currentSlug);
+const { sidebar } = Astro.locals.starlightRoute;
+const navHtml = sidebar.map((group) => renderGroup(group)).join('');
+const searchIconHtml = getIcon('search');
+const headphonesIconHtml = getIcon('headphones');
+const externalLinkIconHtml = getIcon('external-link');
+const chevronLeftIconHtml = getIcon('chevron-left');
 ---
 
 <style>
@@ -613,15 +608,13 @@ const activeInfo = findActiveItem(sidebar, currentSlug);
             aria-label="Buscar na documentação"
             autocomplete="off"
           />
-          <span class="search-icon" aria-hidden="true">{getIcon('search')}</span>
+          <span class="search-icon" aria-hidden="true" set:html={searchIconHtml} />
           <kbd class="search-shortcut">⌘K</kbd>
         </div>
       </div>
     </header>
 
-    <nav class="sidebar-nav" aria-label="Seções do manual">
-      {sidebar.map(group => renderGroup(group, activeInfo))}
-    </nav>
+    <nav class="sidebar-nav" aria-label="Seções do manual" set:html={navHtml} />
 
     <footer class="sidebar-footer">
       <div class="footer-content">
@@ -631,11 +624,11 @@ const activeInfo = findActiveItem(sidebar, currentSlug);
         </div>
         <div class="footer-links">
           <a href="/troubleshoot/suporte" class="footer-link">
-            <span class="icon" aria-hidden="true">{getIcon('headphones')}</span>
+            <span class="icon" aria-hidden="true" set:html={headphonesIconHtml} />
             <span>Falar com Suporte</span>
           </a>
           <a href="https://seuerp.com.br" target="_blank" rel="noopener" class="footer-link">
-            <span class="icon" aria-hidden="true">{getIcon('external-link')}</span>
+            <span class="icon" aria-hidden="true" set:html={externalLinkIconHtml} />
             <span>Portal do Cliente</span>
           </a>
         </div>
@@ -649,7 +642,7 @@ const activeInfo = findActiveItem(sidebar, currentSlug);
     aria-expanded="true"
     data-collapse-toggle
   >
-    <span class="icon" aria-hidden="true">{getIcon('chevron-left')}</span>
+    <span class="icon" aria-hidden="true" set:html={chevronLeftIconHtml} />
   </button>
 </div>
 
