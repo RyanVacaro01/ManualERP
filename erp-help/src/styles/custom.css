@@ -324,54 +324,92 @@ sl-card a {
   border-top: 1px solid var(--sl-color-gray-2);
 }
 
-/* On this page (TOC) sidebar */
-.on-this-page {
-  position: sticky;
-  top: 80px;
-  max-height: calc(100vh - 100px);
-  overflow-y: auto;
+/* Nesta página (TOC) — painel compacto em card */
+.right-sidebar-panel {
+  padding: 0.75rem var(--sl-sidebar-pad-x) 1.5rem;
 }
 
-.on-this-page h2 {
-  font-size: 0.75rem;
-  font-weight: 600;
+.right-sidebar-panel .sl-container {
+  background: var(--sl-color-bg-sidebar);
+  border: 1px solid var(--sl-color-gray-2);
+  border-radius: 12px;
+  padding: 12px 8px;
+  max-height: calc(100dvh - var(--sl-nav-height) - 4rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.right-sidebar-panel .sl-container:hover {
+  scrollbar-color: var(--sl-color-gray-3) transparent;
+}
+
+.right-sidebar-panel .sl-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.right-sidebar-panel .sl-container::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px;
+}
+
+.right-sidebar-panel .sl-container:hover::-webkit-scrollbar-thumb {
+  background: var(--sl-color-gray-3);
+}
+
+.right-sidebar-panel h2 {
+  font-size: 11px !important;
+  font-weight: 700 !important;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--sl-color-text-muted);
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
+  letter-spacing: 0.09em;
+  color: var(--sl-color-text-muted) !important;
+  margin: 0 0 6px !important;
+  padding: 2px 8px 8px !important;
   border-bottom: 1px solid var(--sl-color-gray-2);
 }
 
-.on-this-page ul {
+.right-sidebar-panel ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.on-this-page li {
-  margin-bottom: 0.25rem;
+.right-sidebar-panel li {
+  margin: 0;
 }
 
-.on-this-page a {
+.right-sidebar-panel a {
+  position: relative;
   display: block;
-  padding: 0.375rem 0.75rem;
-  font-size: 0.875rem;
-  color: var(--sl-color-text);
+  padding-block: 4px !important;
+  font-size: 12.5px !important;
+  line-height: 1.4 !important;
+  color: var(--sl-color-text-muted) !important;
   border-radius: 6px;
-  transition: all 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.on-this-page a:hover {
+.right-sidebar-panel a:hover {
   background: var(--sl-color-gray-1);
-  color: var(--sl-color-accent);
+  color: var(--sl-color-text) !important;
   text-decoration: none;
 }
 
-.on-this-page a.active {
+.right-sidebar-panel a[aria-current='true'] {
   background: var(--sl-color-accent-low);
-  color: var(--sl-color-accent);
-  font-weight: 500;
+  color: var(--sl-color-accent) !important;
+  font-weight: 600;
+}
+
+.right-sidebar-panel a[aria-current='true']::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2.5px;
+  border-radius: 0 3px 3px 0;
+  background: var(--sl-color-accent);
 }
 
 /* Responsive adjustments */
