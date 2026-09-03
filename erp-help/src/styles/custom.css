@@ -637,6 +637,83 @@ textarea:focus-visible,
   background: var(--sl-color-accent-low);
 }
 
+/* ---------- Modal de busca (Pagefind) ---------- */
+site-search dialog {
+  background-color: var(--sl-color-bg-sidebar);
+  border: 1px solid var(--sl-color-gray-2);
+  border-radius: 16px;
+  color: var(--sl-color-text);
+  padding: 0;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+}
+
+site-search .dialog-frame {
+  padding: 1.25rem;
+}
+
+site-search button > kbd {
+  background-color: var(--sl-color-gray-1);
+}
+
+#starlight__search {
+  --pagefind-ui-background: var(--sl-color-bg-sidebar);
+  --pagefind-ui-text: var(--sl-color-text);
+  --pagefind-ui-border: var(--sl-color-gray-2);
+  --pagefind-ui-primary: var(--sl-color-accent);
+}
+
+#starlight__search .pagefind-ui__form {
+  border: none;
+}
+
+#starlight__search .pagefind-ui__search-input {
+  background: var(--sl-color-gray-1);
+  border: 1px solid var(--sl-color-gray-2);
+  border-radius: 10px;
+  color: var(--sl-color-text);
+  font-weight: 500;
+  height: 3rem;
+}
+
+#starlight__search .pagefind-ui__search-input::placeholder {
+  color: var(--sl-color-text-muted);
+}
+
+#starlight__search input:focus {
+  --pagefind-ui-border: var(--sl-color-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sl-color-accent-low);
+}
+
+#starlight__search .pagefind-ui__result-title:not(:where(.pagefind-ui__result-nested *)),
+#starlight__search .pagefind-ui__result-nested {
+  background-color: transparent;
+}
+
+#starlight__search .pagefind-ui__result-link {
+  --pagefind-ui-text: var(--sl-color-text);
+}
+
+#starlight__search .pagefind-ui__result-excerpt {
+  color: var(--sl-color-text-muted);
+}
+
+#starlight__search .pagefind-ui__result-tags {
+  background-color: transparent;
+}
+
+#starlight__search mark {
+  background-color: var(--sl-color-accent-low);
+  color: var(--sl-color-accent);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+#starlight__search .pagefind-ui__message,
+#starlight__search .pagefind-ui__button {
+  color: var(--sl-color-text-muted);
+}
+
 /* ---------- Impressão ---------- */
 @media print {
   .sidebar-wrapper,
