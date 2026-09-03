@@ -446,7 +446,21 @@ kbd,
 }
 
 /* ---------- Conteúdo: legibilidade ---------- */
+/* Texto corrido limitado a 78ch; tabelas, código e avisos usam a
+   largura total da coluna para não deixar lacunas laterais. */
 .sl-markdown-content {
+  max-width: 100%;
+}
+
+.sl-markdown-content > h1,
+.sl-markdown-content > h2,
+.sl-markdown-content > h3,
+.sl-markdown-content > h4,
+.sl-markdown-content > h5,
+.sl-markdown-content > h6,
+.sl-markdown-content > p,
+.sl-markdown-content > ul,
+.sl-markdown-content > ol {
   max-width: 78ch;
 }
 
