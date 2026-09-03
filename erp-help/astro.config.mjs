@@ -77,8 +77,16 @@ export default defineConfig({
       components: {
         Sidebar: './src/components/Sidebar.astro',
       },
-      customCss: ['./src/styles/custom.css'],
+      customCss: ['./src/styles/custom.css', './src/styles/motion.css'],
       head: [
+        {
+          tag: 'script',
+          content: `document.documentElement.classList.add('ux');`,
+        },
+        {
+          tag: 'script',
+          attrs: { src: '/js/ux.js', defer: true },
+        },
         {
           tag: 'link',
           attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

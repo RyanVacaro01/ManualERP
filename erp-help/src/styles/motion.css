@@ -1,0 +1,121 @@
+/* ============================================================
+   MODUM ERP — Motion layer (skill: design-motion-principles)
+   Lentes: Emil Kowalski (restrição e velocidade — primária,
+   pois é um site de produtividade) + Jakub Krehel (polimento
+   sutil — secundária).
+   Regras aplicadas da skill:
+   - Só transform / opacity / filter (GPU, sem reflow);
+   - Curva customizada, nunca `ease` puro;
+   - Entrada = opacity 0→1 + translateY ~8px + blur 4px→0;
+   - Duração por tamanho (micro 120ms / UI 200ms / entrada 320ms);
+   - Sem loops chamativos, sem scale(0), sem animar a cada tecla;
+   - `prefers-reduced-motion` obrigatório (ver final do arquivo).
+   O estado final é sempre identidade: desktop pixel a pixel igual.
+   ============================================================ */
+
+:root {
+  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-dur-micro: 120ms;
+  --motion-dur-ui: 200ms;
+  --motion-dur-enter: 320ms;
+}
+
+/* ---------- Reveal on scroll (via IntersectionObserver) ----------
+   Estados escondidos SÓ existem com `html.ux` + classe `.ux-rv`,
+   ambas aplicadas pelo ux.js em runtime: sem JS, tudo visível.
+   Transições (não keyframes) para serem interrompíveis. */
+html.ux .ux-rv {
+  opacity: 0;
+  transform: translateY(10px);
+  filter: blur(4px);
+  transition:
+    opacity var(--motion-dur-enter) var(--motion-ease-out) var(--ux-delay, 0ms),
+    transform var(--motion-dur-enter) var(--motion-ease-out) var(--ux-delay, 0ms),
+    filter var(--motion-dur-enter) var(--motion-ease-out) var(--ux-delay, 0ms);
+}
+
+html.ux .ux-rv.ux-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* ---------- Imagens: fade-in ao carregar (só opacity) ---------- */
+html.ux .sl-markdown-content img.ux-img {
+  opacity: 0;
+  transition: opacity var(--motion-dur-ui) var(--motion-ease-out);
+}
+
+html.ux .sl-markdown-content img.ux-img.ux-loaded {
+  opacity: 1;
+}
+
+/* ---------- Barra de progresso de leitura ----------
+   Linear e fina: indicador de progresso usa easing linear. */
+#ux-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 300;
+  background: var(--sl-color-accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+/* ---------- Busca: skeleton funcional no carregando ----------
+   Resultados NÃO animam (re-render a cada tecla = alta frequência:
+   instantâneo é o correto). Só o placeholder de loading tem
+   shimmer sutil — feedback funcional, não decorativo. */
+#starlight__search .pagefind-ui__loading {
+  border-radius: 6px;
+  background: linear-gradient(
+    100deg,
+    var(--sl-color-gray-1) 35%,
+    var(--sl-color-gray-2) 50%,
+    var(--sl-color-gray-1) 65%
+  );
+  background-size: 200% 100%;
+  color: transparent;
+  animation: modum-shimmer 1.2s linear infinite;
+}
+
+@keyframes modum-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* ---------- Reduced motion: acessibilidade NÃO opcional ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html.ux .ux-rv {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  html.ux .sl-markdown-content img.ux-img {
+    opacity: 1 !important;
+  }
+
+  #ux-progress {
+    display: none !important;
+  }
+
+  #starlight__search .pagefind-ui__loading {
+    animation: none !important;
+  }
+}

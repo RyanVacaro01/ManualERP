@@ -136,7 +136,7 @@ const { page = 'current' } = Astro.props;
     color: var(--sl-color-text);
     cursor: pointer;
     font-size: 0.9rem;
-    transition: all 0.2s;
+    transition: all 0.2s var(--motion-ease-out);
   }
   
   .feedback-btn:hover {
@@ -185,7 +185,7 @@ const { page = 'current' } = Astro.props;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    transition: background 0.2s;
+    transition: background 0.2s var(--motion-ease-out);
   }
   
   .feedback-submit:hover {

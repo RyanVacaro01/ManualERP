@@ -100,7 +100,7 @@ const menuIconHtml = getIcon('menu');
     justify-content: center;
     cursor: pointer;
     flex-shrink: 0;
-    transition: all 0.16s ease;
+    transition: all 0.16s var(--motion-ease-out);
   }
 
   .sidebar-wrapper .collapse-btn:hover {
@@ -221,7 +221,7 @@ const menuIconHtml = getIcon('menu');
     font-family: inherit;
     cursor: pointer;
     text-align: left;
-    transition: background 0.16s ease, color 0.16s ease;
+    transition: background 0.16s var(--motion-ease-out), color 0.16s var(--motion-ease-out);
   }
 
   .sidebar-wrapper .sidebar-item {
@@ -253,7 +253,7 @@ const menuIconHtml = getIcon('menu');
     justify-content: center;
     color: var(--sb-muted);
     flex-shrink: 0;
-    transition: color 0.16s ease;
+    transition: color 0.16s var(--motion-ease-out);
   }
 
   .sidebar-wrapper .item-icon .icon-svg,
@@ -304,7 +304,7 @@ const menuIconHtml = getIcon('menu');
     overflow: hidden;
     display: grid;
     grid-template-rows: 1fr;
-    transition: grid-template-rows 0.22s var(--sb-ease), opacity 0.18s ease;
+    transition: grid-template-rows 0.22s var(--sb-ease), opacity 0.18s var(--motion-ease-out);
     opacity: 1;
   }
 
@@ -372,7 +372,7 @@ const menuIconHtml = getIcon('menu');
     font-weight: 550;
     color: var(--sb-text);
     text-decoration: none;
-    transition: background 0.16s ease, color 0.16s ease;
+    transition: background 0.16s var(--motion-ease-out), color 0.16s var(--motion-ease-out);
   }
 
   .sidebar-wrapper .footer-link:hover {
@@ -493,7 +493,7 @@ const menuIconHtml = getIcon('menu');
     justify-content: center;
     cursor: pointer;
     z-index: 99;
-    transition: color 0.16s ease;
+    transition: color 0.16s var(--motion-ease-out);
   }
 
   .sidebar-expand-fab:hover {

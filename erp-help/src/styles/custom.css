@@ -117,7 +117,7 @@ code {
 a {
   color: var(--sl-color-accent);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s var(--motion-ease-out);
 }
 
 a:hover {
@@ -172,7 +172,7 @@ a:hover {
 }
 
 sl-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s var(--motion-ease-out), box-shadow 0.2s var(--motion-ease-out);
   border-radius: 12px;
 }
 
@@ -238,7 +238,7 @@ sl-card a {
   font-size: 0.875rem;
   color: var(--sl-color-text);
   border-radius: 6px;
-  transition: all 0.15s ease;
+  transition: all 0.15s var(--motion-ease-out);
 }
 
 .on-this-page a:hover {
@@ -459,7 +459,7 @@ kbd,
 .sl-markdown-content .sl-anchor-link {
   color: var(--sl-color-gray-4);
   opacity: 0;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.15s var(--motion-ease-out);
 }
 
 .sl-markdown-content h1:hover .sl-anchor-link,
@@ -579,7 +579,7 @@ kbd {
   border: 1px solid var(--sl-color-gray-2);
   border-radius: 12px;
   padding: 1rem 1.15rem;
-  transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+  transition: border-color 0.16s var(--motion-ease-out), background 0.16s var(--motion-ease-out), transform 0.16s var(--motion-ease-out);
   box-shadow: 0 1px 2px rgba(35, 32, 47, 0.05);
 }
 
