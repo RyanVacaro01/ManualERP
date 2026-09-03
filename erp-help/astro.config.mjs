@@ -5,10 +5,10 @@ export default defineConfig({
   site: 'https://ajuda.seuerp.com.br',
   integrations: [
     starlight({
-      title: 'Ajuda ERP',
+      title: 'MODUM ERP',
       logo: {
         src: './src/content/assets/logos/logo.png',
-        alt: 'Logo ERP',
+        alt: 'Logo MODUM ERP',
       },
       
       locales: {
@@ -45,18 +45,18 @@ export default defineConfig({
           label: 'Módulos',
           collapsed: false,
           items: [
-            { label: '📦 Produtos', slug: 'modulos/produtos' },
-            { label: '👥 Clientes', slug: 'modulos/clientes' },
-            { label: '💰 Custos', slug: 'modulos/custos' },
-            { label: '📋 Pedidos', slug: 'modulos/pedidos' },
-            { label: '🏭 Produção', slug: 'modulos/producao' },
+            { label: 'Produtos', slug: 'modulos/produtos' },
+            { label: 'Clientes', slug: 'modulos/clientes' },
+            { label: 'Custos', slug: 'modulos/custos' },
+            { label: 'Pedidos', slug: 'modulos/pedidos' },
+            { label: 'Produção', slug: 'modulos/producao' },
             {
-              label: '🚚 Expedição',
+              label: 'Expedição',
               collapsed: true,
               items: [
                 { label: 'Expedição', slug: 'modulos/expedicao' },
                 {
-                  label: '📄 NFe Débitos',
+                  label: 'NF-e Débitos',
                   collapsed: true,
                   items: [
                     { label: 'NF-e Multa e Juros', slug: 'modulos/expedicao/nfe-debitos/nfe-multa-juros' },
@@ -64,13 +64,13 @@ export default defineConfig({
                 },
               ],
             },
-            { label: '🛒 Compras', slug: 'modulos/compras' },
-            { label: '📥 Recebimento', slug: 'modulos/recebimento' },
-            { label: '👤 Pessoas', slug: 'modulos/pessoas' },
-            { label: '🌐 Marketplace', slug: 'modulos/marketplace' },
-            { label: '📊 Indicadores', slug: 'modulos/indicadores' },
-            { label: '📁 Arquivos', slug: 'modulos/arquivos' },
-            { label: '⚙️ Extras', slug: 'modulos/extras' },
+            { label: 'Compras', slug: 'modulos/compras' },
+            { label: 'Recebimento', slug: 'modulos/recebimento' },
+            { label: 'Pessoas', slug: 'modulos/pessoas' },
+            { label: 'Marketplace', slug: 'modulos/marketplace' },
+            { label: 'Indicadores', slug: 'modulos/indicadores' },
+            { label: 'Arquivos', slug: 'modulos/arquivos' },
+            { label: 'Extras', slug: 'modulos/extras' },
           ],
         },
         {
@@ -113,6 +113,9 @@ export default defineConfig({
           ],
         },
       ],
+      components: {
+        Sidebar: './src/components/Sidebar.astro',
+      },
       customCss: ['./src/styles/custom.css'],
       head: [
         {
