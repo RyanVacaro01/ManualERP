@@ -669,6 +669,23 @@ site-search .dialog-frame {
   flex-shrink: 0;
 }
 
+/* Mostra "/" no lugar do Ctrl+K (atalho real do site) */
+.header button[data-open-modal] > kbd {
+  display: none !important;
+}
+
+.header button[data-open-modal]::after {
+  content: '/';
+  margin-inline-start: auto;
+  font-size: 12px;
+  font-family: ui-monospace, monospace;
+  color: var(--sl-color-white);
+  background-color: var(--sl-color-gray-1);
+  border: 1px solid var(--sl-color-gray-2);
+  padding: 1px 8px;
+  border-radius: 5px;
+}
+
 site-search button > kbd {
   background-color: var(--sl-color-gray-1);
   color: var(--sl-color-white);
