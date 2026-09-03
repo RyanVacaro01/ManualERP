@@ -32,16 +32,6 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Primeiros Passos',
-          collapsed: false,
-          items: [
-            { label: 'Introdução', slug: 'primeiros-passos' },
-            { label: 'Instalação', slug: 'primeiros-passos/instalacao' },
-            { label: 'Configuração Inicial', slug: 'primeiros-passos/configuracao-inicial' },
-            { label: 'Primeiro Login', slug: 'primeiros-passos/primeiro-login' },
-          ],
-        },
-        {
           label: 'Módulos',
           collapsed: false,
           items: [
