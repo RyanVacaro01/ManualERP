@@ -9,6 +9,7 @@ export default defineConfig({
       logo: {
         src: './src/content/assets/logos/logo.png',
         alt: 'Logo MODUM ERP',
+        replacesTitle: true,
       },
       
       locales: {
