@@ -76,30 +76,12 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Integrações',
-          collapsed: false,
-          items: [
-            { label: 'Marketplace', slug: 'integracoes/marketplace-config' },
-            { label: 'NF Eletrônica', slug: 'integracoes/nf-eletronica' },
-            { label: 'API', slug: 'integracoes/api-integrations' },
-          ],
-        },
-        {
           label: 'Ajuda',
           collapsed: false,
           items: [
             { label: 'Erros Comuns', slug: 'troubleshoot/erros-comuns' },
             { label: 'FAQ', slug: 'troubleshoot/faq' },
             { label: 'Suporte', slug: 'troubleshoot/suporte' },
-          ],
-        },
-        {
-          label: 'Referências',
-          collapsed: false,
-          items: [
-            { label: 'Glossário', slug: 'referencias/glossario' },
-            { label: 'Atalhos', slug: 'referencias/atalhos-teclado' },
-            { label: 'Permissões', slug: 'referencias/permissoes' },
           ],
         },
       ],

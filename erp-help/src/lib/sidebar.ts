@@ -45,11 +45,7 @@ export const groupIcons: Record<string, string> = {
   'modulos': 'grid',
   'módulos': 'grid',
   'fluxos de trabalho': 'git-branch',
-  'integrações': 'plug',
-  'integracoes': 'plug',
   'ajuda': 'life-buoy',
-  'referências': 'book-open',
-  'referencias': 'book-open',
 };
 
 export function getIconForItem(entry: SidebarEntry, groupLabel: string): string {
