@@ -119,10 +119,6 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css'],
       head: [
         {
-          tag: 'script',
-          content: `document.documentElement.setAttribute('data-theme', 'dark');`,
-        },
-        {
           tag: 'meta',
           attrs: { property: 'og:image', content: 'https://ajuda.seuerp.com.br/og-image.png' },
         },

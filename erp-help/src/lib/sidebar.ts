@@ -109,6 +109,7 @@ export const iconMap: Record<string, string> = {
   'file-text': '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>',
   'chevron-right': '<polyline points="9 18 15 12 9 6"/>',
   'chevron-left': '<polyline points="15 18 9 12 15 6"/>',
+  'menu': '<line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/>',
   'search': '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
   'headphones': '<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>',
   'external-link': '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>',
@@ -135,6 +136,7 @@ export function renderItem(entry: SidebarEntry, groupLabel: string, depth = 0): 
         href="${entry.href}"
         class="sidebar-item ${active ? 'active' : ''} depth-${depth}"
         style="--indent: ${indent}px;"
+        data-label="${entry.label}"
         ${active ? 'aria-current="page"' : ''}
       >
         <span class="item-icon" aria-hidden="true">${getIcon(icon)}</span>
@@ -154,6 +156,7 @@ export function renderItem(entry: SidebarEntry, groupLabel: string, depth = 0): 
       <button
         class="sidebar-group-toggle ${expanded ? 'expanded' : ''} ${active ? 'active' : ''}"
         data-group="${entry.label}"
+        data-label="${entry.label}"
         aria-expanded="${expanded}"
         aria-controls="${groupId}"
       >
