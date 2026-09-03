@@ -108,6 +108,31 @@ export default defineConfig({
         },
         {
           tag: 'meta',
+          attrs: { property: 'og:image:width', content: '1200' },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:height', content: '630' },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:alt', content: 'Manual MODUM ERP — guias e tutoriais do sistema' },
+        },
+        {
+          tag: 'meta',
+          attrs: { name: 'theme-color', media: '(prefers-color-scheme: light)', content: '#ffffff' },
+        },
+        {
+          tag: 'meta',
+          attrs: { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: '#161422' },
+        },
+        {
+          tag: 'script',
+          attrs: { type: 'application/ld+json' },
+          content: `{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://ajuda.seuerp.com.br/#org","name":"MODUM ERP","url":"https://ajuda.seuerp.com.br/","logo":"https://ajuda.seuerp.com.br/og-image.png"},{"@type":"WebSite","name":"Manual MODUM ERP","url":"https://ajuda.seuerp.com.br/","inLanguage":"pt-BR","publisher":{"@id":"https://ajuda.seuerp.com.br/#org"}}]}`,
+        },
+        {
+          tag: 'meta',
           attrs: { httpEquiv: 'X-Content-Type-Options', content: 'nosniff' },
         },
         {
