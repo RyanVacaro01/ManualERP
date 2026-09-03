@@ -710,8 +710,24 @@ const menuIconHtml = getIcon('menu');
       });
     }
 
+    function openHeaderSearch() {
+      const btn = document.querySelector('button[data-open-modal]');
+      if (btn) btn.click();
+    }
+
     function handleKeydown(e) {
       if (e.key === 'Escape' && isMobileOpen) setMobileOpen(false);
+      // Atalho "/" abre a busca (o Ctrl+K é sequestrado pelo Chrome no Windows).
+      if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        const t = e.target;
+        const typing =
+          t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+        if (!typing) {
+          e.preventDefault();
+          if (isMobile()) setMobileOpen(false);
+          openHeaderSearch();
+        }
+      }
     }
 
     function init() {
