@@ -165,141 +165,6 @@ a:hover {
   }
 }
 
-/* Landing Page - Hero */
-sl-hero {
-  text-align: center;
-}
-
-sl-hero::part(title) {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-sl-hero::part(tagline) {
-  font-size: 1.15rem;
-  color: var(--sl-color-text-muted);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Hero container centering */
-[data-template='splash'] .starlight-hero,
-.splash-hero {
-  display: none !important;
-}
-
-/* Hide page title on splash template */
-[data-template='splash'] .content-panel h1,
-[data-template='splash'] h1 {
-  display: none !important;
-}
-
-/* Hero Card */
-.hero-card {
-  max-width: 640px;
-  margin: 2rem auto 3rem;
-  padding: 3rem 2.5rem;
-  text-align: center;
-  background: var(--sl-color-bg-sidebar);
-  border: 1px solid var(--sl-color-gray-2);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(109, 40, 217, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--sl-color-accent), transparent);
-}
-
-.hero-card-badge {
-  display: inline-block;
-  padding: 0.3rem 1rem;
-  margin-bottom: 1.25rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--sl-color-accent);
-  background: var(--sl-color-accent-low);
-  border: 1px solid var(--sl-color-gray-2);
-  border-radius: 50px;
-}
-
-.hero-card-title {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin: 0 0 0.75rem;
-  color: var(--sl-color-text);
-  line-height: 1.1;
-}
-
-.hero-card-desc {
-  font-size: 1.1rem;
-  color: var(--sl-color-text-muted);
-  margin: 0 0 2rem;
-  line-height: 1.6;
-}
-
-.hero-card-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.hero-btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.75rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--sl-color-accent);
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.3);
-}
-
-.hero-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(109, 40, 217, 0.4);
-  text-decoration: none;
-  color: #fff;
-}
-
-.hero-btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.75rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--sl-color-text);
-  background: transparent;
-  border: 1px solid var(--sl-color-gray-2);
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.hero-btn-secondary:hover {
-  border-color: var(--sl-color-accent);
-  background: var(--sl-color-accent-low);
-  transform: translateY(-2px);
-  text-decoration: none;
-  color: var(--sl-color-text);
-}
-
 /* Landing Page - Cards */
 .card-grid {
   gap: 1rem;
@@ -387,25 +252,111 @@ sl-card a {
   font-weight: 500;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero-card {
-    margin: 1rem;
-    padding: 2rem 1.5rem;
+/* ============================================================
+   Mobile UX — tudo aqui vive dentro de media queries ou
+   (hover: none): o desktop permanece pixel a pixel igual.
+   ============================================================ */
+
+/* ---------- Telefones pequenos: header compacto ---------- */
+@media (max-width: 640px) {
+  .sl-logo {
+    max-width: 128px;
   }
 
-  .hero-card-title {
-    font-size: 2rem;
-  }
-
-  .hero-card-actions {
-    flex-direction: column;
-  }
-
-  .hero-btn-primary,
-  .hero-btn-secondary {
-    width: 100%;
+  /* Botão de busca vira ícone: o texto "Pesquisar" o Starlight já
+     esconde no mobile; aqui some a pílula "/" p/ liberar espaço. */
+  .header button[data-open-modal] {
+    min-width: 40px;
+    min-height: 40px;
     justify-content: center;
+    padding-inline: 0.6rem;
+  }
+
+  .header button[data-open-modal]::after {
+    display: none;
+  }
+}
+
+/* ---------- Busca em tela cheia no celular ---------- */
+@media (max-width: 640px) {
+  site-search dialog {
+    width: 100%;
+    max-width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  site-search .dialog-frame {
+    padding: 1rem;
+    padding-top: max(1rem, env(safe-area-inset-top, 0px));
+  }
+
+  /* <16px em inputs = Safari iOS dá auto-zoom ao focar. */
+  #starlight__search .pagefind-ui__search-input {
+    font-size: 16px;
+  }
+}
+
+/* ---------- Conteúdo: sem rolagem lateral, mídia fluida ---------- */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  .sl-markdown-content p,
+  .sl-markdown-content li {
+    overflow-wrap: break-word;
+  }
+
+  .sl-markdown-content pre {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.sl-markdown-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Tabelas: rolagem com momentum no iOS ---------- */
+@media (max-width: 50rem) {
+  .sl-markdown-content table {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ---------- Paginação anterior/próximo empilhada ---------- */
+@media (max-width: 640px) {
+  .pagination-links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .pagination-links a {
+    min-height: 44px;
+  }
+}
+
+/* ---------- Feedback de toque (hover não existe no celular) ---------- */
+@media (hover: none) {
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  sl-card:active {
+    transform: scale(0.99);
+  }
+
+  .pagination-links a:active {
+    transform: scale(0.99);
   }
 }
 

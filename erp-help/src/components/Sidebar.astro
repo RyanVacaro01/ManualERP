@@ -518,6 +518,9 @@ const menuIconHtml = getIcon('menu');
     .sidebar-wrapper {
       transform: translateX(-102%);
       box-shadow: none;
+      /* Acima do overlay (z 90) e do header: sem isso o menu
+         abre mas fica inacessível atrás do véu escuro. */
+      z-index: 120;
     }
 
     .sidebar-wrapper.mobile-open {
@@ -548,6 +551,32 @@ const menuIconHtml = getIcon('menu');
 
     .sidebar-expand-fab {
       display: none !important;
+    }
+  }
+
+  /* ---------- Mobile: alvos de toque e rolagem ---------- */
+  /* Só dentro do breakpoint: desktop mantém as medidas atuais. */
+  @media (max-width: 1024px) {
+    .sidebar-wrapper .sidebar-nav {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sidebar-wrapper .sidebar-item,
+    .sidebar-wrapper .sidebar-group-toggle {
+      min-height: 44px;
+    }
+
+    .sidebar-wrapper .sidebar-item.depth-2 {
+      min-height: 44px;
+    }
+
+    .sidebar-wrapper .collapse-btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .sidebar-wrapper .sidebar-footer {
+      padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
     }
   }
 

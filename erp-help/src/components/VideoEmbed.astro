@@ -75,7 +75,13 @@ const vimeoId = getVimeoId(url);
   
   .video-embed iframe {
     display: block;
+    width: 100%;
     max-width: 100%;
+    /* Proporção 16:9 fluida: numa coluna de ~720px dá ~405px de
+       altura (≈ os 400px de antes), sem achatar no mobile. */
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
   }
   
   .video-title {
@@ -90,11 +96,5 @@ const vimeoId = getVimeoId(url);
     text-align: center;
     background: var(--sl-color-gray-1);
     color: var(--sl-color-text-muted);
-  }
-  
-  @media (max-width: 768px) {
-    .video-embed iframe {
-      height: 250px;
-    }
   }
 </style>

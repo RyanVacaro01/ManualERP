@@ -42,10 +42,12 @@ const modules = [
     justify-content: center;
     gap: 14px;
     padding: 28px 12px 24px;
+    min-height: 132px;
     background: var(--sl-color-bg-sidebar);
     border: 1px solid var(--sl-color-gray-2);
     border-radius: 12px;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
     transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
   }
 
@@ -54,6 +56,14 @@ const modules = [
     border-color: var(--sl-color-accent);
     box-shadow: 0 8px 24px rgba(109, 40, 217, 0.12);
     text-decoration: none;
+  }
+
+  /* :hover não existe no toque: feedback imediato ao pressionar. */
+  @media (hover: none) {
+    .module-card:active {
+      transform: scale(0.97);
+      border-color: var(--sl-color-accent);
+    }
   }
 
   .module-card:focus-visible {
@@ -104,6 +114,47 @@ const modules = [
 
     .module-card {
       padding: 22px 10px 18px;
+      min-height: 124px;
+    }
+  }
+
+  /* Telas muito estreitas (ex.: 360px): mantém 2 colunas para a
+     lista de 13 módulos não virar rolagem infinita, só compacta. */
+  @media (max-width: 380px) {
+    .module-grid {
+      gap: 8px;
+    }
+
+    .module-card {
+      padding: 18px 8px 14px;
+      gap: 10px;
+      min-height: 112px;
+    }
+
+    .module-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+    }
+
+    .module-card-icon .icon-svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .module-card-label {
+      font-size: 13px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .module-card,
+    .module-card-icon {
+      transition: none;
+    }
+
+    .module-card:hover {
+      transform: none;
     }
   }
 </style>

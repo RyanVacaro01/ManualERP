@@ -205,6 +205,19 @@ const { page = 'current' } = Astro.props;
       right: 1rem;
       left: 1rem;
       max-width: none;
+      /* Acima do home indicator em iPhones com gesture bar. */
+      padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* Alvos de toque com 44px mínimos. */
+    .feedback-btn,
+    .feedback-submit {
+      min-height: 44px;
+    }
+
+    /* <16px em inputs = Safari iOS dá auto-zoom ao focar. */
+    .feedback-textarea {
+      font-size: 16px;
     }
   }
 </style>
