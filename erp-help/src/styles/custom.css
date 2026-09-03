@@ -406,3 +406,249 @@ sl-card a {
     justify-content: center;
   }
 }
+
+/* ============================================================
+   MODUM ERP — Sistema de design profissional
+   Tipografia, header, conteúdo, tabelas, código e paginação
+   ============================================================ */
+
+/* ---------- Base tipográfica ---------- */
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+code,
+pre,
+kbd,
+.sl-markdown-content code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---------- Header superior ---------- */
+.header {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.site-title {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Botão de busca do Starlight */
+.pagefind-ui__search-input,
+[data-pagefind-ui] input {
+  border-radius: 8px;
+}
+
+/* ---------- Conteúdo: legibilidade ---------- */
+.sl-markdown-content {
+  max-width: 78ch;
+}
+
+.sl-markdown-content > p,
+.sl-markdown-content > ul,
+.sl-markdown-content > ol {
+  color: var(--sl-color-text);
+}
+
+.sl-markdown-content h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.sl-markdown-content h2,
+.sl-markdown-content h3 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  scroll-margin-top: 5.5rem;
+}
+
+.sl-markdown-content h2 {
+  margin-top: 2.75rem;
+}
+
+.sl-markdown-content h3 {
+  margin-top: 2rem;
+}
+
+.sl-markdown-content li + li {
+  margin-top: 0.35rem;
+}
+
+.sl-markdown-content hr {
+  border: none;
+  border-top: 1px solid var(--sl-color-gray-2);
+  margin: 2.5rem auto;
+  max-width: 12rem;
+}
+
+/* Links âncora dos títulos: discretos até o hover */
+.sl-markdown-content .sl-anchor-link {
+  color: var(--sl-color-gray-4);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.sl-markdown-content h1:hover .sl-anchor-link,
+.sl-markdown-content h2:hover .sl-anchor-link,
+.sl-markdown-content h3:hover .sl-anchor-link,
+.sl-markdown-content h4:hover .sl-anchor-link {
+  opacity: 1;
+}
+
+/* ---------- Tabelas ---------- */
+.sl-markdown-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9rem;
+  border: 1px solid var(--sl-color-gray-2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sl-markdown-content thead th {
+  background: var(--sl-color-gray-1);
+  font-weight: 650;
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--sl-color-gray-2);
+  white-space: nowrap;
+}
+
+.sl-markdown-content tbody td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--sl-color-gray-2);
+  vertical-align: top;
+}
+
+.sl-markdown-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.sl-markdown-content tbody tr:hover {
+  background: var(--sl-color-gray-1);
+}
+
+/* ---------- Código ---------- */
+.sl-markdown-content code:not(pre code) {
+  font-size: 0.85em;
+  background: var(--sl-color-bg-inline-code, var(--sl-color-gray-1));
+  border: 1px solid var(--sl-color-gray-2);
+  border-radius: 6px;
+  padding: 0.15em 0.4em;
+}
+
+.sl-markdown-content pre {
+  border: 1px solid var(--sl-color-gray-2);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(35, 32, 47, 0.06);
+}
+
+.sl-markdown-content blockquote {
+  border-left: 3px solid var(--sl-color-accent);
+  background: var(--sl-color-accent-low);
+  border-radius: 0 10px 10px 0;
+  padding: 0.85rem 1.1rem;
+  color: var(--sl-color-text);
+}
+
+.sl-markdown-content img {
+  border-radius: 12px;
+}
+
+kbd {
+  font-size: 0.78em;
+  border: 1px solid var(--sl-color-gray-2);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  padding: 0.1em 0.45em;
+  background: var(--sl-color-gray-1);
+  color: var(--sl-color-text);
+  white-space: nowrap;
+}
+
+/* ---------- Avisos (Starlight Aside) ---------- */
+.starlight-aside {
+  border-radius: 12px;
+  border: 1px solid var(--sl-color-gray-2);
+  box-shadow: 0 1px 2px rgba(35, 32, 47, 0.05);
+}
+
+.starlight-aside__title {
+  font-weight: 650;
+}
+
+/* ---------- Etapas (Starlight Steps) ---------- */
+.sl-steps > li + li {
+  margin-top: 1.25rem;
+}
+
+/* ---------- Paginação anterior/próximo ---------- */
+.pagination-links {
+  gap: 0.9rem;
+}
+
+.pagination-links a {
+  border: 1px solid var(--sl-color-gray-2);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+  box-shadow: 0 1px 2px rgba(35, 32, 47, 0.05);
+}
+
+.pagination-links a:hover {
+  border-color: var(--sl-color-accent);
+  background: var(--sl-color-accent-low);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.pagination-links .link-title {
+  color: var(--sl-color-text);
+  font-weight: 650;
+}
+
+/* ---------- Rodapé da página ---------- */
+.meta,
+.content-panel + footer,
+footer .meta {
+  color: var(--sl-color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Foco visível consistente ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--sl-color-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ---------- Seleção de texto ---------- */
+::selection {
+  background: var(--sl-color-accent-low);
+}
+
+/* ---------- Impressão ---------- */
+@media print {
+  .sidebar-wrapper,
+  .sidebar-expand-fab,
+  .sidebar-overlay,
+  .feedback-widget {
+    display: none !important;
+  }
+
+  #main-content,
+  .content-panel {
+    margin-left: 0 !important;
+  }
+}
