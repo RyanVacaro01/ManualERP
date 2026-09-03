@@ -152,6 +152,16 @@ a:hover {
   }
 }
 
+/* Coluna do texto centralizada: o Starlight empurra o conteúdo para a
+   direita (margin-inline: auto 0), deixando um vão grande à esquerda.
+   Com auto dos dois lados, as distâncias sidebar↔texto e texto↔TOC
+   ficam iguais. */
+@media (min-width: 72rem) {
+  :root[data-has-sidebar][data-has-toc] .main-pane {
+    --sl-content-margin-inline: auto;
+  }
+}
+
 /* Landing Page - Hero */
 sl-hero {
   text-align: center;
