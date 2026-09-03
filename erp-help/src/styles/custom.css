@@ -162,32 +162,6 @@ a:hover {
   }
 }
 
-/* TOC encostado na direita + texto mais largo: o contêiner direito
-   cresce sozinho em telas largas e o card fica colado à esquerda
-   dele, criando o vazio à direita. Aqui o contêiner volta a ter a
-   largura da sidebar, o card alinha à borda direita e o texto ganha
-   os pixels liberados. */
-@media (min-width: 72rem) {
-  :root {
-    --sl-content-width: 52rem;
-  }
-
-  .right-sidebar-container {
-    width: var(--sl-sidebar-width);
-    flex-shrink: 0;
-  }
-
-  .right-sidebar-panel {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .right-sidebar-panel .sl-container {
-    width: 100%;
-    max-width: 15.5rem;
-  }
-}
-
 /* Landing Page - Hero */
 sl-hero {
   text-align: center;
