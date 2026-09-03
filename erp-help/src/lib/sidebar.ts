@@ -44,7 +44,6 @@ export const groupIcons: Record<string, string> = {
   'primeiros passos': 'play-circle',
   'modulos': 'grid',
   'módulos': 'grid',
-  'fluxos de trabalho': 'git-branch',
   'ajuda': 'life-buoy',
 };
 

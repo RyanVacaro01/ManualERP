@@ -64,18 +64,6 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Fluxos de Trabalho',
-          collapsed: false,
-          items: [
-            { label: 'Cadastro de Produto', slug: 'fluxos/cadastro-produto' },
-            { label: 'Criar Pedido', slug: 'fluxos/criar-pedido' },
-            { label: 'Processar Venda', slug: 'fluxos/processar-venda' },
-            { label: 'Gerenciar Estoque', slug: 'fluxos/gerenciar-estoque' },
-            { label: 'Fluxo de Compras', slug: 'fluxos/fluxo-compras' },
-            { label: 'Expedir Pedido', slug: 'fluxos/expedir-pedido' },
-          ],
-        },
-        {
           label: 'Ajuda',
           collapsed: false,
           items: [
