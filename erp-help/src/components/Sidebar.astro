@@ -679,6 +679,37 @@ const menuIconHtml = getIcon('menu');
       });
     }
 
+    const nav = wrapper?.querySelector('.sidebar-nav');
+    const SCROLL_KEY = 'modum-sidebar-scroll';
+    let scrollTick = false;
+
+    // Mantém a sidebar na mesma posição ao navegar entre páginas.
+    function restoreSidebarScroll() {
+      if (!nav) return;
+      try {
+        const saved = sessionStorage.getItem(SCROLL_KEY);
+        if (saved !== null) nav.scrollTop = parseInt(saved, 10) || 0;
+      } catch {}
+      // Garante o item ativo visível sem puxar a sidebar para o topo.
+      const active = nav.querySelector('.sidebar-item.active, .sidebar-group-toggle.active');
+      if (active && active.scrollIntoView) {
+        try {
+          active.scrollIntoView({ block: 'nearest' });
+        } catch {}
+      }
+    }
+
+    function trackSidebarScroll() {
+      if (!nav || scrollTick) return;
+      scrollTick = true;
+      requestAnimationFrame(() => {
+        scrollTick = false;
+        try {
+          sessionStorage.setItem(SCROLL_KEY, String(nav.scrollTop));
+        } catch {}
+      });
+    }
+
     function handleKeydown(e) {
       if (e.key === 'Escape' && isMobileOpen) setMobileOpen(false);
     }
@@ -692,6 +723,8 @@ const menuIconHtml = getIcon('menu');
       else if (isMobile()) setCollapsed(false);
 
       bindGroupToggles();
+      restoreSidebarScroll();
+      nav?.addEventListener('scroll', trackSidebarScroll, { passive: true });
       toggleBtn?.addEventListener('click', () => {
         if (isMobile()) setMobileOpen(!isMobileOpen);
         else setCollapsed(!isCollapsed);
