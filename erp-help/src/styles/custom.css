@@ -148,8 +148,9 @@ a:hover {
 
 /* Largura da sidebar sincronizada com o layout do Starlight.
    O painel (.sidebar-pane) e o deslocamento do conteúdo usam
-   --sl-sidebar-width, então o modo recolhido ajusta tudo junto. */
-@media (min-width: 1025px) {
+   --sl-sidebar-width, então o modo recolhido ajusta tudo junto.
+   Mesmo breakpoint do Starlight (50em): abaixo dele é mobile. */
+@media (min-width: 50em) {
   body.sidebar-collapsed {
     --sl-sidebar-width: 68px;
   }

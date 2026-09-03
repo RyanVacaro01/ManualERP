@@ -514,7 +514,9 @@ const menuIconHtml = getIcon('menu');
     display: none;
   }
 
-  @media (max-width: 1024px) {
+  /* Mesmo breakpoint do Starlight (50em): abaixo dele o painel
+     some e o hambúrguer assume. */
+  @media (max-width: 50em) {
     .sidebar-wrapper {
       transform: translateX(-102%);
       box-shadow: none;
@@ -544,7 +546,12 @@ const menuIconHtml = getIcon('menu');
     .sidebar-overlay.visible {
       display: block;
       position: fixed;
-      inset: 0;
+      /* Começa abaixo do header: o botão X do hambúrguer
+         continua tocável para fechar o menu. */
+      top: var(--sl-nav-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(18, 16, 27, 0.45);
       z-index: 90;
     }
@@ -556,7 +563,7 @@ const menuIconHtml = getIcon('menu');
 
   /* ---------- Mobile: alvos de toque e rolagem ---------- */
   /* Só dentro do breakpoint: desktop mantém as medidas atuais. */
-  @media (max-width: 1024px) {
+  @media (max-width: 50em) {
     .sidebar-wrapper .sidebar-nav {
       -webkit-overflow-scrolling: touch;
     }
@@ -636,19 +643,22 @@ const menuIconHtml = getIcon('menu');
     const toggleBtn = wrapper?.querySelector('[data-collapse-toggle]');
     const expandFab = wrapper?.querySelector('[data-expand-fab]');
     const overlay = document.querySelector('[data-sidebar-overlay]');
-    const sidebarPane = document.getElementById('starlight__sidebar');
-    const mobileBreakpoint = 1024;
+    // Mesmo breakpoint do Starlight: o hambúrguer e o painel mobile
+    // usam `(min-width: 50em)` (ver MobileMenuToggle.astro).
+    const desktopMQ = window.matchMedia('(min-width: 50em)');
     let isCollapsed = false;
     let isMobileOpen = false;
 
-    const isMobile = () => window.innerWidth <= mobileBreakpoint;
-    const closeMobilePane = () => {
-      if (sidebarPane && 'hidePopover' in sidebarPane) {
-        sidebarPane.hidePopover();
-      } else {
-        setMobileOpen(false);
-      }
-    };
+    const isMobile = () => !desktopMQ.matches;
+    const menuButton = () => document.querySelector('starlight-menu-button button');
+    const isMenuOpen = () => document.body.hasAttribute('data-mobile-menu-expanded');
+
+    // Fecha pelo botão oficial do Starlight para manter tudo
+    // sincronizado (aria-expanded, `inert` no conteúdo, scroll lock).
+    function requestMenuClose() {
+      const btn = menuButton();
+      if (btn && isMenuOpen()) btn.click();
+    }
 
     function setCollapsed(collapsed) {
       isCollapsed = collapsed;
@@ -719,7 +729,7 @@ const menuIconHtml = getIcon('menu');
     }
 
     function handleKeydown(e) {
-      if (e.key === 'Escape' && isMobileOpen) setMobileOpen(false);
+      if (e.key === 'Escape' && isMobileOpen) requestMenuClose();
       // Atalho "/" abre a busca (o Ctrl+K é sequestrado pelo Chrome no Windows).
       if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const t = e.target;
@@ -727,7 +737,7 @@ const menuIconHtml = getIcon('menu');
           t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
         if (!typing) {
           e.preventDefault();
-          if (isMobile()) setMobileOpen(false);
+          if (isMobile()) requestMenuClose();
           openHeaderSearch();
         }
       }
@@ -741,24 +751,28 @@ const menuIconHtml = getIcon('menu');
       if (saved !== null) setCollapsed(saved === 'true');
       else if (isMobile()) setCollapsed(false);
 
+      // Espelha o menu mobile oficial do Starlight, que alterna
+      // `data-mobile-menu-expanded` no <body> ao tocar no hambúrguer.
+      setMobileOpen(isMenuOpen());
+      new MutationObserver(() => setMobileOpen(isMenuOpen())).observe(document.body, {
+        attributes: true,
+        attributeFilter: ['data-mobile-menu-expanded'],
+      });
+
       bindGroupToggles();
       restoreSidebarScroll();
       nav?.addEventListener('scroll', trackSidebarScroll, { passive: true });
       toggleBtn?.addEventListener('click', () => {
-        if (isMobile()) setMobileOpen(!isMobileOpen);
+        // No mobile o botão do cabeçalho vira "fechar menu".
+        if (isMobile()) requestMenuClose();
         else setCollapsed(!isCollapsed);
       });
       expandFab?.addEventListener('click', () => setCollapsed(false));
-      overlay?.addEventListener('click', closeMobilePane);
+      overlay?.addEventListener('click', requestMenuClose);
       document.addEventListener('keydown', handleKeydown);
 
-      // Sincroniza com o popover mobile nativo do Starlight (botão hambúrguer do header).
-      sidebarPane?.addEventListener('toggle', (e) => {
-        setMobileOpen(e.newState === 'open');
-      });
-
-      window.addEventListener('resize', () => {
-        if (!isMobile()) {
+      desktopMQ.addEventListener('change', (e) => {
+        if (e.matches) {
           setMobileOpen(false);
           document.body.classList.toggle('sidebar-collapsed', isCollapsed);
         } else {
@@ -768,7 +782,14 @@ const menuIconHtml = getIcon('menu');
 
       document.addEventListener('click', (e) => {
         const t = e.target;
-        if (t && t.closest && t.closest('[data-open-sidebar]')) setMobileOpen(true);
+        if (t && t.closest && t.closest('[data-open-sidebar]')) {
+          if (isMobile()) {
+            const btn = menuButton();
+            if (btn && !isMenuOpen()) btn.click();
+          } else {
+            setMobileOpen(true);
+          }
+        }
       });
     }
 
