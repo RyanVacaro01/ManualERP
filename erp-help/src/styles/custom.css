@@ -7,7 +7,9 @@
   --sl-color-accent: #6d28d9;
   --sl-color-accent-high: #7c3aed;
   --sl-color-accent-low: #ede9fe;
-  --sl-color-white: #ffffff;
+  /* O Starlight usa --sl-color-white nos títulos e inverte por tema,
+     por isso aqui é a cor de tinta (claro) e não branco puro. */
+  --sl-color-white: #23202f;
   --sl-color-bg: #f7f7fa;
   --sl-color-bg-sidebar: #ffffff;
   --sl-color-bg-nav: #ffffff;
@@ -29,6 +31,7 @@
   --sl-color-accent: #a78bfa;
   --sl-color-accent-high: #c4b5fd;
   --sl-color-accent-low: rgba(167, 139, 250, 0.12);
+  --sl-color-white: #ffffff;
   --sl-color-bg: #12101b;
   --sl-color-bg-sidebar: #161422;
   --sl-color-bg-nav: #161422;
