@@ -6,7 +6,7 @@ const sidebar = getSidebar();
 
 const currentSlug = Astro.url.pathname;
 
-function findActiveItem(groups: SidebarGroup[], currentPath: string): { group: SidebarGroup; item: SidebarItem; parent?: SidebarItem } | null {
+function findActiveItem(groups: SidebarGroup[], currentPath: string) {
   for (const group of groups) {
     for (const item of group.items) {
       if (item.type === 'link' && item.slug === currentPath) {
