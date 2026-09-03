@@ -519,7 +519,9 @@ kbd,
 
 /* ---------- Tabelas ---------- */
 .sl-markdown-content table {
-  width: 100%;
+  width: 100% !important;
+  min-width: 100%;
+  max-width: none;
   border-collapse: separate;
   border-spacing: 0;
   font-size: 0.9rem;
