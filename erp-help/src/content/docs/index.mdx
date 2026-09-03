@@ -1,102 +1,16 @@
 ---
 title: Manual Modum ERP
 description: Aprenda a usar cada módulo do sistema ERP em passos simples
-template: splash
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import ModuleGrid from '../../components/ModuleGrid.astro';
 
-<div class="hero-card">
-  <div class="hero-card-badge">Manual Oficial</div>
-  <h1 class="hero-card-title">Modum ERP</h1>
-  <p class="hero-card-desc">Seu guia completo para dominar cada módulo do sistema.</p>
-  <div class="hero-card-actions">
-    <a href="/primeiros-passos" class="hero-btn-primary">
-      Comece por aqui <span aria-hidden="true">→</span>
-    </a>
-    <a href="/modulos/produtos" class="hero-btn-secondary">
-      Ver módulos
-    </a>
-  </div>
-</div>
+Bem-vindo ao manual completo do sistema ERP Modum.
 
----
+## Módulos Disponíveis
 
-## Como podemos ajudar?
-
-<CardGrid stagger>
-  <Card title="Novo por aqui?" icon="rocket">
-    Acesse o guia completo de primeiros passos e configure tudo.
-    [Começar agora →](/primeiros-passos)
-  </Card>
-  <Card title="Precisa de ajuda?" icon="question">
-    Encontre soluções para os erros mais comuns e tire suas dúvidas.
-    [Ver suporte →](/troubleshoot/erros-comuns)
-  </Card>
-  <Card title="Já sabe o que procura?" icon="magnifier">
-    Use a busca para encontrar qualquer coisa em segundos.
-    [Buscar agora →](#)
-  </Card>
-</CardGrid>
-
----
-
-## Módulos do Sistema
-
-<CardGrid>
-  <Card title="Produtos" icon="package">
-    Cadastro, variações, preços e gestão do catálogo.
-    [Acessar →](/modulos/produtos)
-  </Card>
-  <Card title="Clientes" icon="users">
-    Cadastro completo, histórico e gestão de relacionamento.
-    [Acessar →](/modulos/clientes)
-  </Card>
-  <Card title="Pedidos" icon="list-check">
-    Criação, processamento, aprovação e faturamento.
-    [Acessar →](/modulos/pedidos)
-  </Card>
-  <Card title="Expedição" icon="truck">
-    Separação, conferência, envio e rastreamento.
-    [Acessar →](/modulos/expedicao)
-  </Card>
-  <Card title="Compras" icon="shopping-cart">
-    Cotação, aprovação e gestão de fornecedores.
-    [Acessar →](/modulos/compras)
-  </Card>
-  <Card title="Recebimento" icon="package-search">
-    Conferência de volumes e baixa automática.
-    [Acessar →](/modulos/recebimento)
-  </Card>
-  <Card title="Produção" icon="factory">
-    Ordens de produção, matéria-prima e qualidade.
-    [Acessar →](/modulos/producao)
-  </Card>
-  <Card title="Custos" icon="currency-usd">
-    Cálculo, rateio e análise de margem de lucro.
-    [Acessar →](/modulos/custos)
-  </Card>
-  <Card title="Pessoas" icon="account-group">
-    Funcionários, equipes e permissões de acesso.
-    [Acessar →](/modulos/pessoas)
-  </Card>
-  <Card title="Marketplace" icon="store">
-    Integração com Mercado Livre, Shopee e Amazon.
-    [Acessar →](/modulos/marketplace)
-  </Card>
-  <Card title="Indicadores" icon="chart-line">
-    Dashboards, relatórios e metas em tempo real.
-    [Acessar →](/modulos/indicadores)
-  </Card>
-  <Card title="Arquivos" icon="folder">
-    Upload, versionamento e controle de documentos.
-    [Acessar →](/modulos/arquivos)
-  </Card>
-  <Card title="Extras" icon="cog">
-    Configurações, integrações, logs e utilitários.
-    [Acessar →](/modulos/extras)
-  </Card>
-</CardGrid>
+<ModuleGrid />
 
 ---
 

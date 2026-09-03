@@ -1,0 +1,109 @@
+---
+import { getIcon } from '../lib/sidebar';
+
+const modules = [
+  { label: 'Produtos', href: '/modulos/produtos', icon: 'package' },
+  { label: 'Clientes', href: '/modulos/clientes', icon: 'users' },
+  { label: 'Custos', href: '/modulos/custos', icon: 'dollar-sign' },
+  { label: 'Pedidos', href: '/modulos/pedidos', icon: 'shopping-bag' },
+  { label: 'Produção', href: '/modulos/producao', icon: 'factory' },
+  { label: 'Expedição', href: '/modulos/expedicao', icon: 'truck' },
+  { label: 'Compras', href: '/modulos/compras', icon: 'shopping-cart' },
+  { label: 'Recebimento', href: '/modulos/recebimento', icon: 'inbox' },
+  { label: 'Pessoas', href: '/modulos/pessoas', icon: 'user' },
+  { label: 'Marketplace', href: '/modulos/marketplace', icon: 'globe' },
+  { label: 'Indicadores', href: '/modulos/indicadores', icon: 'bar-chart-2' },
+  { label: 'Arquivos', href: '/modulos/arquivos', icon: 'folder' },
+  { label: 'Extras', href: '/modulos/extras', icon: 'settings' },
+];
+---
+
+<div class="module-grid">
+  {modules.map((m) => (
+    <a class="module-card" href={m.href}>
+      <span class="module-card-icon" aria-hidden="true" set:html={getIcon(m.icon)} />
+      <span class="module-card-label">{m.label}</span>
+    </a>
+  ))}
+</div>
+
+<style>
+  .module-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .module-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 28px 12px 24px;
+    background: var(--sl-color-bg-sidebar);
+    border: 1px solid var(--sl-color-gray-2);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  }
+
+  .module-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--sl-color-accent);
+    box-shadow: 0 8px 24px rgba(109, 40, 217, 0.12);
+    text-decoration: none;
+  }
+
+  .module-card:focus-visible {
+    outline: 2px solid var(--sl-color-accent);
+    outline-offset: 2px;
+  }
+
+  .module-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--sl-color-accent-low);
+    color: var(--sl-color-accent);
+    transition: transform 0.16s ease;
+  }
+
+  .module-card:hover .module-card-icon {
+    transform: scale(1.06);
+  }
+
+  .module-card-icon .icon-svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .module-card-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--sl-color-text);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 1100px) {
+    .module-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .module-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .module-card {
+      padding: 22px 10px 18px;
+    }
+  }
+</style>
