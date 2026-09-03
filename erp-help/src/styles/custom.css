@@ -518,7 +518,11 @@ kbd,
 }
 
 /* ---------- Tabelas ---------- */
+/* O Starlight define display:block nas tabelas (para scroll horizontal),
+   o que faz a tabela encolher para a largura do conteúdo. Aqui voltamos
+   a display:table para ela preencher 100% da coluna. */
 .sl-markdown-content table {
+  display: table;
   width: 100% !important;
   min-width: 100%;
   max-width: none;
@@ -528,6 +532,13 @@ kbd,
   border: 1px solid var(--sl-color-gray-2);
   border-radius: 10px;
   overflow: hidden;
+}
+
+@media (max-width: 50rem) {
+  .sl-markdown-content table {
+    display: block;
+    overflow-x: auto;
+  }
 }
 
 .sl-markdown-content thead th {
