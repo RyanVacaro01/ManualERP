@@ -362,26 +362,6 @@ const menuIconHtml = getIcon('menu');
     background: var(--sb-bg);
   }
 
-  .sidebar-wrapper .footer-version {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    color: var(--sb-muted);
-    margin-bottom: 8px;
-  }
-
-  .sidebar-wrapper .version-badge {
-    font-family: ui-monospace, monospace;
-    font-weight: 600;
-    font-size: 10.5px;
-    background: var(--sb-hover);
-    border: 1px solid var(--sb-border);
-    padding: 1px 7px;
-    border-radius: 5px;
-    color: var(--sb-text);
-  }
-
   .sidebar-wrapper .footer-link {
     display: flex;
     align-items: center;
@@ -422,7 +402,6 @@ const menuIconHtml = getIcon('menu');
   .sidebar-wrapper.collapsed .item-label,
   .sidebar-wrapper.collapsed .group-label,
   .sidebar-wrapper.collapsed .chevron,
-  .sidebar-wrapper.collapsed .footer-version,
   .sidebar-wrapper.collapsed .footer-link span:last-child {
     display: none;
   }
@@ -555,7 +534,6 @@ const menuIconHtml = getIcon('menu');
     .sidebar-wrapper.collapsed .item-label,
     .sidebar-wrapper.collapsed .group-label,
     .sidebar-wrapper.collapsed .chevron,
-    .sidebar-wrapper.collapsed .footer-version,
     .sidebar-wrapper.collapsed .footer-link span:last-child {
       display: revert;
     }
@@ -606,10 +584,6 @@ const menuIconHtml = getIcon('menu');
     <nav class="sidebar-nav" aria-label="Seções do manual" set:html={navHtml} />
 
     <footer class="sidebar-footer">
-      <div class="footer-version">
-        <span>Manual</span>
-        <span class="version-badge">v2.4</span>
-      </div>
       <a href="https://wa.me/555591019112?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20o%20MODUM%20ERP." target="_blank" rel="noopener" class="footer-link">
         <span class="icon" aria-hidden="true" set:html={headphonesIconHtml} />
         <span>Falar com o suporte</span>
