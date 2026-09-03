@@ -7,23 +7,25 @@ import { Steps, Aside } from '@astrojs/starlight/components';
 
 Este manual apresenta o passo a passo para emissão da Nota Fiscal de Débito referente a Multa e Juros Recebidos.
 
+## Quando emitir
+
+Emita uma NF-e de Multa e Juros quando precisar cobrar do cliente valores de multa ou juros (por atraso de pagamento, por exemplo) em um documento fiscal próprio, separado da nota de venda original.
+
 ## Pré-requisitos
 
+Antes de iniciar, garanta que:
+
+- [ ] Você tem acesso ao módulo de **Expedição**
+- [ ] Você tem permissão para cadastro de CFOPs e parametrização de operações
+- [ ] A nota fiscal de origem (venda) já existe no sistema
+
 <Aside type="caution" title="Importante">
-Antes de iniciar, certifique-se de ter acesso ao módulo de **Expedição** e permissões para cadastro de CFOPs e parametrização de operações.
+Todo o processo precisa ser feito com atenção às parametrizações: a nota deve sair **sem movimentar estoque**, **sem gerar cobrança** e **sem nenhuma tributação**.
 </Aside>
 
-## Passo 1 - Cadastrar CFOPs 5.949 e 6.949
+## Passo 1 — Cadastrar os CFOPs 5.949 e 6.949
 
-Acesse o cadastro de **Natureza de Operação** e cadastre os CFOPs **5.949** e **6.949**.
-
-<Aside type="tip" title="Dica">
-Se já existir o cadastro, você pode adicionar ao final do CFOP o caractere `/` seguido de um número. Exemplo: `5.949/12`
-</Aside>
-
-### Configuração da Natureza de Operação
-
-Configure conforme as especificações abaixo:
+Acesse o cadastro de **Natureza de Operação** e cadastre os dois CFOPs da tabela abaixo.
 
 | Campo | Valor |
 |-------|-------|
@@ -32,6 +34,10 @@ Configure conforme as especificações abaixo:
 | **Tipo de Operação** | Saída |
 | **Tipo de Movimento** | 99 - Geral |
 | **Movimentação** | Geral |
+
+<Aside type="tip" title="Dica">
+Se o CFOP já existir, você pode criar uma variação adicionando `/` seguido de um número ao final. Exemplo: `5.949/12`
+</Aside>
 
 ### Aba "Geral"
 
@@ -45,107 +51,149 @@ Nenhum checkbox deve estar marcado:
 
 ### Tributações
 
-| Tribuição | Configuração |
-|-----------|--------------|
+Configure todas sem tributação:
+
+| Tributação | Configuração |
+|------------|--------------|
 | **ICMS** | Sem tributação |
 | **IPI** | Sem tributação |
 | **PIS/COFINS** | Sem tributação |
 
 <Aside type="danger" title="Atenção">
-A nota deve ser criada **sem movimentar estoque**, **sem gerar cobrança** e **sem nenhuma tributação**.
+Confira os três pontos antes de continuar: **sem movimentar estoque**, **sem gerar cobrança** e **sem tributação**. Qualquer divergência aqui gera erro na NF-e.
 </Aside>
 
-## Passo 2 - Acessar Dados da Empresa
+## Passo 2 — Conferir os Dados da Empresa
 
-1. Acesse o menu **Extras**
-2. Clique em **Dados da Empresa**
-3. Abra o cadastro da empresa que será utilizada
+Abra o cadastro da empresa que será a emitente da NF-e:
+
+<Steps>
+
+1. **Acesse o cadastro**
+
+   Vá em **Extras → Dados da Empresa**.
+
+2. **Selecione a empresa**
+
+   Abra o cadastro da empresa que será utilizada na emissão.
+
+</Steps>
 
 ```
 Extras → Dados da Empresa → [Selecionar Empresa]
 ```
 
-## Passo 3 - Parametrização de Operações
+## Passo 3 — Parametrizar as Operações
 
-Acesse a parametrização para definir os CFOPs de multa e juros:
+Informe ao sistema quais CFOPs usar nas notas de multa e juros:
 
-1. Acesse **NF-e → Tributação → Parametrização de Operações**
-2. Localize a seção **Notas de Multa e Juros**
-3. Configure os CFOPs na coluna **Débito**:
+<Steps>
 
-| Campo | CFOP |
-|-------|------|
-| **CFOP Intraestadual** | 5.949 |
-| **CFOP Interestadual** | 6.949 |
+1. **Abra a parametrização**
 
-4. Clique em **Alterar** para salvar as configurações
+   Acesse **NF-e → Tributação → Parametrização de Operações**.
+
+2. **Localize a seção**
+
+   Encontre a seção **Notas de Multa e Juros**.
+
+3. **Informe os CFOPs na coluna Débito**
+
+   | Campo | CFOP |
+   |-------|------|
+   | **CFOP Intraestadual** | 5.949 |
+   | **CFOP Interestadual** | 6.949 |
+
+4. **Salve**
+
+   Clique em **Alterar** para salvar as configurações.
+
+</Steps>
 
 ```
 NF-e → Tributação → Parametrização de Operações
 ```
 
-## Passo 4 - Gerar NF-e de Multa e Juros
+## Passo 4 — Gerar a NF-e de Multa e Juros
 
-### 4.1 Acessar a Nota Fiscal
+### 4.1 Acessar a nota fiscal de origem
 
 <Steps>
 
 1. **Abra a nota**
-   
-   Acesse o módulo **Expedição → Expedição de Pedidos** e abra a nota que deseja gerar a NF de multa ou juros.
 
-2. **Clique no ícone**
-   
-   Na barra de ferramentas da tela **Nota Fiscal**, clique no ícone indicado (seta verde ao lado do botão "Excluir").
+   Acesse **Expedição → Expedição de Pedidos** e abra a nota sobre a qual deseja gerar a NF-e de multa ou juros.
+
+2. **Localize o ícone**
+
+   Na barra de ferramentas da tela **Nota Fiscal**, localize o ícone indicado (seta verde ao lado do botão "Excluir").
 
 </Steps>
 
-### 4.2 Selecionar Tipo
+### 4.2 Selecionar o tipo
 
-1. Clique no ícone de **NF-e Multa e Juro**
-2. Será exibido um menu com a opção "NF-e Multa e Juro"
+<Steps>
 
-### 4.3 Definir o Valor
+1. **Clique no ícone de NF-e Multa e Juros**
+
+   Será exibido um menu com a opção **"NF-e Multa e Juros"**. Clique nela para continuar.
+
+</Steps>
+
+### 4.3 Definir o valor
 
 <Steps>
 
 1. **Informe o valor**
-   
-   No campo **Multa e/ou Juro R$**, informe o valor desejado.
+
+   No campo **Multa e/ou Juros R$**, informe o valor desejado.
 
 2. **Confirme**
-   
+
    Clique em **Ok** para confirmar.
 
 </Steps>
 
-### 4.4 Finalizar
+### 4.4 Finalizar a NF-e
 
 <Steps>
 
-1. **Geração automática**
-   
-   O sistema irá gerar automaticamente a NF-e de multa e juros.
+1. **Aguarde a geração**
 
-2. **Liberar XML**
-   
+   O sistema gera automaticamente a NF-e de multa e juros.
+
+2. **Libere o XML**
+
    Acesse a NF-e gerada e faça a liberação do XML.
 
-3. **Aprovar NF-e**
-   
+3. **Aprove a NF-e**
+
    Após a liberação, aprove a NF-e para finalizar o processo.
 
 </Steps>
+
+<Aside type="tip" title="Validação final">
+Antes de concluir, confira o checklist: nota sem estoque, sem cobrança, sem tributação, XML liberado e NF-e aprovada.
+</Aside>
 
 ## Resumo do Fluxo
 
 ```
 ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│  Cadastrar   │───▶│   Acessar    │───▶│ Parametrizar │───▶│    Gerar     │
-│  CFOPs       │    │  Empresa     │    │  Operações   │    │   NF-e       │
+│  Cadastrar   │───▶│   Conferir   │───▶│ Parametrizar │───▶│    Gerar     │
+│  CFOPs       │    │   Empresa    │    │  Operações   │    │   NF-e       │
 │  5.949/6.949 │    │              │    │              │    │              │
 └──────────────┘    └──────────────┘    └──────────────┘    └──────────────┘
 ```
+
+## Erros comuns
+
+| Problema | Causa provável | Como corrigir |
+|----------|----------------|---------------|
+| Estoque foi movimentado | Checkbox marcado na aba "Geral" | Volte ao Passo 1 e desmarque **Movimentar Estoque** |
+| Imposto calculado na nota | Tributação configurada | Volte ao Passo 1 e deixe ICMS, IPI e PIS/COFINS **sem tributação** |
+| CFOP rejeitado ou duplicado | CFOP já cadastrado | Use uma variação com `/` + número (ex.: `5.949/12`) |
+| CFOP errado na nota | Parametrização trocada | Confira no Passo 3: 5.949 intraestadual, 6.949 interestadual |
 
 ## Dicas
 
