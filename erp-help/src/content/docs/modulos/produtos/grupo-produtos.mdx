@@ -1,0 +1,188 @@
+---
+title: Cadastro Grupo de Produtos
+description: Como cadastrar grupos de produtos para organizar o catálogo no MODUM ERP
+---
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Cadastre os grupos de produtos para organizar o **Cadastro de produtos** por categorias com regras próprias de lucro, venda, compra e arredondamento.
+
+## Quando usar
+
+Use o cadastro de **Grupos** quando precisar criar uma nova categoria de produtos antes de cadastrar os produtos, separar produtos por **Tipo** (Produtos, Merc. p/ Revenda, Embalagem e outros) ou inativar de uma vez todos os produtos de um grupo.
+
+## Pré-requisitos
+
+- [ ] Acesso ao módulo **Produtos**
+- [ ] Definição do **Código** e da **Descrição** do grupo
+- [ ] Definição da **Família do Grupo**, do **Tipo** e do **Arredondar**
+
+<Aside type="caution" title="Importante">
+Defina o **Código** e a **Descrição** antes de cadastrar os produtos, pois o grupo é usado no **Cadastro de produtos** para classificar cada item.
+</Aside>
+
+## Passo 1 — Acessar a tela de Grupos
+
+<Steps>
+
+1. **Acesse o módulo Produtos**
+
+   Clique em **Produtos** no menu do sistema para abrir a barra do módulo.
+
+2. **Clique no ícone Grupos**
+
+   Na barra do módulo, localize os ícones **Produtos**, **Gestão Estoque**, **Estrutura**, **Configurador**, **Sequência Operacional**, **Grupos**, **Coleções** e **Unidades** e clique em **Grupos**.
+
+   ```
+   Produtos → Grupos
+   ```
+
+3. **Confira a tela Grupo de Produto**
+
+   A tela **Grupo de Produto** abre com os botões **Inativar** e **Voltar** no topo, o navegador de registros (ex.: `7 / 24`) e os botões de ação **Novo**, **Anterior**, **Próximo**, **Alterar**, **Gravar**, **Cancelar** e **Excluir**.
+
+</Steps>
+
+As abas da barra do módulo são **Favoritos**, **Produtos**, **Clientes**, **Custos**, **Pedidos**, **Produção** e **Expedição**.
+
+## Passo 2 — Cadastrar o grupo
+
+<Steps>
+
+1. **Inicie um novo cadastro**
+
+   Dê dois cliques na tela de **Grupos** para começar o cadastro, clicando em **Novo**.
+
+   ```
+   Grupos → Novo
+   ```
+
+2. **Preencha o Código e a Descrição**
+
+   Informe o código e a descrição do grupo. Exemplo de **Código**: `202`.
+
+   | Campo | Valor |
+   | ----- | ----- |
+   | **Código** | `202` (exemplo — informe o código do grupo) |
+   | **Descrição** | Informe a descrição do grupo |
+
+3. **Preencha os demais campos da tela**
+
+   Preencha os campos conforme a necessidade do grupo:
+
+   | Campo | Valor |
+   | ----- | ----- |
+   | **Família do Grupo** | Selecione uma opção na lista suspensa |
+   | **% de Lucro** | Preencha conforme a necessidade |
+   | **% Mín. Venda** | Preencha conforme a necessidade |
+   | **% Máx. Venda** | Preencha conforme a necessidade |
+   | **% Mín. Compra** | Preencha conforme a necessidade |
+   | **% Máx. Compra** | Preencha conforme a necessidade |
+   | **Tipo** | Selecione uma opção: `Produtos`, `Merc. p/ Revenda`, `Embalagem`, `Materiais Consumo`, `Ativo Imobilizado`, `Serviços` ou `Outros` |
+   | **Arredondar** | Selecione uma opção: `0 - Normal`, `1 - Cima`, `2 - Baixo` ou `3 - C. / B.` |
+   | **Tipo Item** | Preencha conforme a necessidade |
+   | **Desemp. [F4]** | Preencha conforme a necessidade |
+   | **Nº Sequencial** | Preencha conforme a necessidade |
+   | **Amortizar** | Preencha conforme a necessidade |
+   | **Embalagem** | Preencha conforme a necessidade |
+   | **Grupo Vendas** | Marque a caixa de seleção conforme a necessidade |
+   | **Utiliza SolidWorks** | Marque a caixa de seleção conforme a necessidade |
+
+   <Aside type="tip" title="Detalhe dos campos">
+   Para ver mais detalhes sobre os campos, basta passar o mouse sobre eles.
+   </Aside>
+
+</Steps>
+
+## Passo 3 — Gravar o cadastro
+
+<Steps>
+
+1. **Salve o grupo**
+
+   Para salvar, clique em **Gravar**.
+
+   ```
+   Grupo de Produto → Gravar
+   ```
+
+2. **Confira o registro**
+
+   Use **Anterior** e **Próximo** ou o navegador de registros (ex.: `7 / 24`) para conferir se o grupo foi salvo. Para corrigir, clique em **Alterar**, ajuste os campos e clique em **Gravar** novamente. Para descartar uma edição em andamento, clique em **Cancelar**. Para sair da tela, clique em **Voltar**.
+
+</Steps>
+
+<Aside type="caution" title="Não esqueça de gravar">
+O cadastro só é salvo ao clicar em **Gravar**. Se fechar a tela ou trocar de registro antes, os dados digitados são perdidos.
+</Aside>
+
+## Inativar os produtos do grupo
+
+O botão **Inativar** coloca como Inativo todos os produtos desse grupo no **Cadastro de produtos**.
+
+<Steps>
+
+1. **Localize o grupo**
+
+   Na tela **Grupo de Produto**, navegue com **Anterior** e **Próximo** até o grupo desejado.
+
+2. **Clique em Inativar**
+
+   Clique em **Inativar** no topo da tela para inativar todos os produtos vinculados a esse grupo.
+
+</Steps>
+
+<Aside type="danger" title="Atenção">
+O botão **Inativar** afeta todos os produtos do grupo no **Cadastro de produtos**. Confira o grupo selecionado antes de confirmar.
+</Aside>
+
+## Validação final
+
+Antes de concluir, confira:
+
+- [ ] O grupo aparece na navegação de registros da tela **Grupos**
+- [ ] **Código** e **Descrição** estão preenchidos
+- [ ] **Família do Grupo**, **Tipo** e **Arredondar** estão corretos
+- [ ] Percentuais (**% de Lucro**, **% Mín. Venda**, **% Máx. Venda**, **% Mín. Compra**, **% Máx. Compra**) estão preenchidos conforme a necessidade
+- [ ] O registro foi salvo com **Gravar**
+
+## Resumo do Fluxo
+
+```
+┌──────────────┐   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+│   Produtos   │──▶│    Grupos    │──▶│     Novo     │──▶│    Gravar    │
+│              │   │              │   │              │   │              │
+└──────────────┘   └──────────────┘   └──────────────┘   └──────────────┘
+                                                 │              │
+                                                 ▼              ▼
+                                        ┌──────────────┐   ┌──────────────┐
+                                        │   Código +   │   │    Grupo     │
+                                        │  Descrição   │   │  cadastrado  │
+                                        └──────────────┘   └──────────────┘
+```
+
+## Erros comuns
+
+| Problema | Causa provável | Como corrigir |
+| -------- | -------------- | ------------- |
+| Dados digitados sumiram | Saiu da tela sem clicar em **Gravar** | Refaça o cadastro e clique em **Gravar** para salvar |
+| Não consegue digitar os campos | Não clicou em **Novo** (nem deu dois cliques para iniciar) | Dê dois cliques na tela de **Grupos** e clique em **Novo** antes de preencher |
+| Todos os produtos do grupo ficaram inativos | Clicou em **Inativar** no grupo | Reative os produtos um a um no **Cadastro de produtos** |
+
+## Dicas
+
+:::tip[Dica]
+Passe o mouse sobre cada campo da tela **Grupo de Produto** para ver mais detalhes sobre o preenchimento.
+:::
+
+:::tip[Dica]
+Padronize o **Código** e a **Descrição** do grupo (ex.: `202`) para facilitar a busca no **Cadastro de produtos**.
+:::
+
+:::caution[Importante]
+O botão **Inativar** inativa todos os produtos do grupo de uma vez. Use apenas quando realmente quiser desativar a categoria inteira.
+:::
+
+## Próximo Passo
+
+- [Produtos](/modulos/produtos) - Cadastre os produtos vinculados ao grupo criado
+- [Expedição](/modulos/expedicao) - Consulte o fluxo de expedição dos produtos

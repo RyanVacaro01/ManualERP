@@ -36,7 +36,14 @@ export default defineConfig({
           label: 'Módulos',
           collapsed: false,
           items: [
-            { label: 'Produtos', slug: 'modulos/produtos' },
+            {
+              label: 'Produtos',
+              collapsed: true,
+              items: [
+                { label: 'Produtos', slug: 'modulos/produtos' },
+                { label: 'Cadastro Grupo de Produtos', slug: 'modulos/produtos/grupo-produtos' },
+              ],
+            },
             { label: 'Clientes', slug: 'modulos/clientes' },
             { label: 'Custos', slug: 'modulos/custos' },
             { label: 'Pedidos', slug: 'modulos/pedidos' },
